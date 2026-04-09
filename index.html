@@ -62,6 +62,10 @@
       max-width:100%;
     }
 
+    button{
+      font:inherit;
+    }
+
     .container{
       width:min(1220px, 92%);
       margin:0 auto;
@@ -331,9 +335,37 @@
       overflow:hidden;
       border:1px solid rgba(159,123,62,.14);
       box-shadow:var(--shadow);
-      background:
-        linear-gradient(to bottom, rgba(63,46,51,.08), rgba(63,46,51,.18)),
-        url('images/diana/file_00000000b5047246ada223a273d4bb12.png') center/cover no-repeat;
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(251,247,248,.98));
+      cursor:pointer;
+    }
+
+    .hero-image::before{
+      content:"";
+      position:absolute;
+      inset:12px;
+      border:1px solid rgba(224,201,138,.70);
+      border-radius:26px;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .hero-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      box-shadow:inset 0 0 0 2px rgba(198,164,95,.38);
+      border-radius:var(--radius-xl);
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .hero-photo{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
     }
 
     .hero-glass{
@@ -350,6 +382,7 @@
       color:#fff;
       box-shadow:0 12px 34px rgba(0,0,0,.12);
       text-align:center;
+      z-index:3;
     }
 
     .hero-glass strong{
@@ -510,6 +543,7 @@
       background:center/cover no-repeat;
       border:1px solid rgba(159,123,62,.20);
       box-shadow:inset 0 0 0 2px rgba(224,201,138,.52), 0 12px 24px rgba(77,58,64,.08);
+      cursor:pointer;
     }
 
     .card-image::before{
@@ -519,6 +553,35 @@
       border:1px solid rgba(224,201,138,.58);
       border-radius:14px;
       pointer-events:none;
+    }
+
+    .card-image::after{
+      content:"Kliknij, aby powiększyć";
+      position:absolute;
+      left:14px;
+      right:14px;
+      bottom:14px;
+      padding:8px 10px;
+      border-radius:14px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.24);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      color:#fff;
+      font-size:.78rem;
+      text-align:center;
+      opacity:0;
+      transform:translateY(8px);
+      transition:.24s ease;
+    }
+
+    .card-image:hover::after,
+    .hero-image:hover .hero-glass{
+      opacity:1;
+    }
+
+    .card-image:hover::after{
+      transform:translateY(0);
     }
 
     .card-content{
@@ -686,6 +749,69 @@
       font-size:.92rem;
     }
 
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(30,20,24,.82);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:10000;
+      opacity:0;
+      pointer-events:none;
+      transition:.22s ease;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+
+    .lightbox.open{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .lightbox-inner{
+      position:relative;
+      max-width:min(1100px, 96vw);
+      max-height:90vh;
+      width:auto;
+    }
+
+    .lightbox-img{
+      max-width:100%;
+      max-height:82vh;
+      border-radius:24px;
+      display:block;
+      border:1px solid rgba(224,201,138,.55);
+      box-shadow:
+        inset 0 0 0 2px rgba(224,201,138,.35),
+        0 18px 40px rgba(0,0,0,.28);
+      background:#fff;
+    }
+
+    .lightbox-caption{
+      margin-top:14px;
+      text-align:center;
+      color:#fff;
+      font-size:.95rem;
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:-14px;
+      right:-14px;
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,.92);
+      color:#5d4950;
+      font-size:1.45rem;
+      cursor:pointer;
+      box-shadow:0 10px 22px rgba(0,0,0,.18);
+    }
+
     @media (max-width: 1180px){
       .hero-grid,
       .two-col{
@@ -705,7 +831,7 @@
       }
 
       .hero-image{
-        min-height:420px;
+        min-height:520px;
       }
     }
 
@@ -767,7 +893,11 @@
       }
 
       .hero-image{
-        min-height:320px;
+        min-height:360px;
+      }
+
+      .hero-photo{
+        object-position:center top;
       }
 
       .hero-glass{
@@ -808,6 +938,15 @@
       .section-frame .corner-inner-bottom{
         width:66px;
         height:66px;
+      }
+
+      .lightbox{
+        padding:14px;
+      }
+
+      .lightbox-close{
+        top:-10px;
+        right:-6px;
       }
     }
   </style>
@@ -875,7 +1014,12 @@
             </div>
           </div>
 
-          <div class="hero-image">
+          <div class="hero-image zoomable" data-image="images/diana/file_00000000b5047246ada223a273d4bb12.png" data-caption="Akwamaryn PL Dogs — zdjęcie główne">
+            <img
+              class="hero-photo"
+              src="images/diana/file_00000000b5047246ada223a273d4bb12.png"
+              alt="Akwamaryn PL Dogs - zdjęcie główne z Dianą"
+            />
             <div class="hero-glass">
               <strong>Akwamaryn PL Dogs</strong>
               <span>Miłość, pasja i jakość tworzone z serca.</span>
@@ -972,7 +1116,12 @@
           <div class="grid-3">
             <article class="card">
               <div class="image-wrap">
-                <div class="card-image" style="background-image:url('images/diana/file_00000000b5047246ada223a273d4bb12.png');"></div>
+                <div
+                  class="card-image zoomable"
+                  style="background-image:url('images/diana/file_00000000b5047246ada223a273d4bb12.png');"
+                  data-image="images/diana/file_00000000b5047246ada223a273d4bb12.png"
+                  data-caption="Diana Gwiazda Wikingów"
+                ></div>
               </div>
               <div class="card-content">
                 <h3>Diana Gwiazda Wikingów</h3>
@@ -987,7 +1136,12 @@
 
             <article class="card">
               <div class="image-wrap">
-                <div class="card-image" style="background-image:url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png');"></div>
+                <div
+                  class="card-image zoomable"
+                  style="background-image:url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png');"
+                  data-image="images/diana/file_00000000c21871fda440cb45f0f95a0c.png"
+                  data-caption="Diana Gwiazda Wikingów"
+                ></div>
               </div>
               <div class="card-content">
                 <h3>Diana Gwiazda Wikingów</h3>
@@ -1266,6 +1420,14 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Zamknij">×</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
@@ -1278,6 +1440,41 @@
       link.addEventListener('click', () => {
         mobileNav.classList.remove('open');
       });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openLightbox(src, caption = '') {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.zoomable').forEach(item => {
+      item.addEventListener('click', () => {
+        const src = item.dataset.image;
+        const caption = item.dataset.caption || '';
+        openLightbox(src, caption);
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
     });
   </script>
 </body>
