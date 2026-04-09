@@ -1,843 +1,191 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hodowla Chihuahua i Gończy Węgierski</title>
-  <meta name="description" content="Domowa hodowla Chihuahua i Gończy Węgierski z naciskiem na Chihuahua. Nasze tytuły, nasze suczki, nasze psy, szczeniaczki, nowe domki, o nas i kontakt." />
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, #ffe0ef 0%, transparent 22%),
-        radial-gradient(circle at top right, #ffd7ea 0%, transparent 18%),
-        linear-gradient(180deg, #fff8fb 0%, #fff2f8 50%, #fffdfd 100%);
-      color:#6c4c58;
-      line-height:1.6;
-      overflow-x:hidden;
-    }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .container{
-      width:min(1200px, 92%);
-      margin:0 auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:999;
-      background:rgba(255,248,252,0.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(230,187,208,0.45);
-      box-shadow:0 6px 20px rgba(223,181,199,0.12);
-    }
-
-    .topbar-inner{
-      min-height:82px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
-
-    .brand-title{
-      font-size:1.7rem;
-      font-weight:800;
-      letter-spacing:0.4px;
-      color:#b85f8d;
-    }
-
-    .brand-subtitle{
-      font-size:0.9rem;
-      color:#9f7586;
-    }
-
-    .nav{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      gap:10px;
-    }
-
-    .nav a{
-      padding:11px 15px;
-      border-radius:999px;
-      color:#885f72;
-      transition:0.25s ease;
-      font-size:0.96rem;
-    }
-
-    .nav a:hover{
-      background:#ffe0ef;
-      color:#b85687;
-    }
-
-    .hero{
-      padding:54px 0 40px;
-    }
-
-    .hero-box{
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.94), rgba(255,244,249,0.96));
-      border:1px solid rgba(232,189,209,0.55);
-      border-radius:36px;
-      overflow:hidden;
-      box-shadow:0 18px 45px rgba(220,178,197,0.18);
-      display:grid;
-      grid-template-columns:1.05fr 0.95fr;
-      min-height:620px;
-    }
-
-    .hero-left{
-      padding:58px 52px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      position:relative;
-    }
-
-    .hero-badge{
-      display:inline-block;
-      width:max-content;
-      padding:9px 16px;
-      border-radius:999px;
-      background:#ffe6f2;
-      color:#b85c8c;
-      font-size:0.9rem;
-      margin-bottom:20px;
-      font-weight:700;
-    }
-
-    .hero-left h1{
-      font-size:clamp(2.4rem, 4.8vw, 4.9rem);
-      line-height:1.02;
-      color:#b15585;
-      margin-bottom:20px;
-      letter-spacing:-1px;
-    }
-
-    .hero-left p{
-      font-size:1.08rem;
-      color:#7d5e6b;
-      max-width:620px;
-      margin-bottom:28px;
-    }
-
-    .hero-buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:14px 24px;
-      border-radius:999px;
-      font-weight:700;
-      transition:0.25s ease;
-      border:none;
-      cursor:pointer;
-      font-size:0.97rem;
-    }
-
-    .btn-main{
-      background:linear-gradient(135deg, #f6a8ca, #ea82b1);
-      color:#fff;
-      box-shadow:0 14px 30px rgba(234,130,177,0.28);
-    }
-
-    .btn-main:hover{
-      transform:translateY(-2px);
-      box-shadow:0 18px 34px rgba(234,130,177,0.35);
-    }
-
-    .btn-light{
-      background:#fff;
-      color:#b45a89;
-      border:1px solid rgba(230,187,208,0.7);
-    }
-
-    .btn-light:hover{
-      background:#fff4fa;
-      transform:translateY(-2px);
-    }
-
-    .hero-right{
-      position:relative;
-      min-height:620px;
-      background:
-        linear-gradient(to bottom, rgba(255,233,244,0.18), rgba(255,233,244,0.18)),
-        url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-    }
-
-    .hero-note{
-      position:absolute;
-      right:24px;
-      bottom:24px;
-      max-width:280px;
-      background:rgba(255,255,255,0.9);
-      border:1px solid rgba(230,187,208,0.55);
-      border-radius:24px;
-      padding:18px 18px;
-      color:#8b6576;
-      box-shadow:0 10px 28px rgba(215,176,193,0.18);
-      font-size:0.95rem;
-    }
-
-    section{
-      padding:76px 0;
-    }
-
-    .section-intro{
-      text-align:center;
-      margin-bottom:34px;
-    }
-
-    .section-intro h2{
-      font-size:clamp(1.9rem, 3.2vw, 3rem);
-      color:#b35786;
-      margin-bottom:12px;
-    }
-
-    .section-intro p{
-      color:#8a6a79;
-      max-width:780px;
-      margin:0 auto;
-      font-size:1rem;
-    }
-
-    .flower{
-      width:90px;
-      height:4px;
-      border-radius:999px;
-      background:linear-gradient(90deg, #ffd5e8, #f0a7c8, #ffd5e8);
-      margin:16px auto 0;
-    }
-
-    .title-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:22px;
-    }
-
-    .title-card{
-      background:#fff;
-      border:1px solid rgba(231,191,210,0.55);
-      border-radius:28px;
-      padding:28px 20px;
-      text-align:center;
-      box-shadow:0 12px 30px rgba(223,181,199,0.14);
-    }
-
-    .title-card h3{
-      color:#b35a88;
-      font-size:1.15rem;
-      margin-bottom:10px;
-    }
-
-    .title-card p{
-      color:#826573;
-      font-size:0.97rem;
-    }
-
-    .dogs-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:24px;
-    }
-
-    .dog-card{
-      background:#fff;
-      border-radius:30px;
-      overflow:hidden;
-      border:1px solid rgba(231,191,210,0.55);
-      box-shadow:0 14px 34px rgba(223,181,199,0.14);
-      transition:0.25s ease;
-    }
-
-    .dog-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 22px 44px rgba(223,181,199,0.22);
-    }
-
-    .dog-photo{
-      height:320px;
-      background:center/cover no-repeat;
-    }
-
-    .dog-content{
-      padding:22px 20px 24px;
-    }
-
-    .dog-content h3{
-      color:#b35887;
-      font-size:1.3rem;
-      margin-bottom:10px;
-    }
-
-    .dog-content p{
-      color:#7f6270;
-      margin-bottom:7px;
-      font-size:0.97rem;
-    }
-
-    .pill{
-      display:inline-block;
-      margin-top:10px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:#ffe8f3;
-      color:#ba618e;
-      font-size:0.85rem;
-      font-weight:700;
-    }
-
-    .photo-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .photo-tile{
-      position:relative;
-      min-height:355px;
-      border-radius:30px;
-      overflow:hidden;
-      border:1px solid rgba(231,191,210,0.55);
-      box-shadow:0 16px 38px rgba(223,181,199,0.16);
-      background:center/cover no-repeat;
-    }
-
-    .photo-tile::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(110,65,87,0.48), rgba(255,255,255,0.04));
-    }
-
-    .photo-caption{
-      position:absolute;
-      left:18px;
-      bottom:18px;
-      z-index:2;
-      color:#fff;
-      background:rgba(255,255,255,0.16);
-      border:1px solid rgba(255,255,255,0.28);
-      backdrop-filter:blur(7px);
-      border-radius:18px;
-      padding:10px 14px;
-      font-size:0.96rem;
-    }
-
-    .about-box{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:26px;
-      align-items:stretch;
-    }
-
-    .about-text{
-      background:#fff;
-      border:1px solid rgba(231,191,210,0.55);
-      border-radius:30px;
-      padding:34px 30px;
-      box-shadow:0 16px 38px rgba(223,181,199,0.14);
-    }
-
-    .about-text p{
-      color:#7f6270;
-      margin-bottom:14px;
-      font-size:1rem;
-    }
-
-    .about-photo{
-      min-height:480px;
-      border-radius:30px;
-      overflow:hidden;
-      border:1px solid rgba(231,191,210,0.55);
-      box-shadow:0 16px 38px rgba(223,181,199,0.14);
-      background:
-        linear-gradient(rgba(255,235,245,0.12), rgba(255,235,245,0.12)),
-        url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-    }
-
-    .contact-card{
-      background:#fff;
-      border:1px solid rgba(231,191,210,0.55);
-      border-radius:30px;
-      padding:30px 26px;
-      box-shadow:0 16px 38px rgba(223,181,199,0.14);
-    }
-
-    .contact-card h3{
-      color:#b35887;
-      margin-bottom:14px;
-      font-size:1.3rem;
-    }
-
-    .contact-card p{
-      color:#7f6270;
-      margin-bottom:12px;
-    }
-
-    .contact-list{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top:10px;
-    }
-
-    .contact-item{
-      background:#fff5fa;
-      border:1px solid rgba(231,191,210,0.55);
-      border-radius:18px;
-      padding:14px 16px;
-      color:#866574;
-    }
-
-    .footer{
-      padding:28px 0 38px;
-      text-align:center;
-      color:#956f81;
-      font-size:0.94rem;
-    }
-
-    @media (max-width: 1100px){
-      .hero-box,
-      .about-box,
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
-
-      .title-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .dogs-grid,
-      .photo-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .hero-right{
-        min-height:440px;
-      }
-    }
-
-    @media (max-width: 760px){
-      .topbar-inner{
-        padding:14px 0;
-      }
-
-      .nav{
-        display:none;
-      }
-
-      .hero{
-        padding:30px 0 18px;
-      }
-
-      .hero-box{
-        border-radius:26px;
-        min-height:auto;
-      }
-
-      .hero-left{
-        padding:34px 20px 30px;
-      }
-
-      .hero-right{
-        min-height:320px;
-      }
-
-      .hero-note{
-        right:16px;
-        left:16px;
-        bottom:16px;
-        max-width:none;
-      }
-
-      section{
-        padding:56px 0;
-      }
-
-      .title-grid,
-      .dogs-grid,
-      .photo-grid{
-        grid-template-columns:1fr;
-      }
-
-      .dog-photo{
-        height:280px;
-      }
-
-      .about-text,
-      .contact-card{
-        padding:24px 18px;
-        border-radius:22px;
-      }
-
-      .about-photo{
-        min-height:320px;
-        border-radius:22px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hodowla Chihuahua</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family: 'Montserrat', sans-serif;
+background:#faf7f8;
+color:#3a2e33;
+}
+
+/* MENU */
+header{
+position:fixed;
+width:100%;
+top:0;
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+z-index:999;
+}
+
+.logo{
+font-family:'Playfair Display', serif;
+font-size:22px;
+color:#c9a86a;
+letter-spacing:1px;
+}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:#5c4a50;
+font-size:13px;
+letter-spacing:1px;
+transition:0.3s;
+position:relative;
+}
+
+nav a::after{
+content:'';
+position:absolute;
+width:0;
+height:1px;
+background:#c9a86a;
+bottom:-5px;
+left:0;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+nav a:hover{
+color:#c9a86a;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h1{
+font-family:'Playfair Display', serif;
+font-size:52px;
+color:white;
+background:rgba(0,0,0,0.4);
+padding:25px 50px;
+border-radius:20px;
+}
+
+/* SEKCJE */
+section{
+padding:100px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+font-family:'Playfair Display', serif;
+color:#c9a86a;
+}
+
+/* KARTY */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card-content h3{
+font-family:'Playfair Display', serif;
+margin-bottom:10px;
+}
+
+/* STOPKA */
+footer{
+text-align:center;
+padding:50px;
+color:#8c757d;
+}
+</style>
 </head>
+
 <body>
 
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">
-        <div class="brand-title">Twoja Nazwa Hodowli</div>
-        <div class="brand-subtitle">Chihuahua i Gończy Węgierski z naciskiem na Chihuahua</div>
-      </div>
+<header>
+<div class="logo">Akwamaryn Dogs</div>
+<nav>
+<a href="#psy">Psy w hodowli</a>
+<a href="#szczeniaki">Szczeniaki</a>
+<a href="#tytuly">Tytuły</a>
+<a href="#plany">Plany</a>
+<a href="#opinie">Opinie</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+</header>
 
-      <nav class="nav">
-        <a href="#tytuly">Nasze tytuły</a>
-        <a href="#suczki">Nasze suczki</a>
-        <a href="#psy">Nasze psy</a>
-        <a href="#szczeniaczki">Szczeniaczki</a>
-        <a href="#nowe-domki">W nowych domkach</a>
-        <a href="#o-nas">O nas</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </div>
-  </header>
+<div class="hero">
+<h1>Elegancja. Pasja. Chihuahua.</h1>
+</div>
 
-  <main>
+<section id="psy">
+<h2>Psy w hodowli</h2>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9">
+<div class="card-content">
+<h3>Imię psa</h3>
+<p>Opis psa</p>
+</div>
+</div>
+</div>
+</section>
 
-    <section class="hero">
-      <div class="container">
-        <div class="hero-box">
-          <div class="hero-left">
-            <div class="hero-badge">mała hodowla • wielkie serce</div>
-            <h1>Świat pełen uroku, czułości i najpiękniejszych chihuahua</h1>
-            <p>
-              Witamy na stronie naszej hodowli. To miejsce stworzone z miłości do psów, z naciskiem na wyjątkowe chihuahua, ich urodę, charakter i bliskość z człowiekiem. Pokazujemy tutaj nasze psy, nasze suczki, szczeniaczki oraz zdjęcia z nowych domków.
-            </p>
-            <div class="hero-buttons">
-              <a href="#szczeniaczki" class="btn btn-main">Zobacz szczeniaczki</a>
-              <a href="#kontakt" class="btn btn-light">Kontakt</a>
-            </div>
-          </div>
+<section id="szczeniaki">
+<h2>Szczeniaki</h2>
+<p style="text-align:center;">Aktualny miot</p>
+</section>
 
-          <div class="hero-right">
-            <div class="hero-note">
-              Delikatna, słodka estetyka i rodzinny klimat strony idealnie pod hodowlę z naciskiem na chihuahua.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="tytuly">
+<h2>Tytuły</h2>
+<p style="text-align:center;">Championaty i osiągnięcia</p>
+</section>
 
-    <section id="tytuly">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Nasze tytuły</h2>
-          <p>
-            Tutaj możesz wpisać osiągnięcia swoich psów, championaty, zwycięstwa wystawowe i najważniejsze sukcesy hodowlane.
-          </p>
-          <div class="flower"></div>
-        </div>
-
-        <div class="title-grid">
-          <div class="title-card">
-            <h3>Champion Polski</h3>
-            <p>Tu wpisz imię psa i informacje o zdobytym tytule.</p>
-          </div>
-          <div class="title-card">
-            <h3>Młodzieżowy Champion</h3>
-            <p>To miejsce na wyróżnienia młodszych psów z Twojej hodowli.</p>
-          </div>
-          <div class="title-card">
-            <h3>Zwycięzca Rasy</h3>
-            <p>Dodaj najważniejsze sukcesy z wystaw i pokazów.</p>
-          </div>
-          <div class="title-card">
-            <h3>Nasza Duma</h3>
-            <p>Możesz wpisać tu osiągnięcie, z którego jesteś najbardziej dumna.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="suczki">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Nasze suczki</h2>
-          <p>
-            Poznaj nasze dziewczynki. To one tworzą wyjątkowy charakter naszej hodowli i nadają jej delikatny, rodzinny klimat.
-          </p>
-          <div class="flower"></div>
-        </div>
-
-        <div class="dogs-grid">
-          <article class="dog-card">
-            <div class="dog-photo" style="background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="dog-content">
-              <h3>Imię suczki 1</h3>
-              <p>Rasa: Chihuahua</p>
-              <p>Umaszczenie: wpisz tutaj</p>
-              <p>Krótki opis charakteru, urody i cech suczki.</p>
-              <span class="pill">nasza dziewczynka</span>
-            </div>
-          </article>
-
-          <article class="dog-card">
-            <div class="dog-photo" style="background-image:url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="dog-content">
-              <h3>Imię suczki 2</h3>
-              <p>Rasa: Chihuahua</p>
-              <p>Umaszczenie: wpisz tutaj</p>
-              <p>Tu możesz wpisać pochodzenie, linię i temperament.</p>
-              <span class="pill">chihuahua</span>
-            </div>
-          </article>
-
-          <article class="dog-card">
-            <div class="dog-photo" style="background-image:url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="dog-content">
-              <h3>Imię suczki 3</h3>
-              <p>Rasa: Gończy Węgierski lub Chihuahua</p>
-              <p>Umaszczenie: wpisz tutaj</p>
-              <p>W tym miejscu możesz opisać, czym się wyróżnia.</p>
-              <span class="pill">wyjątkowa suka</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="psy">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Nasze psy</h2>
-          <p>
-            Tutaj pokaż swoich reproduktorów oraz psy hodowlane. Dodaj ich zdjęcia, tytuły i najważniejsze informacje.
-          </p>
-          <div class="flower"></div>
-        </div>
-
-        <div class="dogs-grid">
-          <article class="dog-card">
-            <div class="dog-photo" style="background-image:url('https://images.unsplash.com/photo-1518715308788-3005759c95e5?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="dog-content">
-              <h3>Imię psa 1</h3>
-              <p>Rasa: Chihuahua</p>
-              <p>Umaszczenie: wpisz tutaj</p>
-              <p>Opis budowy, charakteru i osiągnięć psa.</p>
-              <span class="pill">reproduktor</span>
-            </div>
-          </article>
-
-          <article class="dog-card">
-            <div class="dog-photo" style="background-image:url('https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="dog-content">
-              <h3>Imię psa 2</h3>
-              <p>Rasa: Chihuahua</p>
-              <p>Umaszczenie: wpisz tutaj</p>
-              <p>Dodaj opis linii, sukcesów i charakteru.</p>
-              <span class="pill">nasza duma</span>
-            </div>
-          </article>
-
-          <article class="dog-card">
-            <div class="dog-photo" style="background-image:url('https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="dog-content">
-              <h3>Imię psa 3</h3>
-              <p>Rasa: Gończy Węgierski</p>
-              <p>Umaszczenie: wpisz tutaj</p>
-              <p>Miejsce na opis wyjątkowego psa z Twojej hodowli.</p>
-              <span class="pill">gończy węgierski</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="szczeniaczki">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Szczeniaczki</h2>
-          <p>
-            W tej sekcji możesz pokazać aktualne mioty, planowane szczeniaczki oraz informacje dla przyszłych właścicieli.
-          </p>
-          <div class="flower"></div>
-        </div>
-
-        <div class="photo-grid">
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Miot A • Chihuahua</div>
-          </div>
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Miot B • Chihuahua</div>
-          </div>
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Planowane szczeniaczki</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="nowe-domki">
-      <div class="container">
-        <div class="section-intro">
-          <h2>W nowych domkach</h2>
-          <p>
-            Najpiękniejsze chwile to te, gdy nasze maluszki trafiają do kochających rodzin. Tutaj możesz pokazać swoich wychowanków w nowych domkach.
-          </p>
-          <div class="flower"></div>
-        </div>
-
-        <div class="photo-grid">
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Szczęśliwy nowy domek</div>
-          </div>
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Nasze maleństwo w domu</div>
-          </div>
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Miłość od pierwszego dnia</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="galeria-domki">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Zdjęcia z nowych domków</h2>
-          <p>
-            To miejsce na fotografie i wspomnienia od nowych właścicieli. Możesz tu dodać więcej zdjęć swoich wychowanków po przeprowadzce do nowych rodzin.
-          </p>
-          <div class="flower"></div>
-        </div>
-
-        <div class="photo-grid">
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1516222338250-863216ce01ea?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Nowy domek 1</div>
-          </div>
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1548681528-6a5c45b66b42?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Nowy domek 2</div>
-          </div>
-          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80');">
-            <div class="photo-caption">Nowy domek 3</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="o-nas">
-      <div class="container">
-        <div class="section-intro">
-          <h2>O nas</h2>
-          <p>
-            Tutaj możesz opowiedzieć swoją historię, pasję do hodowli i to, dlaczego właśnie chihuahua zajmują w niej tak wyjątkowe miejsce.
-          </p>
-          <div class="flower"></div>
-        </div>
-
-        <div class="about-box">
-          <div class="about-text">
-            <p>
-              Jesteśmy domową hodowlą psów rasowych, w której największy nacisk kładziemy na chihuahua. To rasa, która zachwyca nas swoim urokiem, delikatnością i ogromnym sercem zamkniętym w małym ciałku.
-            </p>
-            <p>
-              Nasze psy wychowują się blisko człowieka, w spokojnym i pełnym ciepła domu. Dbamy o ich zdrowie, prawidłową socjalizację, piękny wygląd i dobry charakter.
-            </p>
-            <p>
-              Oprócz chihuahua towarzyszy nam również gończy węgierski, rasa wyjątkowa, elegancka i pełna temperamentu.
-            </p>
-            <p>
-              Ta strona powstała po to, aby pokazać nasz świat, nasze ukochane psy oraz maluszki, które trafiają do cudownych nowych domów.
-            </p>
-          </div>
-
-          <div class="about-photo"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Kontakt</h2>
-          <p>
-            Jeśli chcesz dowiedzieć się więcej o naszych psach, planowanych miotach lub dostępnych szczeniaczkach, zapraszamy do kontaktu.
-          </p>
-          <div class="flower"></div>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>Dane kontaktowe</h3>
-            <div class="contact-list">
-              <div class="contact-item"><strong>Telefon:</strong> +48 000 000 000</div>
-              <div class="contact-item"><strong>E-mail:</strong> twojmail@domena.pl</div>
-              <div class="contact-item"><strong>Facebook:</strong> nazwa fanpage</div>
-              <div class="contact-item"><strong>Instagram:</strong> nazwa profilu</div>
-              <div class="contact-item"><strong>Miejscowość:</strong> wpisz tutaj</div>
-            </div>
-          </div>
-
-          <div class="contact-card">
-            <h3>Zapraszamy do wiadomości</h3>
-            <p>
-              Chętnie odpowiemy na pytania dotyczące naszych psów, charakteru ras, planowanych miotów oraz warunków rezerwacji szczeniaczków.
-            </p>
-            <p>
-              Zależy nam na najlepszych, kochających domach dla naszych maluszków, dlatego zawsze stawiamy na dobry kontakt i wzajemne zaufanie.
-            </p>
-            <div class="hero-buttons" style="margin-top:16px;">
-              <a href="mailto:twojmail@domena.pl" class="btn btn-main">Napisz e-mail</a>
-              <a href="tel:+48000000000" class="btn btn-light">Zadzwoń</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      © 2026 Twoja Nazwa Hodowli • Chihuahua i Gończy Węgierski • Wszystkie prawa zastrzeżone
-    </div>
-  </footer>
-
-</body>
-</html>
+<section id="plany
