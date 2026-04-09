@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akwamaryn PL Dogs | Chihuahua i Gończy Węgierski</title>
-  <meta name="description" content="Akwamaryn PL Dogs — elegancka hodowla psów z naciskiem na chihuahua. Poznaj nasze psy w hodowli, suczki, szczenięta, tytuły, plany hodowlane i kontakt." />
+  <title>Akwamaryn PL Dogs</title>
+  <meta name="description" content="Akwamaryn PL Dogs — elegancka hodowla psów z naciskiem na chihuahua." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,20 +12,20 @@
 
   <style>
     :root{
-      --bg-1:#fcf8f8;
-      --bg-2:#f6eff1;
-      --card:#ffffff;
-      --text:#4c3d42;
-      --text-soft:#7b6870;
-      --rose:#8f707a;
+      --bg-1:#fcf8f9;
+      --bg-2:#f5eef1;
+      --white:#ffffff;
+      --text:#4b3a40;
+      --text-soft:#7d6971;
+      --rose:#8e707a;
       --rose-soft:#b596a0;
       --gold-dark:#9f7b3e;
       --gold:#c6a45f;
       --gold-light:#e0c98a;
-      --gold-line:rgba(198,164,95,.42);
-      --line:rgba(151,123,62,.18);
-      --shadow:0 16px 40px rgba(82,60,67,.10);
-      --shadow-soft:0 10px 26px rgba(82,60,67,.07);
+      --gold-line:rgba(198,164,95,.45);
+      --line:rgba(159,123,62,.15);
+      --shadow:0 18px 44px rgba(77,58,64,.10);
+      --shadow-soft:0 10px 28px rgba(77,58,64,.07);
       --radius-xl:34px;
       --radius-lg:28px;
       --radius-md:22px;
@@ -46,16 +46,16 @@
       font-family:'Montserrat',sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(198,164,95,.08), transparent 22%),
-        radial-gradient(circle at top right, rgba(143,112,122,.08), transparent 18%),
+        radial-gradient(circle at top left, rgba(198,164,95,.08), transparent 24%),
+        radial-gradient(circle at top right, rgba(142,112,122,.08), transparent 20%),
         linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
       overflow-x:hidden;
       line-height:1.65;
     }
 
     a{
-      color:inherit;
       text-decoration:none;
+      color:inherit;
     }
 
     img{
@@ -73,10 +73,10 @@
       position:sticky;
       top:0;
       z-index:9999;
-      background:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.93);
       backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(159,123,62,.16);
-      box-shadow:0 8px 24px rgba(82,60,67,.05);
+      border-bottom:1px solid rgba(159,123,62,.14);
+      box-shadow:0 8px 24px rgba(77,58,64,.05);
     }
 
     .header-inner{
@@ -90,30 +90,30 @@
     .brand{
       flex-shrink:0;
       min-width:250px;
-      max-width:290px;
+      max-width:320px;
       line-height:.95;
     }
 
     .brand-title{
       display:inline-block;
       font-family:'Cormorant Garamond',serif;
-      font-size:2.45rem;
+      font-size:2.5rem;
       font-weight:700;
       letter-spacing:.4px;
-      background:linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 38%, var(--gold) 55%, var(--gold-dark) 100%);
+      background:linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 35%, var(--gold) 58%, var(--gold-dark) 100%);
       -webkit-background-clip:text;
       background-clip:text;
       -webkit-text-fill-color:transparent;
-      text-shadow:0 1px 0 rgba(255,255,255,.25);
+      text-shadow:0 1px 0 rgba(255,255,255,.2);
     }
 
     .brand-sub{
       display:block;
-      font-size:.74rem;
-      color:var(--rose);
+      margin-top:6px;
+      font-size:.72rem;
       letter-spacing:2.2px;
       text-transform:uppercase;
-      margin-top:6px;
+      color:var(--rose);
     }
 
     .desktop-nav{
@@ -129,14 +129,14 @@
       padding:10px 13px;
       font-size:.90rem;
       color:var(--text);
-      white-space:nowrap;
       border-radius:999px;
       transition:.24s ease;
+      white-space:nowrap;
     }
 
     .desktop-nav a:hover{
-      color:var(--gold-dark);
       background:rgba(198,164,95,.08);
+      color:var(--gold-dark);
     }
 
     .desktop-nav a::after{
@@ -160,14 +160,14 @@
       width:48px;
       height:48px;
       border:none;
-      background:linear-gradient(135deg, rgba(198,164,95,.16), rgba(143,112,122,.13));
       border-radius:16px;
+      background:linear-gradient(135deg, rgba(198,164,95,.16), rgba(142,112,122,.12));
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
       align-items:center;
       justify-content:center;
       flex-direction:column;
       gap:5px;
-      box-shadow:var(--shadow-soft);
-      cursor:pointer;
     }
 
     .menu-toggle span{
@@ -190,7 +190,7 @@
     }
 
     .mobile-nav a{
-      background:var(--card);
+      background:var(--white);
       border:1px solid rgba(159,123,62,.14);
       border-radius:18px;
       padding:14px 16px;
@@ -212,15 +212,15 @@
     .hero-copy{
       position:relative;
       min-height:640px;
-      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(251,247,248,.98));
-      border-radius:var(--radius-xl);
-      border:1px solid rgba(159,123,62,.16);
-      box-shadow:var(--shadow);
-      padding:58px 48px;
-      overflow:hidden;
       display:flex;
       flex-direction:column;
       justify-content:center;
+      padding:58px 48px;
+      border-radius:var(--radius-xl);
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(251,247,248,.98));
+      border:1px solid rgba(159,123,62,.14);
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
     .hero-copy::before{
@@ -228,8 +228,8 @@
       position:absolute;
       width:280px;
       height:280px;
-      right:-90px;
       top:-90px;
+      right:-90px;
       border-radius:50%;
       background:radial-gradient(circle, rgba(198,164,95,.13), transparent 66%);
       pointer-events:none;
@@ -241,14 +241,14 @@
       align-items:center;
       gap:8px;
       padding:10px 16px;
+      margin-bottom:20px;
       border-radius:999px;
       background:rgba(198,164,95,.10);
-      border:1px solid rgba(159,123,62,.15);
+      border:1px solid rgba(159,123,62,.14);
       color:var(--rose);
-      font-size:.80rem;
-      letter-spacing:1.6px;
       text-transform:uppercase;
-      margin-bottom:20px;
+      letter-spacing:1.5px;
+      font-size:.80rem;
     }
 
     .hero-badge::before{
@@ -270,7 +270,7 @@
     }
 
     .hero-copy h1 .gold-word{
-      background:linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 42%, var(--gold) 64%, var(--gold-dark) 100%);
+      background:linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 40%, var(--gold) 65%, var(--gold-dark) 100%);
       -webkit-background-clip:text;
       background-clip:text;
       -webkit-text-fill-color:transparent;
@@ -298,8 +298,8 @@
       padding:14px 24px;
       border-radius:999px;
       font-size:.94rem;
-      transition:.24s ease;
       border:1px solid transparent;
+      transition:.24s ease;
     }
 
     .btn-primary{
@@ -314,15 +314,15 @@
     }
 
     .btn-secondary{
-      background:rgba(255,255,255,.9);
+      background:rgba(255,255,255,.92);
       color:var(--rose);
-      border-color:rgba(143,112,122,.18);
+      border-color:rgba(142,112,122,.18);
       box-shadow:var(--shadow-soft);
     }
 
     .btn-secondary:hover{
-      color:var(--gold-dark);
       transform:translateY(-2px);
+      color:var(--gold-dark);
       border-color:rgba(159,123,62,.18);
     }
 
@@ -331,10 +331,10 @@
       min-height:640px;
       border-radius:var(--radius-xl);
       overflow:hidden;
-      border:1px solid rgba(159,123,62,.16);
+      border:1px solid rgba(159,123,62,.14);
       box-shadow:var(--shadow);
       background:
-        linear-gradient(to bottom, rgba(63,46,51,.12), rgba(63,46,51,.20)),
+        linear-gradient(to bottom, rgba(63,46,51,.12), rgba(63,46,51,.22)),
         url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     }
 
@@ -343,35 +343,35 @@
       left:30px;
       right:30px;
       bottom:30px;
+      padding:22px 24px;
+      border-radius:26px;
       background:rgba(255,255,255,.14);
       border:1px solid rgba(255,255,255,.22);
       backdrop-filter:blur(12px);
-      border-radius:26px;
-      padding:22px 24px;
       color:#fff;
       box-shadow:0 10px 30px rgba(0,0,0,.10);
     }
 
     .hero-glass strong{
       display:block;
+      margin-bottom:6px;
       font-family:'Cormorant Garamond',serif;
       font-size:1.85rem;
       font-weight:600;
-      margin-bottom:6px;
     }
 
-    /* SECTION FRAME */
+    /* SECTIONS */
     section{
       padding:82px 0;
     }
 
     .section-frame{
       position:relative;
-      background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(251,248,249,.98));
-      border-radius:32px;
       padding:52px 38px 42px;
-      box-shadow:var(--shadow-soft);
+      border-radius:32px;
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(251,248,249,.98));
       border:1px solid rgba(159,123,62,.10);
+      box-shadow:var(--shadow-soft);
       overflow:hidden;
     }
 
@@ -381,8 +381,8 @@
       position:absolute;
       width:92px;
       height:92px;
-      border-color:rgba(159,123,62,.58);
       border-style:solid;
+      border-color:rgba(159,123,62,.58);
       pointer-events:none;
     }
 
@@ -406,11 +406,11 @@
 
     .section-heading .eyebrow{
       display:inline-block;
+      margin-bottom:10px;
       font-size:.76rem;
+      color:var(--gold-dark);
       text-transform:uppercase;
       letter-spacing:2px;
-      color:var(--gold-dark);
-      margin-bottom:10px;
     }
 
     .section-heading h2{
@@ -448,6 +448,13 @@
       gap:20px;
     }
 
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+      align-items:stretch;
+    }
+
     /* CARD */
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(251,247,248,.98));
@@ -460,7 +467,7 @@
 
     .card:hover{
       transform:translateY(-6px);
-      box-shadow:0 18px 38px rgba(82,60,67,.12);
+      box-shadow:0 18px 38px rgba(77,58,64,.12);
     }
 
     .image-wrap{
@@ -474,7 +481,7 @@
       overflow:hidden;
       background:center/cover no-repeat;
       border:1px solid rgba(159,123,62,.20);
-      box-shadow:inset 0 0 0 2px rgba(224,201,138,.52), 0 12px 24px rgba(82,60,67,.08);
+      box-shadow:inset 0 0 0 2px rgba(224,201,138,.52), 0 12px 24px rgba(77,58,64,.08);
     }
 
     .card-image::before{
@@ -494,8 +501,8 @@
     .card-content h3{
       font-family:'Cormorant Garamond',serif;
       font-size:2rem;
-      font-weight:600;
       line-height:1;
+      font-weight:600;
       color:#4d3a40;
       margin-bottom:10px;
     }
@@ -522,6 +529,40 @@
     .card-content p{
       color:var(--text-soft);
       font-size:.95rem;
+    }
+
+    /* TEXT CARDS */
+    .text-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(251,247,248,.98));
+      border-radius:28px;
+      border:1px solid rgba(159,123,62,.10);
+      box-shadow:var(--shadow-soft);
+      padding:32px 28px;
+    }
+
+    .text-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      font-weight:600;
+      color:#4d3a40;
+      margin-bottom:14px;
+      text-align:center;
+    }
+
+    .text-card p{
+      color:var(--text-soft);
+      margin-bottom:14px;
+    }
+
+    .feature-photo{
+      min-height:500px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(159,123,62,.20);
+      box-shadow:inset 0 0 0 2px rgba(224,201,138,.42), 0 14px 28px rgba(77,58,64,.08);
+      background:
+        linear-gradient(to bottom, rgba(63,46,51,.08), rgba(63,46,51,.18)),
+        url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
     }
 
     /* TITLE BOXES */
@@ -570,7 +611,7 @@
       overflow:hidden;
       background:center/cover no-repeat;
       border:1px solid rgba(159,123,62,.20);
-      box-shadow:inset 0 0 0 2px rgba(224,201,138,.42), 0 14px 28px rgba(82,60,67,.08);
+      box-shadow:inset 0 0 0 2px rgba(224,201,138,.42), 0 14px 28px rgba(77,58,64,.08);
     }
 
     .gallery-tile::before{
@@ -597,48 +638,17 @@
       right:18px;
       bottom:18px;
       z-index:2;
+      padding:12px 14px;
+      border-radius:18px;
       background:rgba(255,255,255,.14);
       border:1px solid rgba(255,255,255,.22);
       backdrop-filter:blur(8px);
       color:#fff;
-      border-radius:18px;
-      padding:12px 14px;
       font-size:.93rem;
       text-align:center;
     }
 
-    /* ABOUT / CONTACT */
-    .two-col{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:26px;
-      align-items:stretch;
-    }
-
-    .text-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(251,247,248,.98));
-      border-radius:28px;
-      border:1px solid rgba(159,123,62,.10);
-      box-shadow:var(--shadow-soft);
-      padding:32px 28px;
-    }
-
-    .text-card p{
-      color:var(--text-soft);
-      margin-bottom:14px;
-    }
-
-    .feature-photo{
-      min-height:500px;
-      border-radius:28px;
-      overflow:hidden;
-      border:1px solid rgba(159,123,62,.18);
-      box-shadow:inset 0 0 0 2px rgba(224,201,138,.42), 0 14px 28px rgba(82,60,67,.08);
-      background:
-        linear-gradient(to bottom, rgba(63,46,51,.08), rgba(63,46,51,.18)),
-        url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-    }
-
+    /* CONTACT */
     .contact-list{
       display:flex;
       flex-direction:column;
@@ -680,12 +690,12 @@
         grid-template-columns:repeat(2, 1fr);
       }
 
-      .hero-image{
-        min-height:500px;
-      }
-
       .hero-copy{
         min-height:auto;
+      }
+
+      .hero-image{
+        min-height:500px;
       }
     }
 
@@ -807,7 +817,7 @@
           <a href="#szczeniaki">Szczeniaki</a>
           <a href="#tytuly">Nasze tytuły</a>
           <a href="#plany">Plany hodowlane</a>
-          <a href="#nowe-domki">Nasze wychowanki</a>
+          <a href="#wychowanki">Nasze wychowanki</a>
           <a href="#opinie">Opinie</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
@@ -826,7 +836,7 @@
         <a href="#szczeniaki">Szczeniaki</a>
         <a href="#tytuly">Nasze tytuły</a>
         <a href="#plany">Plany hodowlane</a>
-        <a href="#nowe-domki">Nasze wychowanki</a>
+        <a href="#wychowanki">Nasze wychowanki</a>
         <a href="#opinie">Opinie</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -875,6 +885,7 @@
 
           <div class="two-col">
             <div class="text-card">
+              <h3>Nasza historia</h3>
               <p>Nasza hodowla powstała z pasji do wyjątkowych ras i miłości do codziennego życia z psami. Największy nacisk kładziemy na chihuahua, które zachwycają nas swoją delikatnością, inteligencją i ogromnym sercem zamkniętym w małym ciele.</p>
               <p>Nasze psy wychowują się blisko człowieka, w spokojnym i pełnym ciepła domu. Dbamy o ich zdrowie, socjalizację, piękny wygląd oraz zrównoważony charakter.</p>
               <p>Oprócz chihuahua towarzyszy nam także gończy węgierski, rasa elegancka, wyrazista i pełna temperamentu. Z dumą pokazujemy naszą codzienność, osiągnięcia oraz maluszki trafiające do nowych, kochających rodzin.</p>
@@ -956,43 +967,44 @@
           <div class="grid-3">
             <article class="card">
               <div class="image-wrap">
-                <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="card-image" style="background-image:url('images/diana/file_00000000b5047246ada223a273d4bb12.png');"></div>
               </div>
               <div class="card-content">
-                <h3>Imię suczki 1</h3>
+                <h3>Diana Gwiazda Wikingów</h3>
                 <div class="card-meta">
-                  <span class="tag">Chihuahua</span>
-                  <span class="tag">Nasza dziewczynka</span>
+                  <span class="tag">ZKwP o/Koszalin</span>
+                  <span class="tag">Zwycięstwo Rasy</span>
+                  <span class="tag">Ocena doskonała</span>
                 </div>
-                <p>Dodaj tutaj opis umaszczenia, charakteru, pochodzenia i wszystkiego, co ją wyróżnia.</p>
+                <p>Diana to wyjątkowa suczka, która od pierwszych chwil zachwyca nie tylko urodą, ale przede wszystkim charakterem. To połączenie elegancji, siły i niezwykłej łagodności.</p>
               </div>
             </article>
 
             <article class="card">
               <div class="image-wrap">
-                <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="card-image" style="background-image:url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png');"></div>
               </div>
               <div class="card-content">
-                <h3>Imię suczki 2</h3>
+                <h3>Diana Gwiazda Wikingów</h3>
                 <div class="card-meta">
-                  <span class="tag">Chihuahua</span>
-                  <span class="tag">Piękna linia</span>
+                  <span class="tag">Najlepsza Dorosła Suka</span>
+                  <span class="tag">Nasza duma</span>
                 </div>
-                <p>Miejsce na elegancki opis suczki, jej tytuły lub plany hodowlane z nią związane.</p>
+                <p>Jest córką utytułowanych rodziców, którzy z sukcesami prezentowali się na wystawach krajowych i międzynarodowych. Diana to nie tylko osiągnięcia i rodowód, ale przede wszystkim serce naszej hodowli.</p>
               </div>
             </article>
 
             <article class="card">
               <div class="image-wrap">
-                <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80');"></div>
+                <div class="card-image" style="background-image:url('images/diana/file_00000000b5047246ada223a273d4bb12.png');"></div>
               </div>
               <div class="card-content">
-                <h3>Imię suczki 3</h3>
+                <h3>Diana Gwiazda Wikingów</h3>
                 <div class="card-meta">
-                  <span class="tag">Chihuahua</span>
-                  <span class="tag">Wyjątkowy charakter</span>
+                  <span class="tag">Wystawy krajowe</span>
+                  <span class="tag">Wystawy międzynarodowe</span>
                 </div>
-                <p>Możesz wpisać tu kilka zdań o jej temperamencie, urodzie oraz znaczeniu dla hodowli.</p>
+                <p>Oddana, stabilna, bliska człowiekowi. Taka, która buduje relację, a nie tylko zachwyca wyglądem. Jesteśmy z niej ogromnie dumni.</p>
               </div>
             </article>
           </div>
@@ -1114,7 +1126,7 @@
       </div>
     </section>
 
-    <section id="nowe-domki">
+    <section id="wychowanki">
       <div class="container">
         <div class="section-frame">
           <div class="section-heading">
@@ -1189,7 +1201,7 @@
 
           <div class="two-col">
             <div class="text-card">
-              <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#4d3a40;margin-bottom:14px;text-align:center;">Dane kontaktowe</h3>
+              <h3>Dane kontaktowe</h3>
               <div class="contact-list">
                 <div class="contact-item"><strong>Telefon:</strong> +48 000 000 000</div>
                 <div class="contact-item"><strong>E-mail:</strong> twojmail@domena.pl</div>
@@ -1200,7 +1212,7 @@
             </div>
 
             <div class="text-card">
-              <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#4d3a40;margin-bottom:14px;text-align:center;">Zapraszamy do wiadomości</h3>
+              <h3>Zapraszamy do wiadomości</h3>
               <p>Chętnie odpowiemy na pytania dotyczące naszych psów, charakteru ras, planowanych miotów oraz warunków rezerwacji.</p>
               <p>Zależy nam na najlepszych, kochających domach dla naszych maluszków, dlatego zawsze stawiamy na dobry kontakt i wzajemne zaufanie.</p>
               <div class="hero-buttons" style="justify-content:center; margin-top:18px;">
@@ -1234,6 +1246,5 @@
       });
     });
   </script>
-
 </body>
 </html>
