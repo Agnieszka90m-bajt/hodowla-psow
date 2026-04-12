@@ -20,13 +20,11 @@
 
       --text:#594d47;
       --text-soft:#7a6d66;
-      --heading:#826b76;
+      --heading:#8a747d;
 
       --gold-dark:#a88346;
       --gold:#c8a75d;
       --gold-light:#e6d29a;
-      --gold-line:rgba(200,167,93,.60);
-      --gold-line-soft:rgba(200,167,93,.28);
 
       --shadow:0 16px 40px rgba(89,77,71,.07);
       --shadow-soft:0 10px 24px rgba(89,77,71,.05);
@@ -54,8 +52,8 @@
       color:var(--text);
       background:
         radial-gradient(circle at top left, rgba(230,210,154,.10), transparent 24%),
-        radial-gradient(circle at top right, rgba(200,167,93,.07), transparent 20%),
-        linear-gradient(180deg, #fdfcf9 0%, #faf7f1 52%, #f7f3ec 100%);
+        radial-gradient(circle at top right, rgba(200,167,93,.06), transparent 20%),
+        linear-gradient(180deg, #fdfcf9 0%, #faf7f2 52%, #f6f2eb 100%);
       overflow-x:hidden;
       line-height:1.72;
     }
@@ -280,7 +278,7 @@
       background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));
     }
 
-    .hero-copy h1{
+    .hero-title{
       font-family:"Cormorant Garamond",serif;
       font-size:clamp(2.55rem, 4.9vw, 4.45rem);
       line-height:1.05;
@@ -291,13 +289,25 @@
       letter-spacing:-0.15px;
     }
 
-    .hero-copy h1 .gold-word{
+    .hero-title .gold-soft{
       background:linear-gradient(135deg,var(--gold-dark) 0%, var(--gold-light) 44%, var(--gold) 70%, var(--gold-dark) 100%);
       -webkit-background-clip:text;
       background-clip:text;
       -webkit-text-fill-color:transparent;
       font-style:italic;
       font-weight:500;
+    }
+
+    .hero-title .gold-soft.light{
+      opacity:.95;
+      font-weight:400;
+    }
+
+    .hero-title .soft-line{
+      color:#8a7a80;
+      font-weight:400;
+      font-size:.88em;
+      letter-spacing:.2px;
     }
 
     .hero-copy p{
@@ -1177,7 +1187,7 @@
         letter-spacing:1.5px;
       }
 
-      .hero-copy h1{
+      .hero-title{
         font-size:2.7rem;
       }
 
@@ -1308,14 +1318,18 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <span class="hero-badge">elegancja • pasja • hodowla z sercem</span>
-            <h1>
-              Hodowla psów <span class="gold-word">chihuahua</span><br>
-              i <span class="gold-word">gończy węgierski</span><br>
-              stworzona z pasji i serca
+
+            <h1 class="hero-title">
+              Hodowla psów<br>
+              <span class="gold-soft">chihuahua</span><br>
+              <span class="gold-soft light">i gończy węgierski</span><br>
+              <span class="soft-line">stworzona z pasji i serca</span>
             </h1>
+
             <p>
-              Witamy w naszej hodowli. To miejsce stworzone z miłości do psów, z naciskiem na chihuahua i gończego węgierskiego, ich piękno, charakter i bliskość z człowiekiem. Z dumą pokazujemy nasze sukcesy, plany hodowlane i psy, które tworzą serce naszej hodowli.
+              Witamy w naszej hodowli. To miejsce stworzone z miłości do psów, z naciskiem na chihuahua i gończego węgierskiego, ich piękno, charakter i bliskość z człowiekiem.
             </p>
+
             <div class="hero-buttons">
               <a href="#szczeniaki" class="btn btn-primary">Zobacz szczeniaki</a>
               <a href="#kontakt" class="btn btn-secondary">Skontaktuj się</a>
@@ -1858,4 +1872,4 @@
     });
   </script>
 </body>
-</html>
+  </html>
