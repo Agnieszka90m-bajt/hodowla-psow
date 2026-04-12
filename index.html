@@ -19,17 +19,18 @@
 
       --text:#314748;
       --text-soft:#5f7879;
-      --heading:#466466;
+      --heading:#496668;
 
       --aqua-dark:#4f9fa2;
       --aqua:#76cfd0;
       --aqua-light:#bdeeee;
-      --aqua-glow:rgba(118,207,208,.18);
+      --aqua-soft:#dff8f8;
 
       --gold:#d2b06a;
       --gold-soft:#ead8b0;
+
       --line:rgba(79,159,162,.16);
-      --line-gold:rgba(210,176,106,.28);
+      --line-gold:rgba(210,176,106,.22);
 
       --shadow:0 18px 46px rgba(49,71,72,.08);
       --shadow-soft:0 10px 28px rgba(49,71,72,.05);
@@ -57,7 +58,7 @@
       color:var(--text);
       background:
         radial-gradient(circle at top left, rgba(118,207,208,.10), transparent 26%),
-        radial-gradient(circle at top right, rgba(210,176,106,.07), transparent 20%),
+        radial-gradient(circle at top right, rgba(210,176,106,.06), transparent 18%),
         linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 54%, var(--bg-3) 100%);
       overflow-x:hidden;
       line-height:1.72;
@@ -223,6 +224,7 @@
     }
 
     .hero{
+      position:relative;
       padding:28px 0 18px;
     }
 
@@ -241,15 +243,100 @@
       padding:48px 44px;
       border-radius:var(--radius-xl);
       background:
-        radial-gradient(circle at top right, rgba(118,207,208,.12), transparent 28%),
+        linear-gradient(145deg, rgba(255,255,255,.94), rgba(241,253,253,.98)),
         linear-gradient(180deg, rgba(255,255,255,.98), rgba(247,255,255,.98));
       border:1px solid rgba(79,159,162,.10);
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
+      isolation:isolate;
+    }
+
+    /* Subtelne refleksy / kamienie akwamarynu */
+    .hero-copy::before{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      top:-150px;
+      right:-90px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(118,207,208,.34), rgba(118,207,208,.10) 28%, rgba(118,207,208,0) 70%);
+      filter:blur(8px);
+      border-radius:50%;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .hero-copy::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(135deg, rgba(118,207,208,.10), transparent 35%),
+        linear-gradient(225deg, rgba(210,176,106,.06), transparent 24%);
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .gem{
+      position:absolute;
+      pointer-events:none;
+      z-index:0;
+      opacity:.55;
+      filter:blur(.2px);
+      mix-blend-mode:screen;
+    }
+
+    .gem-1{
+      width:180px;
+      height:180px;
+      top:44px;
+      left:-24px;
+      background:linear-gradient(135deg, rgba(189,238,238,.34), rgba(118,207,208,.18));
+      clip-path:polygon(28% 0%, 78% 8%, 100% 38%, 92% 82%, 52% 100%, 10% 76%, 0% 34%);
+      border:1px solid rgba(255,255,255,.24);
+      transform:rotate(-8deg);
+      box-shadow:0 0 28px rgba(118,207,208,.16);
+    }
+
+    .gem-2{
+      width:120px;
+      height:120px;
+      bottom:58px;
+      left:58px;
+      background:linear-gradient(145deg, rgba(223,248,248,.26), rgba(79,159,162,.14));
+      clip-path:polygon(20% 8%, 76% 0%, 100% 34%, 86% 84%, 34% 100%, 0% 54%);
+      transform:rotate(12deg);
+      box-shadow:0 0 20px rgba(118,207,208,.12);
+    }
+
+    .gem-3{
+      width:160px;
+      height:160px;
+      top:132px;
+      right:64px;
+      background:linear-gradient(145deg, rgba(255,255,255,.18), rgba(210,176,106,.10), rgba(118,207,208,.12));
+      clip-path:polygon(24% 0%, 74% 10%, 100% 40%, 82% 100%, 26% 92%, 0% 48%);
+      transform:rotate(22deg);
+      opacity:.34;
+      box-shadow:0 0 18px rgba(210,176,106,.08);
+    }
+
+    .gem-4{
+      width:86px;
+      height:86px;
+      top:88px;
+      right:148px;
+      background:linear-gradient(135deg, rgba(118,207,208,.14), rgba(255,255,255,.10));
+      clip-path:polygon(30% 0%, 84% 18%, 100% 62%, 56% 100%, 8% 74%, 0% 28%);
+      transform:rotate(-18deg);
+      opacity:.42;
     }
 
     .hero-badge{
+      position:relative;
+      z-index:2;
       display:inline-flex;
       width:max-content;
       align-items:center;
@@ -275,6 +362,8 @@
     }
 
     .hero-title{
+      position:relative;
+      z-index:2;
       font-family:"Playfair Display",serif;
       font-size:clamp(2.55rem, 4.8vw, 4.45rem);
       line-height:1.08;
@@ -282,11 +371,14 @@
       letter-spacing:-0.2px;
       margin-bottom:20px;
       max-width:720px;
-      color:#567274;
+      color:#587375;
       text-wrap:balance;
+      text-shadow:0 1px 0 rgba(255,255,255,.35);
     }
 
     .hero-copy p{
+      position:relative;
+      z-index:2;
       max-width:650px;
       color:var(--text-soft);
       font-size:1rem;
@@ -294,6 +386,8 @@
     }
 
     .hero-buttons{
+      position:relative;
+      z-index:2;
       display:flex;
       flex-wrap:wrap;
       gap:14px;
@@ -1139,6 +1233,13 @@
       section{
         padding:62px 0;
       }
+
+      .gem-1,
+      .gem-2,
+      .gem-3,
+      .gem-4{
+        opacity:.35;
+      }
     }
 
     @media (max-width:720px){
@@ -1240,6 +1341,31 @@
         top:-10px;
         right:-6px;
       }
+
+      .gem-1{
+        width:120px;
+        height:120px;
+        top:40px;
+        left:-14px;
+      }
+
+      .gem-2{
+        width:84px;
+        height:84px;
+        bottom:50px;
+        left:34px;
+      }
+
+      .gem-3{
+        width:100px;
+        height:100px;
+        top:82px;
+        right:34px;
+      }
+
+      .gem-4{
+        display:none;
+      }
     }
   </style>
 </head>
@@ -1293,6 +1419,11 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy">
+            <div class="gem gem-1"></div>
+            <div class="gem gem-2"></div>
+            <div class="gem gem-3"></div>
+            <div class="gem gem-4"></div>
+
             <span class="hero-badge">elegancja • pasja • hodowla z sercem</span>
 
             <h1 class="hero-title">
