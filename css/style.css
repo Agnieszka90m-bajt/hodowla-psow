@@ -1,0 +1,114 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  color:#ffffff;
+  overflow-x:hidden;
+}
+
+/* MENU */
+.menu{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:1000;
+}
+
+.menu a{
+  color:#ffffff;
+  margin:0 15px;
+  text-decoration:none;
+  font-size:14px;
+  letter-spacing:1px;
+  transition:0.3s;
+}
+
+.menu a:hover{
+  opacity:0.7;
+}
+
+/* TŁO STRONY */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+    url('../images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
+}
+
+/* KONTENER */
+.box{
+  max-width:700px;
+  animation:fade 1.2s ease;
+}
+
+/* GŁÓWNY NAPIS */
+h1{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:300;
+  font-size:64px;
+  letter-spacing:1px;
+  margin-bottom:20px;
+}
+
+/* PODTYTUŁ */
+.subtitle{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size:20px;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:25px;
+}
+
+/* TEKST */
+p{
+  color:rgba(255,255,255,0.85);
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+/* FORMULARZ */
+input, textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:12px;
+  border:none;
+  border-radius:6px;
+}
+
+/* PRZYCISK */
+button{
+  padding:14px;
+  width:100%;
+  background:transparent;
+  border:1px solid #ffffff;
+  color:#ffffff;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:rgba(255,255,255,0.1);
+}
+
+/* ANIMACJA */
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
