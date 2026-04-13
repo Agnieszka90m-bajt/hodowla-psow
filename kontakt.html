@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Kontakt</title>
+
+  <style>
+    .contact-form{
+      max-width:500px;
+      margin:40px auto;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      padding:14px;
+      border:none;
+      border-radius:8px;
+      font-size:14px;
+    }
+
+    .contact-form button{
+      padding:14px;
+      border:1px solid #fff;
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .contact-form button:hover{
+      background:rgba(255,255,255,0.1);
+    }
+
+    .info{
+      text-align:center;
+      margin-top:20px;
+      font-size:14px;
+      color:rgba(255,255,255,0.7);
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+  <a href="index.html">Start</a>
+  <a href="o-nas.html">O nas</a>
+  <a href="psy.html">Psy</a>
+  <a href="suczki.html">Suczki</a>
+  <a href="szczeniaki.html">Szczeniaki</a>
+  <a href="miot.html">Aktualny miot</a>
+  <a href="wystawy.html">Wystawy</a>
+  <a href="sukcesy.html">Sukcesy</a>
+  <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<section class="hero">
+
+  <div class="box">
+
+    <h1>Kontakt</h1>
+
+    <div class="subtitle">
+      napisz do nas
+    </div>
+
+    <p>
+      Jeśli jesteś zainteresowany szczeniakiem lub chcesz dowiedzieć się więcej —
+      zapraszamy do kontaktu.
+    </p>
+
+    <!-- FORMULARZ -->
+    <form class="contact-form" action="https://formspree.io/f/mzdkoyeo" method="POST">
+      <input type="text" name="name" placeholder="Imię" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <textarea name="message" rows="5" placeholder="Wiadomość" required></textarea>
+      <button type="submit">Wyślij wiadomość</button>
+    </form>
+
+    <div class="info">
+      Możesz też skontaktować się telefonicznie lub przez Facebook.
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
