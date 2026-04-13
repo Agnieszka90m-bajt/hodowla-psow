@@ -6,13 +6,17 @@
 
   <title>O nas – Akwamaryn PL Dogs</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
@@ -22,107 +26,234 @@
       background:#0f0f0f;
     }
 
-    /* TŁO */
-    .hero{
-      min-height:100vh;
-      padding:120px 20px 40px;
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      text-align:center;
-
-      background:
-        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
-        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
-    }
-
-    /* MENU */
     .topbar{
       position:fixed;
       top:0;
       left:0;
       width:100%;
-      background:rgba(0,0,0,0.4);
+      z-index:3000;
+      background:rgba(12,12,12,0.34);
       backdrop-filter:blur(10px);
-      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
     .topbar-inner{
+      width:min(1400px, 96%);
+      margin:0 auto;
+      min-height:82px;
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      padding:15px 20px;
+      justify-content:space-between;
+      gap:20px;
     }
 
     .brand{
       font-family:'Cormorant Garamond', serif;
-      font-size:24px;
+      font-size:2rem;
+      font-weight:500;
+      color:#fff;
+      white-space:nowrap;
+      letter-spacing:.4px;
     }
 
-    .menu{
+    .desktop-nav{
       display:flex;
-      gap:15px;
-      flex-wrap:wrap;
+      align-items:center;
       justify-content:flex-end;
+      gap:16px;
+      flex:1;
+      min-width:0;
     }
 
-    .menu a{
+    .desktop-nav a{
       color:#fff;
       text-decoration:none;
       font-size:13px;
-      opacity:0.85;
+      letter-spacing:1px;
+      white-space:nowrap;
+      opacity:.88;
+      transition:.25s ease;
     }
 
-    /* TREŚĆ */
-    .content{
-      max-width:800px;
-      background:rgba(0,0,0,0.35);
-      padding:30px;
+    .desktop-nav a:hover{
+      opacity:1;
+    }
+
+    .menu-btn{
+      display:none;
+      width:46px;
+      height:46px;
+      border:none;
       border-radius:12px;
-      backdrop-filter:blur(6px);
+      background:rgba(255,255,255,0.10);
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      top:82px;
+      left:0;
+      width:100%;
+      background:rgba(12,12,12,0.94);
+      backdrop-filter:blur(12px);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:18px 20px 24px;
+      z-index:2500;
+    }
+
+    .mobile-menu.open{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .mobile-menu a{
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+      letter-spacing:1px;
+      opacity:.9;
+    }
+
+    .hero{
+      min-height:100vh;
+      padding:120px 20px 50px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      text-align:center;
+      background:
+        linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.74)),
+        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center center / cover no-repeat;
+      position:relative;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 50% 28%, rgba(255,255,255,0.06), transparent 58%);
+      pointer-events:none;
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+      max-width:880px;
+      width:100%;
+      background:rgba(0,0,0,0.46);
+      padding:42px 38px;
+      border-radius:18px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 16px 44px rgba(0,0,0,0.34);
+      border:1px solid rgba(255,255,255,0.08);
     }
 
     h1{
       font-family:'Cormorant Garamond', serif;
-      font-size:48px;
-      margin-bottom:20px;
+      font-size:clamp(42px, 6vw, 62px);
+      font-weight:500;
+      margin-bottom:22px;
+      line-height:1;
+      text-shadow:0 4px 20px rgba(0,0,0,0.22);
+    }
+
+    .lead{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(20px, 2.2vw, 28px);
+      font-weight:400;
+      font-style:italic;
+      color:rgba(255,255,255,0.86);
+      line-height:1.5;
+      margin-bottom:26px;
     }
 
     p{
-      line-height:1.8;
-      margin-bottom:15px;
-      font-size:14px;
+      font-size:16px;
+      line-height:1.95;
+      color:rgba(255,255,255,0.95);
+      margin-bottom:18px;
     }
 
-    /* MOBILE */
-    @media(max-width:768px){
+    p:last-child{
+      margin-bottom:0;
+    }
 
-      .menu{
-        justify-content:center;
+    @media (max-width: 1100px){
+      .desktop-nav{
+        display:none;
       }
 
-      h1{
-        font-size:32px;
+      .menu-btn{
+        display:block;
+      }
+
+      .brand{
+        font-size:1.8rem;
+      }
+    }
+
+    @media (max-width: 768px){
+      .topbar-inner{
+        min-height:74px;
+      }
+
+      .mobile-menu{
+        top:74px;
+      }
+
+      .hero{
+        padding:108px 16px 34px;
+        background:
+          linear-gradient(rgba(0,0,0,0.64), rgba(0,0,0,0.78)),
+          url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center top / cover no-repeat;
+      }
+
+      .brand{
+        font-size:1.6rem;
       }
 
       .content{
-        padding:20px;
+        padding:24px 18px;
+        border-radius:16px;
       }
 
-    }
+      .lead{
+        margin-bottom:20px;
+      }
 
+      p{
+        font-size:15px;
+        line-height:1.85;
+      }
+    }
   </style>
 </head>
-
 <body>
 
-<!-- MENU -->
-<div class="topbar">
-  <div class="topbar-inner">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Akwamaryn PL Dogs</div>
 
-    <div class="brand">Akwamaryn PL Dogs</div>
+      <nav class="desktop-nav">
+        <a href="index.html">Start</a>
+        <a href="o-nas.html">O nas</a>
+        <a href="psy.html">Psy</a>
+        <a href="suczki.html">Suczki</a>
+        <a href="miot.html">Aktualny miot</a>
+        <a href="wystawy.html">Wystawy</a>
+        <a href="sukcesy.html">Sukcesy</a>
+        <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
 
-    <div class="menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu">
       <a href="index.html">Start</a>
       <a href="o-nas.html">O nas</a>
       <a href="psy.html">Psy</a>
@@ -132,57 +263,55 @@
       <a href="sukcesy.html">Sukcesy</a>
       <a href="nasze-wychowanki.html">Nasze wychowanki</a>
       <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="content">
+      <h1>O nas</h1>
+
+      <div class="lead">
+        Cześć, mam na imię Agnieszka i witam Cię w naszej hodowli.
+      </div>
+
+      <p>
+        Nasza hodowla powstała z miłości do psów i z codziennego życia z nimi. To nie jest miejsce stworzone tylko po to, żeby prowadzić hodowlę. To po prostu nasz świat, nasz dom i nasza codzienność, w której psy są naprawdę blisko nas.
+      </p>
+
+      <p>
+        W naszej hodowli mieszkają chihuahua oraz gończy węgierski. To dwie zupełnie różne rasy, ale właśnie dlatego są dla nas tak wyjątkowe. Chihuahua urzekają nas swoją delikatnością, ogromnym przywiązaniem do człowieka i tym, jak wielkie serce potrafi mieć tak mały pies. Gończy węgierski to z kolei siła, charakter, elegancja i coś bardzo naturalnego, prawdziwego i szlachetnego.
+      </p>
+
+      <p>
+        Kochamy to połączenie, bo daje nam dwie zupełnie inne energie. Z jednej strony ciepło, bliskość i wyjątkową więź, z drugiej siłę, pewność i piękną, mocną naturę psa. Właśnie dlatego te dwie rasy są z nami i właśnie dlatego chcemy je prowadzić z sercem i pełnym zaangażowaniem.
+      </p>
+
+      <p>
+        Nasze psy mieszkają z nami w domu, są częścią naszego życia i od początku wychowują się w normalnej, codziennej atmosferze. Bardzo zależy nam na tym, aby były dobrze prowadzone, zrównoważone, pewne siebie i przyzwyczajone do bliskości człowieka.
+      </p>
+
+      <p>
+        Każdy pies jest dla nas ważny, każdy ma swój charakter i swoje miejsce. Nie interesuje nas ilość. Stawiamy na jakość, zdrowie, dobre skojarzenia i na to, żeby nasze psy i szczeniaki trafiały w naprawdę dobre ręce.
+      </p>
+
+      <p>
+        Nasza hodowla jest zarejestrowana w ZKwP, należącym do FCI, oddział w Koszalinie.
+      </p>
+
+      <p>
+        Bardzo się cieszymy, że tu jesteś. Jeśli chcesz lepiej poznać nas i nasze psy, zapraszamy Cię do dalszego oglądania naszej strony i do kontaktu.
+      </p>
     </div>
+  </section>
 
-  </div>
-</div>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-<!-- TREŚĆ -->
-<section class="hero">
-
-  <div class="content">
-
-    <h1>O nas</h1>
-
-    <p>
-      Cześć, mam na imię Agnieszka i witam Cię w naszej hodowli.
-    </p>
-
-    <p>
-      Na co dzień mieszkamy z psami, które są częścią naszego życia, a nie tylko hodowli.
-      Towarzyszą nam w codzienności, w domu, w relacjach i w tym wszystkim, co dla nas ważne.
-      To właśnie z tej bliskości i miłości do zwierząt powstała nasza hodowla.
-    </p>
-
-    <p>
-      W naszym domu mieszkają dwie rasy – chihuahua oraz gończy węgierski.
-      Choć bardzo różne, każda z nich ma w sobie coś wyjątkowego.
-      Chihuahua to małe psy z ogromnym sercem, bardzo kontaktowe i silnie związane z człowiekiem.
-      Gończy węgierski to z kolei siła, elegancja i charakter, które robią ogromne wrażenie.
-    </p>
-
-    <p>
-      To właśnie to połączenie sprawiło, że zakochaliśmy się w obu rasach.
-      Jedna daje bliskość i delikatność, druga stabilność i pewność.
-    </p>
-
-    <p>
-      Nasze psy wychowują się z nami w domu, mają kontakt z codziennym życiem,
-      dzięki czemu są otwarte, pewne siebie i dobrze przygotowane do nowych domów.
-    </p>
-
-    <p>
-      Nasza hodowla jest zarejestrowana w ZKwP (Związek Kynologiczny w Polsce),
-      należącym do FCI, oddział w Koszalinie.
-    </p>
-
-    <p>
-      Jeśli czujesz, że to miejsce jest dla Ciebie – zapraszamy do kontaktu.
-    </p>
-
-  </div>
-
-</section>
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+  </script>
 
 </body>
 </html>
