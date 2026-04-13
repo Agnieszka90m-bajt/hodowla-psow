@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Kontakt – Akwamaryn PL Dogs</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
     *{
@@ -15,410 +15,186 @@
       box-sizing:border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
-
     body{
       font-family:'Montserrat', sans-serif;
       color:#fff;
-      overflow-x:hidden;
       background:#0f0f0f;
     }
 
+    /* MENU */
     .topbar{
       position:fixed;
       top:0;
-      left:0;
       width:100%;
-      z-index:3000;
-      background:rgba(12,12,12,0.34);
+      background:rgba(0,0,0,0.5);
       backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      z-index:1000;
     }
 
     .topbar-inner{
-      width:min(1400px, 96%);
-      margin:0 auto;
-      min-height:82px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:20px;
+      align-items:center;
+      padding:15px 20px;
     }
 
     .brand{
       font-family:'Cormorant Garamond', serif;
-      font-size:2rem;
-      font-weight:500;
-      color:#fff;
-      white-space:nowrap;
-      letter-spacing:.4px;
+      font-size:24px;
     }
 
-    .desktop-nav{
+    .menu{
       display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      gap:16px;
-      flex:1;
-      min-width:0;
+      gap:15px;
+      flex-wrap:wrap;
     }
 
-    .desktop-nav a{
+    .menu a{
       color:#fff;
       text-decoration:none;
       font-size:13px;
-      letter-spacing:1px;
-      white-space:nowrap;
-      opacity:.88;
-      transition:.25s ease;
     }
 
-    .desktop-nav a:hover{
-      opacity:1;
-    }
-
-    .menu-btn{
-      display:none;
-      width:46px;
-      height:46px;
-      border:none;
-      border-radius:12px;
-      background:rgba(255,255,255,0.10);
-      color:#fff;
-      font-size:24px;
-      cursor:pointer;
-    }
-
-    .mobile-menu{
-      display:none;
-      position:fixed;
-      top:82px;
-      left:0;
-      width:100%;
-      background:rgba(12,12,12,0.94);
-      backdrop-filter:blur(12px);
-      border-top:1px solid rgba(255,255,255,0.08);
-      padding:18px 20px 24px;
-      z-index:2500;
-    }
-
-    .mobile-menu.open{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-    }
-
-    .mobile-menu a{
-      color:#fff;
-      text-decoration:none;
-      font-size:15px;
-      letter-spacing:1px;
-      opacity:.9;
-    }
-
+    /* SEKCJA */
     .hero{
       min-height:100vh;
-      padding:120px 20px 50px;
+      padding:120px 20px 40px;
       display:flex;
       justify-content:center;
-      align-items:flex-start;
-      text-align:center;
+      align-items:center;
       background:
-        linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.74)),
-        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center center / cover no-repeat;
-      position:relative;
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),
+        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
     }
 
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at 50% 28%, rgba(255,255,255,0.06), transparent 58%);
-      pointer-events:none;
-    }
-
-    .content{
-      position:relative;
-      z-index:2;
-      max-width:1100px;
+    .box{
+      max-width:900px;
       width:100%;
-      background:rgba(0,0,0,0.46);
-      padding:42px 38px;
-      border-radius:18px;
+      background:rgba(0,0,0,0.6);
+      padding:30px;
+      border-radius:12px;
       backdrop-filter:blur(10px);
-      box-shadow:0 16px 44px rgba(0,0,0,0.34);
-      border:1px solid rgba(255,255,255,0.08);
     }
 
     h1{
       font-family:'Cormorant Garamond', serif;
-      font-size:clamp(42px, 6vw, 62px);
-      font-weight:500;
-      margin-bottom:16px;
-      line-height:1;
-      text-shadow:0 4px 20px rgba(0,0,0,0.22);
+      font-size:42px;
+      margin-bottom:20px;
+      text-align:center;
     }
 
-    .lead{
-      font-family:'Cormorant Garamond', serif;
-      font-size:clamp(20px, 2.2vw, 28px);
-      font-weight:400;
-      font-style:italic;
-      color:rgba(255,255,255,0.86);
-      line-height:1.5;
-      margin-bottom:28px;
+    p{
+      text-align:center;
+      margin-bottom:25px;
     }
 
-    .intro{
-      max-width:780px;
-      margin:0 auto 32px;
-      font-size:16px;
-      line-height:1.9;
-      color:rgba(255,255,255,0.95);
+    .contact-info{
+      margin-bottom:30px;
+      line-height:1.8;
+      text-align:center;
     }
 
-    .contact-layout{
-      display:grid;
-      grid-template-columns:1fr 1.15fr;
-      gap:24px;
-      text-align:left;
-    }
-
-    .contact-card,
-    .form-card{
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.10);
-      border-radius:16px;
-      padding:26px 24px;
-      backdrop-filter:blur(8px);
-    }
-
-    .contact-card h2,
-    .form-card h2{
-      font-family:'Cormorant Garamond', serif;
-      font-size:34px;
-      font-weight:500;
-      margin-bottom:18px;
-      line-height:1;
-    }
-
-    .contact-list{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .contact-item{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:14px;
-      padding:16px 18px;
-    }
-
-    .contact-item .label{
-      display:block;
-      font-size:12px;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.62);
-      margin-bottom:6px;
-    }
-
-    .contact-item .value,
-    .contact-item .value a{
+    .contact-info a{
       color:#fff;
       text-decoration:none;
-      font-size:15px;
-      line-height:1.7;
-      word-break:break-word;
     }
 
-    .contact-item .value a:hover{
-      opacity:.85;
+    /* FORMULARZ */
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
     }
 
-    .note{
-      margin-top:18px;
-      font-size:14px;
-      line-height:1.8;
-      color:rgba(255,255,255,0.82);
-    }
-
-    .form-grid{
-      display:grid;
-      gap:14px;
-    }
-
-    .field{
-      display:grid;
-      gap:8px;
-    }
-
-    .field label{
-      font-size:13px;
-      letter-spacing:1px;
-      color:rgba(255,255,255,0.86);
-    }
-
-    .field input,
-    .field textarea{
-      width:100%;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.08);
-      color:#fff;
-      border-radius:12px;
-      padding:14px 16px;
-      outline:none;
-      font-family:'Montserrat', sans-serif;
-      font-size:14px;
-      transition:.25s ease;
-    }
-
-    .field input::placeholder,
-    .field textarea::placeholder{
-      color:rgba(255,255,255,0.50);
-    }
-
-    .field input:focus,
-    .field textarea:focus{
-      border-color:rgba(255,255,255,0.24);
-      background:rgba(255,255,255,0.10);
-    }
-
-    .field textarea{
-      min-height:160px;
-      resize:vertical;
-    }
-
-    .submit-btn{
-      margin-top:6px;
-      min-height:54px;
+    input, textarea{
+      padding:12px;
       border:none;
-      border-radius:999px;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.14);
+      border-radius:8px;
+      background:rgba(255,255,255,0.1);
       color:#fff;
-      font-size:14px;
-      letter-spacing:1px;
+    }
+
+    button{
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      background:rgba(255,255,255,0.2);
+      color:#fff;
       cursor:pointer;
-      transition:.25s ease;
     }
 
-    .submit-btn:hover{
-      background:rgba(255,255,255,0.18);
-    }
-
-    .submit-btn:disabled{
-      opacity:.7;
-      cursor:not-allowed;
-    }
-
-    .form-message{
+    .success{
+      margin-top:15px;
+      text-align:center;
       display:none;
-      margin-top:16px;
-      padding:14px 16px;
-      border-radius:12px;
-      font-size:14px;
-      line-height:1.7;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.08);
-      color:#fff;
     }
 
-    .form-message.show{
-      display:block;
-    }
-
-    .form-message.error{
-      background:rgba(166,31,31,0.18);
-      border-color:rgba(255,255,255,0.12);
-    }
-
-    @media (max-width: 1100px){
-      .desktop-nav{
-        display:none;
-      }
-
-      .menu-btn{
-        display:block;
-      }
-
-      .brand{
-        font-size:1.8rem;
-      }
-
-      .contact-layout{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width: 768px){
-      .topbar-inner{
-        min-height:74px;
-      }
-
-      .mobile-menu{
-        top:74px;
-      }
-
-      .hero{
-        padding:108px 16px 34px;
-        background:
-          linear-gradient(rgba(0,0,0,0.64), rgba(0,0,0,0.78)),
-          url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center top / cover no-repeat;
-      }
-
-      .brand{
-        font-size:1.6rem;
-      }
-
-      .content{
-        padding:24px 18px;
-        border-radius:16px;
-      }
-
-      .lead{
-        margin-bottom:20px;
-      }
-
-      .intro{
-        font-size:15px;
-        line-height:1.85;
-        margin-bottom:24px;
-      }
-
-      .contact-card h2,
-      .form-card h2{
-        font-size:30px;
+    /* MOBILE */
+    @media(max-width:768px){
+      .menu{
+        justify-content:center;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">Akwamaryn PL Dogs</div>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Akwamaryn PL Dogs</div>
 
-      <nav class="desktop-nav">
-        <a href="index.html">Start</a>
-        <a href="o-nas.html">O nas</a>
-        <a href="psy.html">Psy</a>
-        <a href="suczki.html">Suczki</a>
-        <a href="miot.html">Aktualny miot</a>
-        <a href="wystawy.html">Wystawy</a>
-        <a href="sukcesy.html">Sukcesy</a>
-        <a href="nasze-wychowanki.html">Nasze wychowanki</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
-    </div>
-
-    <nav class="mobile-menu" id="mobileMenu">
+    <div class="menu">
       <a href="index.html">Start</a>
       <a href="o-nas.html">O nas</a>
       <a href="psy.html">Psy</a>
       <a href="suczki.html">Suczki</a>
+      <a href="miot.html">Miot</a>
+      <a href="wystawy.html">Wystawy</a>
+      <a href="sukcesy.html">Sukcesy</a>
+      <a href="nasze-wychowanki.html">Wychowanki</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+
+  </div>
+</div>
+
+<section class="hero">
+
+  <div class="box">
+
+    <h1>Kontakt</h1>
+
+    <p>Jeśli chcesz się z nami skontaktować — zapraszamy</p>
+
+    <div class="contact-info">
+      <strong>Osoba do kontaktu:</strong> Agnieszka<br>
+      <strong>Telefon:</strong> <a href="tel:+48572992736">+48 572 992 736</a><br>
+      <strong>Email:</strong> <a href="mailto:agnieszka90m@gmail.com">agnieszka90m@gmail.com</a><br>
+      <strong>Facebook:</strong> <a href="https://www.facebook.com/share/189TPjiudK/?mibextid=wwXIfr" target="_blank">Kliknij tutaj</a>
+    </div>
+
+    <form id="form">
+      <input type="text" placeholder="Imię" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Wiadomość" required></textarea>
+      <button type="submit">Wyślij</button>
+    </form>
+
+    <div class="success" id="successMsg">
+      Wiadomość została wysłana. Odpowiemy wkrótce.
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  document.getElementById("successMsg").style.display = "block";
+});
+</script>
+
+</body>
+</html>
