@@ -1,75 +1,294 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="css/style.css">
+  <title>Akwamaryn PL Dogs</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-  <title>Akwamaryn Dogs</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat', sans-serif;
+      color:#fff;
+      overflow-x:hidden;
+      background:#0f0f0f;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      padding:120px 20px 40px;
+      background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.58)),
+        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center center / cover no-repeat;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 50% 30%, rgba(255,255,255,0.06), transparent 60%);
+      pointer-events:none;
+    }
+
+    .topbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:3000;
+      background:rgba(12,12,12,0.32);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner{
+      width:min(1400px, 96%);
+      margin:0 auto;
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      font-family:'Cormorant Garamond', serif;
+      font-size:2rem;
+      font-weight:500;
+      color:#fff;
+      white-space:nowrap;
+      letter-spacing:.4px;
+    }
+
+    .desktop-nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:16px;
+      flex:1;
+      min-width:0;
+    }
+
+    .desktop-nav a{
+      color:#fff;
+      text-decoration:none;
+      font-size:13px;
+      letter-spacing:1px;
+      white-space:nowrap;
+      opacity:.88;
+      transition:.25s ease;
+    }
+
+    .desktop-nav a:hover{
+      opacity:1;
+    }
+
+    .menu-btn{
+      display:none;
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:12px;
+      background:rgba(255,255,255,0.10);
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      top:82px;
+      left:0;
+      width:100%;
+      background:rgba(12,12,12,0.94);
+      backdrop-filter:blur(12px);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:18px 20px 24px;
+      z-index:2500;
+    }
+
+    .mobile-menu.open{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .mobile-menu a{
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+      letter-spacing:1px;
+      opacity:.9;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:860px;
+      width:100%;
+      animation:fadeIn 1.2s ease;
+    }
+
+    .hero h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(42px, 6vw, 74px);
+      font-weight:500;
+      letter-spacing:1px;
+      margin-bottom:18px;
+      line-height:1;
+      text-shadow:0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    .hero p.lead{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(18px, 2vw, 25px);
+      font-weight:300;
+      letter-spacing:1.2px;
+      color:rgba(255,255,255,0.80);
+      font-style:italic;
+      line-height:1.6;
+      margin-bottom:26px;
+    }
+
+    .hero p.desc{
+      max-width:680px;
+      margin:0 auto;
+      color:rgba(255,255,255,0.86);
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media (max-width: 1100px){
+      .desktop-nav{
+        display:none;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .brand{
+        font-size:1.8rem;
+      }
+    }
+
+    @media (max-width: 768px){
+      .topbar-inner{
+        min-height:74px;
+      }
+
+      .mobile-menu{
+        top:74px;
+      }
+
+      .hero{
+        padding:110px 18px 34px;
+        background:
+          linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.62)),
+          url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center center / cover no-repeat;
+      }
+
+      .brand{
+        font-size:1.6rem;
+      }
+
+      .hero h1{
+        line-height:1.02;
+      }
+
+      .hero p.desc{
+        font-size:13px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="header">
-  <div class="nav">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Akwamaryn PL Dogs</div>
 
-    <div class="logo">Akwamaryn Dogs</div>
+      <nav class="desktop-nav">
+        <a href="index.html">Start</a>
+        <a href="o-nas.html">O nas</a>
+        <a href="psy.html">Psy</a>
+        <a href="suczki.html">Suczki</a>
+        <a href="miot.html">Aktualny miot</a>
+        <a href="wystawy.html">Wystawy</a>
+        <a href="sukcesy.html">Sukcesy</a>
+        <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
 
-    <div class="menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu">
       <a href="index.html">Start</a>
       <a href="o-nas.html">O nas</a>
       <a href="psy.html">Psy</a>
       <a href="suczki.html">Suczki</a>
-      <a href="miot.html">Miot</a>
+      <a href="miot.html">Aktualny miot</a>
       <a href="wystawy.html">Wystawy</a>
       <a href="sukcesy.html">Sukcesy</a>
-      <a href="nasze-wychowanki.html">Wychowanki</a>
+      <a href="nasze-wychowanki.html">Nasze wychowanki</a>
       <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Akwamaryn PL Dogs</h1>
+
+      <p class="lead">
+        hodowla chihuahua i gończy węgierski<br>
+        stworzona z pasji i serca
+      </p>
+
+      <p class="desc">
+        Witamy w naszej hodowli. To miejsce stworzone z miłości do psów,
+        ich charakteru i wyjątkowego kontaktu z człowiekiem.
+      </p>
     </div>
+  </section>
 
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-  </div>
-</div>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Start</a>
-  <a href="o-nas.html">O nas</a>
-  <a href="psy.html">Psy</a>
-  <a href="suczki.html">Suczki</a>
-  <a href="miot.html">Miot</a>
-  <a href="wystawy.html">Wystawy</a>
-  <a href="sukcesy.html">Sukcesy</a>
-  <a href="nasze-wychowanki.html">Wychowanki</a>
-  <a href="kontakt.html">Kontakt</a>
-</div>
-
-<section class="hero">
-
-  <h1>Akwamaryn Dogs</h1>
-
-  <div class="subtitle">
-    hodowla chihuahua i gończy węgierski<br>
-    stworzona z pasji i serca
-  </div>
-
-  <p>
-    Tworzymy miejsce, w którym psy wychowują się w bliskości człowieka,
-    z troską o charakter i zdrowie.
-  </p>
-
-  <img src="images/diana/file_00000000c21871fda440cb45f0f95a0c.png">
-
-</section>
-
-<script>
-function toggleMenu(){
-  document.getElementById("mobileMenu").classList.toggle("active");
-}
-</script>
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+  </script>
 
 </body>
 </html>
