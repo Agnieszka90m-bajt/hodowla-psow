@@ -1,50 +1,183 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="css/style.css">
+  <title>O nas – Akwamaryn PL Dogs</title>
 
-  <title>O nas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Montserrat', sans-serif;
+      color:#fff;
+      overflow-x:hidden;
+      background:#0f0f0f;
+    }
+
+    /* TŁO */
+    .hero{
+      min-height:100vh;
+      padding:120px 20px 40px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      text-align:center;
+
+      background:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
+    }
+
+    /* MENU */
+    .topbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+
+    .topbar-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 20px;
+    }
+
+    .brand{
+      font-family:'Cormorant Garamond', serif;
+      font-size:24px;
+    }
+
+    .menu{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .menu a{
+      color:#fff;
+      text-decoration:none;
+      font-size:13px;
+      opacity:0.85;
+    }
+
+    /* TREŚĆ */
+    .content{
+      max-width:800px;
+      background:rgba(0,0,0,0.35);
+      padding:30px;
+      border-radius:12px;
+      backdrop-filter:blur(6px);
+    }
+
+    h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:48px;
+      margin-bottom:20px;
+    }
+
+    p{
+      line-height:1.8;
+      margin-bottom:15px;
+      font-size:14px;
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+
+      .menu{
+        justify-content:center;
+      }
+
+      h1{
+        font-size:32px;
+      }
+
+      .content{
+        padding:20px;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
 <!-- MENU -->
-<div class="menu">
-  <a href="index.html">Start</a>
-  <a href="o-nas.html">O nas</a>
-  <a href="psy.html">Psy</a>
-  <a href="suczki.html">Suczki</a>
-  <a href="szczeniaki.html">Szczeniaki</a>
-  <a href="miot.html">Miot</a>
-  <a href="wystawy.html">Wystawy</a>
-  <a href="sukcesy.html">Sukcesy</a>
-  <a href="wychowanki.html">Wychowanki</a>
-  <a href="kontakt.html">Kontakt</a>
+<div class="topbar">
+  <div class="topbar-inner">
+
+    <div class="brand">Akwamaryn PL Dogs</div>
+
+    <div class="menu">
+      <a href="index.html">Start</a>
+      <a href="o-nas.html">O nas</a>
+      <a href="psy.html">Psy</a>
+      <a href="suczki.html">Suczki</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="wystawy.html">Wystawy</a>
+      <a href="sukcesy.html">Sukcesy</a>
+      <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+
+  </div>
 </div>
 
-<!-- SEKCJA -->
+<!-- TREŚĆ -->
 <section class="hero">
 
-  <div class="box">
+  <div class="content">
 
     <h1>O nas</h1>
 
-    <div class="subtitle">
-      nasza pasja i codzienność
-    </div>
-
     <p>
-      Nasza hodowla powstała z pasji do psów i życia z nimi na co dzień.
-      Chihuahua i gończy węgierski to rasy, które łączą w sobie charakter,
-      inteligencję i niezwykłą więź z człowiekiem.
+      Cześć, mam na imię Agnieszka i witam Cię w naszej hodowli.
     </p>
 
     <p>
-      Nasze psy wychowują się w domu, blisko nas — są częścią rodziny,
-      a nie tylko hodowli. Każdy dzień to wspólne życie, opieka i budowanie relacji.
+      Na co dzień mieszkamy z psami, które są częścią naszego życia, a nie tylko hodowli.
+      Towarzyszą nam w codzienności, w domu, w relacjach i w tym wszystkim, co dla nas ważne.
+      To właśnie z tej bliskości i miłości do zwierząt powstała nasza hodowla.
+    </p>
+
+    <p>
+      W naszym domu mieszkają dwie rasy – chihuahua oraz gończy węgierski.
+      Choć bardzo różne, każda z nich ma w sobie coś wyjątkowego.
+      Chihuahua to małe psy z ogromnym sercem, bardzo kontaktowe i silnie związane z człowiekiem.
+      Gończy węgierski to z kolei siła, elegancja i charakter, które robią ogromne wrażenie.
+    </p>
+
+    <p>
+      To właśnie to połączenie sprawiło, że zakochaliśmy się w obu rasach.
+      Jedna daje bliskość i delikatność, druga stabilność i pewność.
+    </p>
+
+    <p>
+      Nasze psy wychowują się z nami w domu, mają kontakt z codziennym życiem,
+      dzięki czemu są otwarte, pewne siebie i dobrze przygotowane do nowych domów.
+    </p>
+
+    <p>
+      Nasza hodowla jest zarejestrowana w ZKwP (Związek Kynologiczny w Polsce),
+      należącym do FCI, oddział w Koszalinie.
+    </p>
+
+    <p>
+      Jeśli czujesz, że to miejsce jest dla Ciebie – zapraszamy do kontaktu.
     </p>
 
   </div>
