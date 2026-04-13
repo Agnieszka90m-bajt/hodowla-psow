@@ -1,3 +1,7 @@
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:'Montserrat', sans-serif;
@@ -10,22 +14,22 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:30px;
-  flex-wrap:nowrap;
-  white-space:nowrap;
-  overflow-x:auto;
-  padding:20px 10px;
-  background:rgba(0,0,0,0.6);
+  gap:18px;
+  padding:15px 10px;
+  background:rgba(0,0,0,0.7);
   backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  overflow-x:auto;
 }
 
 .menu a{
   text-decoration:none;
   color:white;
-  font-size:14px;
-  letter-spacing:1px;
-  opacity:0.7;
-  transition:0.3s;
+  font-size:13px;
+  white-space:nowrap;
+  opacity:0.8;
 }
 
 .menu a:hover{
@@ -34,22 +38,32 @@ body{
 
 /* HERO */
 .hero{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding:20px;
+  padding:40px 20px;
 }
 
-.box{
-  max-width:700px;
+/* UKŁAD */
+.hero-content{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  max-width:1200px;
+  width:100%;
+}
+
+/* TEKST */
+.text{
+  max-width:500px;
 }
 
 h1{
   font-family:'Cormorant Garamond', serif;
   font-weight:300;
-  font-size:60px;
+  font-size:50px;
   margin-bottom:20px;
 }
 
@@ -57,11 +71,41 @@ h1{
   font-size:16px;
   opacity:0.7;
   margin-bottom:20px;
-  letter-spacing:1px;
 }
 
 p{
   font-size:14px;
   line-height:1.8;
   opacity:0.8;
+}
+
+/* ZDJĘCIE */
+.image img{
+  width:100%;
+  max-width:450px;
+  border-radius:16px;
+  object-fit:contain;
+}
+
+/* MOBILE 🔥 */
+@media(max-width:900px){
+
+  .hero-content{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  h1{
+    font-size:36px;
+  }
+
+  .image img{
+    max-width:100%;
+  }
+
+  .menu{
+    justify-content:flex-start;
+    padding-left:10px;
+  }
+
 }
