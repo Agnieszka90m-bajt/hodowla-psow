@@ -1,193 +1,48 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Akwamaryn PL Dogs</title>
+  <!-- 🔥 PODPIĘCIE CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <!-- CZCIONKI -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-<style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:'Montserrat', sans-serif;
-  color:#fff;
-  overflow-x:hidden;
-}
-
-/* ===== HERO ===== */
-
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-
-  background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
-    url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
-}
-
-/* subtelna mgła */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 50% 30%, rgba(255,255,255,0.06), transparent 60%);
-}
-
-/* ===== CONTENT ===== */
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:800px;
-  padding:20px;
-  animation:fadeIn 1.4s ease;
-}
-
-.hero h1{
-  font-family:'Cormorant Garamond', serif;
-  font-size:clamp(38px,6vw,70px);
-  font-weight:500;
-  letter-spacing:1px;
-  margin-bottom:18px;
-}
-
-/* NAJWAŻNIEJSZE – SUBTELNY NAPIS */
-.hero p{
-  font-family:'Cormorant Garamond', serif;
-  font-size:clamp(18px,2vw,24px);
-  font-weight:300;
-  letter-spacing:1.4px;
-  color:rgba(255,255,255,0.78);
-  font-style:italic;
-  line-height:1.6;
-  margin-bottom:40px;
-}
-
-/* ===== BUTTONY ===== */
-
-.buttons{
-  display:flex;
-  gap:14px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:14px 28px;
-  border:1px solid rgba(255,255,255,0.45);
-  border-radius:999px;
-  color:#fff;
-  font-size:13px;
-  letter-spacing:1px;
-  transition:0.3s;
-  backdrop-filter:blur(6px);
-}
-
-.btn:hover{
-  background:rgba(255,255,255,0.12);
-  transform:translateY(-2px);
-}
-
-/* ===== SCROLL ===== */
-
-.scroll{
-  position:absolute;
-  bottom:28px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:11px;
-  letter-spacing:2px;
-  opacity:0.7;
-  animation:fadeUp 2s infinite;
-}
-
-/* ===== SEKCJA NIŻEJ ===== */
-
-.content{
-  background:#ffffff;
-  color:#3c3c3c;
-  padding:100px 20px;
-  text-align:center;
-}
-
-.content h2{
-  font-family:'Cormorant Garamond', serif;
-  font-size:36px;
-  margin-bottom:20px;
-}
-
-.content p{
-  max-width:700px;
-  margin:auto;
-  line-height:1.8;
-}
-
-/* ===== ANIMACJE ===== */
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@keyframes fadeUp{
-  0%{opacity:0; transform:translate(-50%,10px);}
-  50%{opacity:1;}
-  100%{opacity:0; transform:translate(-50%,30px);}
-}
-
-</style>
+  <title>Akwamaryn PL Dogs</title>
 </head>
 
 <body>
 
+<!-- MENU -->
+<div class="menu">
+  <a href="index.html">Start</a>
+  <a href="o-nas.html">O nas</a>
+  <a href="psy.html">Psy</a>
+  <a href="suczki.html">Suczki</a>
+  <a href="szczeniaki.html">Szczeniaki</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
 
-  <div class="hero-content">
+  <div class="box">
 
     <h1>Akwamaryn PL Dogs</h1>
 
-    <p>
+    <div class="subtitle">
       hodowla chihuahua i gończy węgierski<br>
       stworzona z pasji i serca
-    </p>
-
-    <div class="buttons">
-      <a href="#kontakt" class="btn">Kontakt</a>
-      <a href="#szczeniaki" class="btn">Szczeniaki</a>
     </div>
 
+    <p>
+      Witamy w naszej hodowli. To miejsce stworzone z miłości do psów,
+      ich charakteru i wyjątkowego kontaktu z człowiekiem.
+    </p>
+
   </div>
-
-  <div class="scroll">SCROLL</div>
-
-</section>
-
-<section class="content" id="kontakt">
-
-  <h2>Kontakt</h2>
-
-  <p>
-    Jeśli chcesz dowiedzieć się więcej o naszych psach,
-    zapraszamy do kontaktu. Chętnie odpowiemy na wszystkie pytania.
-  </p>
 
 </section>
 
