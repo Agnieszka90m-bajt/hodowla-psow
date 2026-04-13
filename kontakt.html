@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Kontakt – Akwamaryn PL Dogs</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     *{
@@ -15,186 +16,590 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       font-family:'Montserrat', sans-serif;
       color:#fff;
+      overflow-x:hidden;
       background:#0f0f0f;
     }
 
-    /* MENU */
     .topbar{
       position:fixed;
       top:0;
+      left:0;
       width:100%;
-      background:rgba(0,0,0,0.5);
+      z-index:3000;
+      background:rgba(12,12,12,0.34);
       backdrop-filter:blur(10px);
-      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
     .topbar-inner{
+      width:min(1400px, 96%);
+      margin:0 auto;
+      min-height:82px;
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      padding:15px 20px;
+      justify-content:space-between;
+      gap:20px;
     }
 
     .brand{
       font-family:'Cormorant Garamond', serif;
-      font-size:24px;
+      font-size:2rem;
+      font-weight:500;
+      color:#fff;
+      white-space:nowrap;
+      letter-spacing:.4px;
     }
 
-    .menu{
+    .desktop-nav{
       display:flex;
-      gap:15px;
-      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+      gap:16px;
+      flex:1;
+      min-width:0;
     }
 
-    .menu a{
+    .desktop-nav a{
       color:#fff;
       text-decoration:none;
       font-size:13px;
+      letter-spacing:1px;
+      white-space:nowrap;
+      opacity:.88;
+      transition:.25s ease;
     }
 
-    /* SEKCJA */
+    .desktop-nav a:hover{
+      opacity:1;
+    }
+
+    .menu-btn{
+      display:none;
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:12px;
+      background:rgba(255,255,255,0.10);
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      top:82px;
+      left:0;
+      width:100%;
+      background:rgba(12,12,12,0.94);
+      backdrop-filter:blur(12px);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:18px 20px 24px;
+      z-index:2500;
+    }
+
+    .mobile-menu.open{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .mobile-menu a{
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+      letter-spacing:1px;
+      opacity:.9;
+    }
+
     .hero{
       min-height:100vh;
-      padding:120px 20px 40px;
+      padding:120px 20px 50px;
       display:flex;
       justify-content:center;
-      align-items:center;
+      align-items:flex-start;
+      text-align:center;
       background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),
-        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
+        linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.74)),
+        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center center / cover no-repeat;
+      position:relative;
     }
 
-    .box{
-      max-width:900px;
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 50% 28%, rgba(255,255,255,0.06), transparent 58%);
+      pointer-events:none;
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+      max-width:1120px;
       width:100%;
-      background:rgba(0,0,0,0.6);
-      padding:30px;
-      border-radius:12px;
+      background:rgba(0,0,0,0.46);
+      padding:42px 38px;
+      border-radius:18px;
       backdrop-filter:blur(10px);
+      box-shadow:0 16px 44px rgba(0,0,0,0.34);
+      border:1px solid rgba(255,255,255,0.08);
     }
 
     h1{
       font-family:'Cormorant Garamond', serif;
-      font-size:42px;
-      margin-bottom:20px;
-      text-align:center;
+      font-size:clamp(42px, 6vw, 62px);
+      font-weight:500;
+      margin-bottom:16px;
+      line-height:1;
+      text-shadow:0 4px 20px rgba(0,0,0,0.22);
     }
 
-    p{
-      text-align:center;
-      margin-bottom:25px;
+    .lead{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(20px, 2.2vw, 28px);
+      font-weight:400;
+      font-style:italic;
+      color:rgba(255,255,255,0.86);
+      line-height:1.5;
+      margin-bottom:28px;
     }
 
-    .contact-info{
-      margin-bottom:30px;
-      line-height:1.8;
-      text-align:center;
+    .intro{
+      max-width:820px;
+      margin:0 auto 34px;
+      font-size:16px;
+      line-height:1.9;
+      color:rgba(255,255,255,0.95);
     }
 
-    .contact-info a{
-      color:#fff;
-      text-decoration:none;
+    .contact-layout{
+      display:grid;
+      grid-template-columns:1fr 1.1fr;
+      gap:24px;
+      text-align:left;
     }
 
-    /* FORMULARZ */
-    form{
+    .contact-card,
+    .form-card{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:16px;
+      padding:26px 24px;
+      backdrop-filter:blur(8px);
+    }
+
+    .contact-card h2,
+    .form-card h2{
+      font-family:'Cormorant Garamond', serif;
+      font-size:34px;
+      font-weight:500;
+      margin-bottom:18px;
+      line-height:1;
+    }
+
+    .contact-list{
       display:flex;
       flex-direction:column;
-      gap:10px;
+      gap:14px;
     }
 
-    input, textarea{
-      padding:12px;
-      border:none;
-      border-radius:8px;
-      background:rgba(255,255,255,0.1);
-      color:#fff;
+    .contact-item{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:16px 18px;
     }
 
-    button{
-      padding:12px;
-      border:none;
-      border-radius:8px;
-      background:rgba(255,255,255,0.2);
+    .contact-icon{
+      width:40px;
+      height:40px;
+      min-width:40px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.10);
       color:#fff;
+      font-size:15px;
+      margin-top:2px;
+    }
+
+    .contact-text{
+      flex:1;
+    }
+
+    .contact-text .label{
+      display:block;
+      font-size:12px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.60);
+      margin-bottom:6px;
+    }
+
+    .contact-text .value,
+    .contact-text .value a{
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+      line-height:1.8;
+      word-break:break-word;
+    }
+
+    .contact-text .value a:hover{
+      opacity:.85;
+    }
+
+    .note{
+      margin-top:18px;
+      font-size:14px;
+      line-height:1.8;
+      color:rgba(255,255,255,0.82);
+    }
+
+    .form-grid{
+      display:grid;
+      gap:14px;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+    }
+
+    .field label{
+      font-size:13px;
+      letter-spacing:1px;
+      color:rgba(255,255,255,0.86);
+    }
+
+    .field input,
+    .field textarea{
+      width:100%;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.08);
+      color:#fff;
+      border-radius:12px;
+      padding:14px 16px;
+      outline:none;
+      font-family:'Montserrat', sans-serif;
+      font-size:14px;
+      transition:.25s ease;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder{
+      color:rgba(255,255,255,0.50);
+    }
+
+    .field input:focus,
+    .field textarea:focus{
+      border-color:rgba(255,255,255,0.24);
+      background:rgba(255,255,255,0.10);
+    }
+
+    .field textarea{
+      min-height:160px;
+      resize:vertical;
+    }
+
+    .submit-btn{
+      margin-top:6px;
+      min-height:54px;
+      border:none;
+      border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.14);
+      color:#fff;
+      font-size:14px;
+      letter-spacing:1px;
       cursor:pointer;
+      transition:.25s ease;
     }
 
-    .success{
-      margin-top:15px;
-      text-align:center;
+    .submit-btn:hover{
+      background:rgba(255,255,255,0.18);
+    }
+
+    .submit-btn:disabled{
+      opacity:.7;
+      cursor:not-allowed;
+    }
+
+    .form-message{
       display:none;
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:12px;
+      font-size:14px;
+      line-height:1.7;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.08);
+      color:#fff;
     }
 
-    /* MOBILE */
-    @media(max-width:768px){
-      .menu{
-        justify-content:center;
+    .form-message.show{
+      display:block;
+    }
+
+    .form-message.error{
+      background:rgba(166,31,31,0.18);
+      border-color:rgba(255,255,255,0.12);
+    }
+
+    @media (max-width: 1100px){
+      .desktop-nav{
+        display:none;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .brand{
+        font-size:1.8rem;
+      }
+
+      .contact-layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      .topbar-inner{
+        min-height:74px;
+      }
+
+      .mobile-menu{
+        top:74px;
+      }
+
+      .hero{
+        padding:108px 16px 34px;
+        background:
+          linear-gradient(rgba(0,0,0,0.64), rgba(0,0,0,0.78)),
+          url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center top / cover no-repeat;
+      }
+
+      .brand{
+        font-size:1.6rem;
+      }
+
+      .content{
+        padding:24px 18px;
+        border-radius:16px;
+      }
+
+      .lead{
+        margin-bottom:20px;
+      }
+
+      .intro{
+        font-size:15px;
+        line-height:1.85;
+        margin-bottom:24px;
+      }
+
+      .contact-card h2,
+      .form-card h2{
+        font-size:30px;
       }
     }
   </style>
 </head>
-
 <body>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">Akwamaryn PL Dogs</div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Akwamaryn PL Dogs</div>
 
-    <div class="menu">
+      <nav class="desktop-nav">
+        <a href="index.html">Start</a>
+        <a href="o-nas.html">O nas</a>
+        <a href="psy.html">Psy</a>
+        <a href="suczki.html">Suczki</a>
+        <a href="miot.html">Aktualny miot</a>
+        <a href="wystawy.html">Wystawy</a>
+        <a href="sukcesy.html">Sukcesy</a>
+        <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu">
       <a href="index.html">Start</a>
       <a href="o-nas.html">O nas</a>
       <a href="psy.html">Psy</a>
       <a href="suczki.html">Suczki</a>
-      <a href="miot.html">Miot</a>
+      <a href="miot.html">Aktualny miot</a>
       <a href="wystawy.html">Wystawy</a>
       <a href="sukcesy.html">Sukcesy</a>
-      <a href="nasze-wychowanki.html">Wychowanki</a>
+      <a href="nasze-wychowanki.html">Nasze wychowanki</a>
       <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="content">
+      <h1>Kontakt</h1>
+
+      <div class="lead">
+        Jeśli chcesz się z nami skontaktować, będzie nam naprawdę miło.
+      </div>
+
+      <div class="intro">
+        Możesz do nas napisać, zadzwonić albo odezwać się przez Facebooka. Chętnie porozmawiamy o naszym życiu z psami, odpowiemy na pytania o naszą hodowlę, aktualny miot i wszystko to, co Cię interesuje.
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-card">
+          <h2>Dane kontaktowe</h2>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="contact-text">
+                <span class="label">Osoba do kontaktu</span>
+                <div class="value">Agnieszka</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <span class="label">Telefon</span>
+                <div class="value">
+                  <a href="tel:+48572992736">+48 572 992 736</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <span class="label">E-mail</span>
+                <div class="value">
+                  <a href="mailto:agnieszka90m@gmail.com">agnieszka90m@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+              <div class="contact-text">
+                <span class="label">Facebook</span>
+                <div class="value">
+                  <a href="https://www.facebook.com/share/189TPjiudK/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                    Odwiedź nas na Facebooku
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            Możesz wybrać taką formę kontaktu, jaka jest dla Ciebie najwygodniejsza.
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h2>Formularz kontaktowy</h2>
+
+          <form id="contactForm" class="form-grid">
+            <div class="field">
+              <label for="name">Imię</label>
+              <input type="text" id="name" name="name" placeholder="Wpisz swoje imię" required>
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="Wpisz swój adres e-mail" required>
+            </div>
+
+            <div class="field">
+              <label for="message">Wiadomość</label>
+              <textarea id="message" name="message" placeholder="Napisz wiadomość..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Wyślij wiadomość</button>
+
+            <div class="form-message" id="formMessage"></div>
+          </form>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
-</div>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-<section class="hero">
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
 
-  <div class="box">
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+    const submitBtn = document.getElementById("submitBtn");
 
-    <h1>Kontakt</h1>
+    form.addEventListener("submit", async function(e){
+      e.preventDefault();
 
-    <p>Jeśli chcesz się z nami skontaktować — zapraszamy</p>
+      formMessage.classList.remove("show", "error");
+      formMessage.textContent = "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Wysyłanie...";
 
-    <div class="contact-info">
-      <strong>Osoba do kontaktu:</strong> Agnieszka<br>
-      <strong>Telefon:</strong> <a href="tel:+48572992736">+48 572 992 736</a><br>
-      <strong>Email:</strong> <a href="mailto:agnieszka90m@gmail.com">agnieszka90m@gmail.com</a><br>
-      <strong>Facebook:</strong> <a href="https://www.facebook.com/share/189TPjiudK/?mibextid=wwXIfr" target="_blank">Kliknij tutaj</a>
-    </div>
+      const formData = new FormData(form);
 
-    <form id="form">
-      <input type="text" placeholder="Imię" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Wiadomość" required></textarea>
-      <button type="submit">Wyślij</button>
-    </form>
+      try{
+        const response = await fetch("https://formspree.io/f/mzdkoyeo", {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
 
-    <div class="success" id="successMsg">
-      Wiadomość została wysłana. Odpowiemy wkrótce.
-    </div>
+        if(response.ok){
+          form.reset();
+          formMessage.textContent = "Wiadomość została wysłana. Odpowiemy wkrótce.";
+          formMessage.classList.add("show");
+        } else {
+          formMessage.textContent = "Nie udało się wysłać wiadomości. Spróbuj ponownie za chwilę.";
+          formMessage.classList.add("show", "error");
+        }
+      } catch(error){
+        formMessage.textContent = "Wystąpił problem z wysyłką. Sprawdź połączenie i spróbuj ponownie.";
+        formMessage.classList.add("show", "error");
+      }
 
-  </div>
-
-</section>
-
-<script>
-document.getElementById("form").addEventListener("submit", function(e){
-  e.preventDefault();
-  document.getElementById("successMsg").style.display = "block";
-});
-</script>
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Wyślij wiadomość";
+    });
+  </script>
 
 </body>
 </html>
