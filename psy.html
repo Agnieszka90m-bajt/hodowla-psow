@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Psy hodowlane</title>
+
+  <style>
+    .dogs{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+      gap:50px;
+      margin-top:60px;
+    }
+
+    .dog-card{
+      background:rgba(0,0,0,0.55);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 20px 50px rgba(0,0,0,0.5);
+      transition:0.4s;
+    }
+
+    .dog-card:hover{
+      transform:translateY(-10px) scale(1.02);
+    }
+
+    .dog-card img{
+      width:100%;
+      height:340px;
+      object-fit:cover;
+    }
+
+    .dog-info{
+      padding:22px;
+    }
+
+    .dog-name{
+      font-size:24px;
+      margin-bottom:8px;
+      font-weight:300;
+    }
+
+    .dog-title{
+      font-size:14px;
+      color:#d4d4d4;
+      margin-bottom:12px;
+      letter-spacing:1px;
+    }
+
+    .dog-desc{
+      font-size:14px;
+      color:rgba(255,255,255,0.75);
+      line-height:1.7;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+  <a href="index.html">Start</a>
+  <a href="o-nas.html">O nas</a>
+  <a href="psy.html">Psy</a>
+  <a href="suczki.html">Suczki</a>
+  <a href="szczeniaki.html">Szczeniaki</a>
+  <a href="miot.html">Aktualny miot</a>
+  <a href="wystawy.html">Wystawy</a>
+  <a href="sukcesy.html">Sukcesy</a>
+  <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<section class="hero">
+
+  <div class="box">
+
+    <h1>Psy hodowlane</h1>
+
+    <div class="subtitle">
+      nasze reproduktory
+    </div>
+
+    <p>
+      Nasze psy to starannie wyselekcjonowane linie hodowlane,
+      łączące doskonały eksterier, charakter oraz osiągnięcia wystawowe.
+    </p>
+
+    <!-- KARTY -->
+    <div class="dogs">
+
+      <!-- 🔥 PIES 1 -->
+      <div class="dog-card">
+        <img src="images/diana/file_00000000c21871fda440cb45f0f95a0c.png">
+        <div class="dog-info">
+          <div class="dog-name">Imię psa</div>
+          <div class="dog-title">Champion / tytuły</div>
+          <div class="dog-desc">
+            Opis psa – pochodzenie, charakter, osiągnięcia, linia hodowlana.
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔥 PIES 2 -->
+      <div class="dog-card">
+        <img src="images/diana/file_00000000b5047246ada223a273d4bb12.png">
+        <div class="dog-info">
+          <div class="dog-name">Imię psa</div>
+          <div class="dog-title">Tytuły</div>
+          <div class="dog-desc">
+            Opis psa – możesz wpisać informacje o sukcesach i pochodzeniu.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
