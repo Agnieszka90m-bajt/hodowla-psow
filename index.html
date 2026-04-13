@@ -6,14 +6,36 @@
 
   <link rel="stylesheet" href="css/style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
   <title>Akwamaryn Dogs</title>
 </head>
 
 <body>
 
-<div class="menu">
+<!-- HEADER -->
+<div class="header">
+
+  <div class="logo">Akwamaryn Dogs</div>
+
+  <div class="menu">
+    <a href="index.html">Start</a>
+    <a href="o-nas.html">O nas</a>
+    <a href="psy.html">Psy</a>
+    <a href="suczki.html">Suczki</a>
+    <a href="miot.html">Miot</a>
+    <a href="wystawy.html">Wystawy</a>
+    <a href="sukcesy.html">Sukcesy</a>
+    <a href="nasze-wychowanki.html">Wychowanki</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Start</a>
   <a href="o-nas.html">O nas</a>
   <a href="psy.html">Psy</a>
@@ -25,31 +47,30 @@
   <a href="kontakt.html">Kontakt</a>
 </div>
 
+<!-- HERO -->
 <section class="hero">
 
-  <div class="hero-content">
+  <h1>Akwamaryn Dogs</h1>
 
-    <div class="text">
-      <h1>Akwamaryn Dogs</h1>
-
-      <div class="subtitle">
-        hodowla chihuahua i gończy węgierski<br>
-        stworzona z pasji i serca
-      </div>
-
-      <p>
-        Tworzymy miejsce, w którym psy wychowują się w bliskości człowieka,
-        z troską o charakter, zdrowie i przyszłość.
-      </p>
-    </div>
-
-    <div class="image">
-      <img src="images/diana/file_00000000c21871fda440cb45f0f95a0c.png">
-    </div>
-
+  <div class="subtitle">
+    hodowla chihuahua i gończy węgierski<br>
+    stworzona z pasji i serca
   </div>
 
+  <p>
+    Tworzymy miejsce, w którym psy wychowują się w bliskości człowieka,
+    z troską o charakter i zdrowie.
+  </p>
+
+  <img src="images/diana/file_00000000c21871fda440cb45f0f95a0c.png">
+
 </section>
+
+<script>
+function toggleMenu(){
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
