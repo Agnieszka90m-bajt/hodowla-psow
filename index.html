@@ -8,28 +8,30 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#f5f0e8;
-      --bg-2:#fbf8f3;
-      --panel:#fffdf9;
-      --panel-soft:#f8f2ea;
-      --ink:#2c221f;
-      --ink-soft:#6a5d57;
-      --muted:#9a8b82;
-      --line:#e3d8cb;
-      --line-strong:#cbb49b;
-      --accent:#8e6b45;
-      --accent-2:#b99364;
-      --dark:#201816;
-      --shadow:0 24px 60px rgba(44,34,31,.10);
-      --shadow-soft:0 12px 28px rgba(44,34,31,.06);
-      --radius-xl:36px;
-      --radius-lg:26px;
-      --radius-md:18px;
-      --max:1280px;
+      --bg:#161312;
+      --bg-2:#211b19;
+      --surface:#f7f0e8;
+      --surface-2:#fffaf5;
+      --surface-3:#efe3d4;
+      --text:#342b28;
+      --text-soft:#6f625b;
+      --muted:#a39084;
+      --line:#dbc9b8;
+      --line-strong:#c8ae93;
+      --accent:#b98d68;
+      --accent-soft:#d7b99c;
+      --accent-deep:#8e6443;
+      --white:#ffffff;
+      --shadow:0 24px 60px rgba(0,0,0,.16);
+      --shadow-soft:0 12px 28px rgba(0,0,0,.08);
+      --radius-xl:38px;
+      --radius-lg:28px;
+      --radius-md:20px;
+      --max:1320px;
       --header-h:88px;
     }
 
@@ -44,18 +46,19 @@
     }
 
     body{
-      font-family:"Manrope",sans-serif;
+      font-family:"Inter",sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(185,147,100,.08), transparent 22%),
-        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 55%, #efe5d7 100%);
-      color:var(--ink);
+        radial-gradient(circle at top left, rgba(185,141,104,.12), transparent 20%),
+        radial-gradient(circle at top right, rgba(255,255,255,.03), transparent 18%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 42%, #151110 100%);
+      color:var(--white);
       line-height:1.72;
       overflow-x:hidden;
     }
 
     a{
-      text-decoration:none;
       color:inherit;
+      text-decoration:none;
     }
 
     img{
@@ -76,7 +79,7 @@
 
     .reveal{
       opacity:0;
-      transform:translateY(26px);
+      transform:translateY(28px);
       transition:opacity .8s ease, transform .8s ease;
     }
 
@@ -90,9 +93,9 @@
       position:sticky;
       top:0;
       z-index:9999;
-      background:rgba(255,250,245,.86);
+      background:rgba(20,16,15,.72);
       backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(203,180,155,.42);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
 
     .header-inner{
@@ -106,29 +109,29 @@
     .brand{
       display:flex;
       flex-direction:column;
-      min-width:230px;
+      min-width:240px;
     }
 
     .brand-title{
-      font-family:"DM Serif Display",serif;
-      font-size:2.3rem;
+      font-family:"Forum",serif;
+      font-size:2.6rem;
       line-height:.95;
-      color:var(--accent);
-      letter-spacing:.2px;
+      color:#f2dfcf;
+      letter-spacing:.4px;
     }
 
     .brand-sub{
-      margin-top:8px;
+      margin-top:7px;
       font-size:.72rem;
-      letter-spacing:2.6px;
+      letter-spacing:2.8px;
       text-transform:uppercase;
-      color:var(--muted);
+      color:rgba(255,240,229,.62);
     }
 
     .desktop-nav{
       display:flex;
-      flex-wrap:wrap;
       justify-content:center;
+      flex-wrap:wrap;
       gap:6px;
     }
 
@@ -136,36 +139,25 @@
       padding:10px 14px;
       border-radius:999px;
       font-size:.92rem;
-      color:var(--ink-soft);
+      color:rgba(255,241,232,.76);
       transition:.22s ease;
       white-space:nowrap;
     }
 
     .desktop-nav a:hover{
-      color:var(--accent);
-      background:rgba(185,147,100,.08);
+      color:#fff;
+      background:rgba(255,255,255,.08);
     }
 
-    .header-badge{
+    .header-mark{
       justify-self:end;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 16px;
+      font-size:.8rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:rgba(255,241,232,.52);
+      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.08);
       border-radius:999px;
-      background:rgba(185,147,100,.10);
-      border:1px solid rgba(185,147,100,.18);
-      color:var(--accent);
-      font-size:.82rem;
-      white-space:nowrap;
-    }
-
-    .header-badge::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--accent-2);
     }
 
     .menu-toggle{
@@ -174,8 +166,7 @@
       height:48px;
       border:none;
       border-radius:16px;
-      background:#fff;
-      box-shadow:var(--shadow-soft);
+      background:rgba(255,255,255,.08);
       align-items:center;
       justify-content:center;
       flex-direction:column;
@@ -186,7 +177,7 @@
     .menu-toggle span{
       width:20px;
       height:2px;
-      background:var(--ink);
+      background:#fff;
       border-radius:999px;
       display:block;
     }
@@ -203,109 +194,127 @@
     }
 
     .mobile-nav a{
-      background:#fff;
-      border:1px solid var(--line);
-      color:var(--ink-soft);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
       border-radius:16px;
       padding:14px 16px;
-      box-shadow:var(--shadow-soft);
+      color:#fff;
     }
 
     /* hero */
     .hero{
-      padding:34px 0 24px;
+      padding:34px 0 26px;
+    }
+
+    .hero-shell{
+      position:relative;
+      overflow:hidden;
+      border-radius:44px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(185,141,104,.16), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,.06), transparent 18%),
+        linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      padding:24px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.08fr .92fr;
+      grid-template-columns:1.1fr .9fr;
       gap:22px;
       align-items:stretch;
     }
 
-    .hero-left{
+    .hero-copy{
       position:relative;
-      min-height:710px;
-      border-radius:40px;
+      min-height:720px;
+      border-radius:34px;
       overflow:hidden;
+      padding:58px 54px 48px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.58)),
-        linear-gradient(135deg, #fbf6ef 0%, #f3e9dc 100%);
-      border:1px solid rgba(203,180,155,.55);
-      box-shadow:var(--shadow);
-      padding:58px 52px 48px;
+        radial-gradient(circle at 85% 18%, rgba(215,185,156,.12), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .hero-left::before{
+    .hero-copy::before{
       content:"";
       position:absolute;
-      width:280px;
-      height:280px;
-      top:-100px;
-      right:-80px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(185,147,100,.16), transparent 68%);
+      inset:0;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.03) 20%, transparent 40%),
+        linear-gradient(300deg, transparent 0%, rgba(185,141,104,.06) 30%, transparent 56%);
       pointer-events:none;
     }
 
-    .hero-mini{
+    .hero-kicker{
       display:inline-flex;
       width:max-content;
       align-items:center;
       gap:10px;
       padding:10px 16px;
       border-radius:999px;
-      background:rgba(185,147,100,.10);
-      border:1px solid rgba(185,147,100,.16);
-      color:var(--accent);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      color:rgba(255,241,232,.76);
       text-transform:uppercase;
       letter-spacing:2px;
       font-size:.76rem;
-      margin-bottom:24px;
+      margin-bottom:26px;
+      position:relative;
+      z-index:1;
     }
 
-    .hero-mini::before{
+    .hero-kicker::before{
       content:"";
       width:8px;
       height:8px;
       border-radius:50%;
-      background:var(--accent-2);
+      background:var(--accent-soft);
     }
 
     .hero-title{
-      font-family:"DM Serif Display",serif;
-      font-size:clamp(3.2rem, 6vw, 6rem);
-      line-height:.97;
-      color:#342925;
+      position:relative;
+      z-index:1;
+      font-family:"Forum",serif;
+      font-size:clamp(3.4rem, 6vw, 6.4rem);
+      line-height:.94;
+      font-weight:400;
+      color:#f2dfcf;
+      letter-spacing:.3px;
+      max-width:760px;
       margin-bottom:22px;
-      letter-spacing:-.3px;
-      max-width:780px;
+      text-wrap:balance;
     }
 
-    .hero-title em{
-      font-style:italic;
-      color:var(--accent);
+    .hero-title .soft{
+      color:#d8b79a;
     }
 
     .hero-text{
+      position:relative;
+      z-index:1;
       max-width:620px;
-      color:var(--ink-soft);
+      color:rgba(255,241,232,.72);
       font-size:1rem;
-      margin-bottom:30px;
+      margin-bottom:32px;
     }
 
     .hero-actions{
+      position:relative;
+      z-index:1;
       display:flex;
       flex-wrap:wrap;
       gap:14px;
-      margin-bottom:28px;
+      margin-bottom:32px;
     }
 
     .btn{
-      min-height:54px;
+      min-height:56px;
       padding:14px 24px;
       border-radius:999px;
       display:inline-flex;
@@ -317,9 +326,9 @@
     }
 
     .btn-primary{
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      background:linear-gradient(135deg,var(--accent-deep),var(--accent));
       color:#fff;
-      box-shadow:0 12px 24px rgba(142,107,69,.20);
+      box-shadow:0 12px 24px rgba(142,100,67,.24);
     }
 
     .btn-primary:hover{
@@ -327,64 +336,40 @@
     }
 
     .btn-secondary{
-      background:#fff;
-      color:var(--ink);
-      border-color:var(--line);
-      box-shadow:var(--shadow-soft);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border-color:rgba(255,255,255,.10);
     }
 
     .btn-secondary:hover{
       transform:translateY(-2px);
-      color:var(--accent);
+      background:rgba(255,255,255,.12);
     }
 
-    .hero-info-row{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:8px;
+    .hero-quote{
+      position:relative;
+      z-index:1;
+      max-width:520px;
+      padding-left:22px;
+      border-left:1px solid rgba(255,255,255,.16);
+      color:rgba(255,241,232,.68);
+      font-size:.98rem;
     }
 
-    .hero-info{
-      background:rgba(255,255,255,.74);
-      border:1px solid rgba(203,180,155,.48);
-      border-radius:22px;
-      padding:18px 16px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .hero-info span{
-      display:block;
-      font-size:.76rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:8px;
-    }
-
-    .hero-info strong{
-      font-family:"DM Serif Display",serif;
-      font-size:1.45rem;
-      line-height:1.05;
-      color:#3f312d;
-      font-weight:400;
-    }
-
-    .hero-right{
+    .hero-media{
       display:grid;
       grid-template-rows:1fr auto;
       gap:18px;
-      min-height:710px;
+      min-height:720px;
     }
 
     .hero-photo{
       position:relative;
-      border-radius:40px;
+      border-radius:34px;
       overflow:hidden;
-      background:#e8ddd1;
-      border:1px solid rgba(203,180,155,.52);
-      box-shadow:var(--shadow);
       min-height:560px;
+      border:1px solid rgba(255,255,255,.10);
+      background:#3b2c27;
       cursor:pointer;
     }
 
@@ -392,8 +377,8 @@
       content:"";
       position:absolute;
       inset:14px;
-      border:1px solid rgba(255,255,255,.52);
-      border-radius:28px;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:24px;
       pointer-events:none;
       z-index:2;
     }
@@ -403,126 +388,126 @@
       height:100%;
       object-fit:cover;
       object-position:center;
+      filter:saturate(.98);
     }
 
-    .hero-bottom{
+    .hero-cards{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:18px;
     }
 
-    .hero-tile{
-      background:var(--panel);
-      border:1px solid var(--line);
+    .hero-card{
       border-radius:24px;
       padding:22px;
-      box-shadow:var(--shadow-soft);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
     }
 
-    .hero-tile strong{
+    .hero-card span{
       display:block;
-      font-family:"DM Serif Display",serif;
+      font-size:.74rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:rgba(255,241,232,.56);
+      margin-bottom:10px;
+    }
+
+    .hero-card strong{
+      display:block;
+      font-family:"Forum",serif;
       font-size:1.8rem;
       line-height:1;
-      color:var(--accent);
+      color:#f2dfcf;
       font-weight:400;
       margin-bottom:10px;
     }
 
-    .hero-tile p{
-      color:var(--ink-soft);
-      font-size:.95rem;
+    .hero-card p{
+      color:rgba(255,241,232,.68);
+      font-size:.94rem;
     }
 
-    /* sections */
+    /* section base */
     section{
-      padding:88px 0;
+      padding:92px 0;
     }
 
-    .section-box{
+    .section-wrap{
       position:relative;
-      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(251,247,242,.98));
-      border:1px solid rgba(203,180,155,.52);
-      border-radius:36px;
-      padding:36px;
+      background:linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+      color:var(--text);
+      border-radius:38px;
+      border:1px solid rgba(219,201,184,.82);
       box-shadow:var(--shadow-soft);
+      padding:38px;
       overflow:hidden;
     }
 
-    .section-box.dark{
-      background:linear-gradient(180deg, #2b211f, #1f1817);
-      border-color:rgba(255,255,255,.08);
-      color:#f7eee7;
+    .section-wrap.alt{
+      background:linear-gradient(180deg, var(--surface-3) 0%, var(--surface) 100%);
     }
 
-    .section-box.dark .section-kicker{
-      color:#ccb49a;
-    }
-
-    .section-box.dark .section-title{
-      color:#fff4ec;
-    }
-
-    .section-box.dark .section-desc{
-      color:#d8c8bc;
-    }
-
-    .section-box::before{
+    .section-wrap::before{
       content:"";
       position:absolute;
       inset:16px;
-      border:1px solid rgba(227,216,203,.75);
+      border:1px solid rgba(200,174,147,.38);
       border-radius:28px;
       pointer-events:none;
-    }
-
-    .section-box.dark::before{
-      border-color:rgba(255,255,255,.08);
     }
 
     .section-head{
       position:relative;
       z-index:2;
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:26px;
+      align-items:start;
+      margin-bottom:34px;
+    }
+
+    .section-side{
       display:flex;
-      justify-content:space-between;
-      gap:22px;
-      align-items:flex-end;
-      margin-bottom:30px;
-      padding-bottom:16px;
-      border-bottom:1px solid rgba(203,180,155,.42);
+      flex-direction:column;
+      gap:10px;
     }
 
-    .section-box.dark .section-head{
-      border-bottom-color:rgba(255,255,255,.08);
-    }
-
-    .section-kicker{
+    .section-side span{
       font-size:.8rem;
       letter-spacing:4px;
       text-transform:uppercase;
       color:var(--accent);
-      margin-bottom:8px;
-      display:block;
     }
 
-    .section-title{
-      font-family:"DM Serif Display",serif;
-      font-size:clamp(2.8rem, 4vw, 4.8rem);
-      line-height:.95;
-      color:#382c28;
+    .section-side strong{
+      font-family:"Forum",serif;
+      font-size:4.8rem;
+      line-height:.78;
+      color:rgba(185,141,104,.34);
       font-weight:400;
     }
 
-    .section-desc{
-      max-width:620px;
-      color:var(--ink-soft);
-      font-size:1rem;
-      text-align:right;
+    .section-main h2{
+      font-family:"Forum",serif;
+      font-size:clamp(3rem, 4vw, 5.2rem);
+      line-height:.92;
+      color:#3d2f2b;
+      font-weight:400;
+      margin-bottom:12px;
     }
 
-    .section-desc.left{
-      text-align:left;
-      max-width:760px;
+    .section-main p{
+      max-width:820px;
+      color:var(--text-soft);
+      font-size:1rem;
+    }
+
+    .section-line{
+      width:150px;
+      height:2px;
+      margin-top:18px;
+      background:linear-gradient(90deg,var(--accent),transparent);
     }
 
     .two-col{
@@ -549,39 +534,39 @@
       z-index:2;
     }
 
-    .text-panel{
-      background:var(--panel);
+    .text-card{
+      background:#fff;
       border:1px solid var(--line);
-      border-radius:28px;
+      border-radius:30px;
       padding:30px 28px;
       box-shadow:var(--shadow-soft);
     }
 
-    .text-panel h3{
-      font-family:"DM Serif Display",serif;
-      font-size:2rem;
+    .text-card h3{
+      font-family:"Forum",serif;
+      font-size:2.2rem;
       line-height:1;
-      margin-bottom:16px;
-      color:#3a2d29;
+      color:#3f302b;
       font-weight:400;
+      margin-bottom:16px;
     }
 
-    .text-panel p{
-      color:var(--ink-soft);
+    .text-card p{
+      color:var(--text-soft);
       margin-bottom:14px;
     }
 
     .placeholder{
       position:relative;
       min-height:360px;
-      border-radius:28px;
+      border-radius:30px;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       padding:24px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.98), rgba(245,238,229,.98));
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(245,236,225,.98));
       border:1px solid var(--line);
       box-shadow:var(--shadow-soft);
       overflow:hidden;
@@ -591,61 +576,29 @@
       content:"";
       position:absolute;
       inset:10px;
-      border:1px solid rgba(203,180,155,.42);
+      border:1px solid rgba(200,174,147,.38);
       border-radius:20px;
       pointer-events:none;
     }
 
     .placeholder strong{
       display:block;
-      font-family:"DM Serif Display",serif;
-      font-size:2.2rem;
+      font-family:"Forum",serif;
+      font-size:2.4rem;
       line-height:1;
       color:var(--accent);
-      margin-bottom:8px;
       font-weight:400;
+      margin-bottom:8px;
     }
 
     .placeholder span{
       color:var(--muted);
     }
 
-    .feature-strip{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      margin-top:22px;
-    }
-
-    .feature-box{
-      background:rgba(255,255,255,.72);
-      border:1px solid rgba(203,180,155,.42);
-      border-radius:22px;
-      padding:18px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .feature-box span{
-      display:block;
-      font-size:.74rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:8px;
-    }
-
-    .feature-box strong{
-      font-family:"DM Serif Display",serif;
-      font-size:1.35rem;
-      line-height:1.05;
-      color:#3c2f2b;
-      font-weight:400;
-    }
-
     .dog-card{
-      background:var(--panel);
+      background:#fff;
       border:1px solid var(--line);
-      border-radius:28px;
+      border-radius:30px;
       overflow:hidden;
       box-shadow:var(--shadow-soft);
       transition:.22s ease;
@@ -661,19 +614,19 @@
 
     .dog-image{
       position:relative;
-      height:340px;
+      height:350px;
       border-radius:22px;
       overflow:hidden;
       cursor:pointer;
       background:center/cover no-repeat;
-      border:1px solid rgba(203,180,155,.48);
+      border:1px solid rgba(200,174,147,.44);
     }
 
     .dog-image::before{
       content:"";
       position:absolute;
       inset:8px;
-      border:1px solid rgba(255,255,255,.46);
+      border:1px solid rgba(255,255,255,.48);
       border-radius:15px;
       pointer-events:none;
     }
@@ -708,12 +661,12 @@
     }
 
     .dog-body h3{
-      font-family:"DM Serif Display",serif;
-      font-size:2rem;
+      font-family:"Forum",serif;
+      font-size:2.1rem;
       line-height:1;
-      color:#3c2f2b;
-      margin-bottom:10px;
+      color:#3d2f2b;
       font-weight:400;
+      margin-bottom:10px;
     }
 
     .chips{
@@ -727,81 +680,81 @@
     .chip{
       padding:7px 12px;
       border-radius:999px;
-      background:rgba(185,147,100,.10);
-      border:1px solid rgba(185,147,100,.12);
-      color:var(--ink-soft);
+      background:rgba(185,141,104,.10);
+      border:1px solid rgba(185,141,104,.12);
+      color:var(--text-soft);
       font-size:.79rem;
     }
 
     .dog-body p{
-      color:var(--ink-soft);
+      color:var(--text-soft);
       font-size:.95rem;
     }
 
-    .mini-card{
-      background:var(--panel);
+    .title-card{
+      background:#fff;
       border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px 20px;
+      border-radius:26px;
+      padding:28px 20px;
       box-shadow:var(--shadow-soft);
       text-align:center;
     }
 
-    .mini-card .icon{
-      width:58px;
-      height:58px;
+    .title-card .icon{
+      width:60px;
+      height:60px;
       margin:0 auto 14px;
       border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-family:"DM Serif Display",serif;
-      font-size:1.45rem;
+      font-family:"Forum",serif;
+      font-size:1.55rem;
       color:var(--accent);
-      background:linear-gradient(135deg, rgba(185,147,100,.12), rgba(255,255,255,.8));
-      border:1px solid rgba(203,180,155,.42);
+      background:linear-gradient(135deg, rgba(185,141,104,.12), rgba(255,255,255,.8));
+      border:1px solid rgba(200,174,147,.38);
     }
 
-    .mini-card h3{
-      font-family:"DM Serif Display",serif;
-      font-size:1.8rem;
+    .title-card h3{
+      font-family:"Forum",serif;
+      font-size:1.9rem;
       line-height:1;
-      color:#3a2d29;
-      margin-bottom:8px;
+      color:#3d2f2b;
       font-weight:400;
+      margin-bottom:8px;
     }
 
-    .mini-card p{
-      color:var(--ink-soft);
+    .title-card p{
+      color:var(--text-soft);
       font-size:.94rem;
     }
 
     .simple-card{
-      background:var(--panel);
+      background:#fff;
       border:1px solid var(--line);
-      border-radius:24px;
+      border-radius:26px;
       padding:28px 22px;
       box-shadow:var(--shadow-soft);
       text-align:center;
     }
 
     .simple-card h3{
-      font-family:"DM Serif Display",serif;
-      font-size:1.95rem;
+      font-family:"Forum",serif;
+      font-size:2rem;
       line-height:1;
-      color:#3a2d29;
-      margin-bottom:10px;
+      color:#3d2f2b;
       font-weight:400;
+      margin-bottom:10px;
     }
 
     .simple-card p{
-      color:var(--ink-soft);
+      color:var(--text-soft);
     }
 
     /* contact */
     .contact-layout{
       display:grid;
-      grid-template-columns:.94fr 1.06fr;
+      grid-template-columns:.95fr 1.05fr;
       gap:24px;
       position:relative;
       z-index:2;
@@ -809,33 +762,33 @@
 
     .contact-card,
     .form-card{
-      background:var(--panel);
+      background:#fff;
       border:1px solid var(--line);
-      border-radius:28px;
+      border-radius:30px;
       padding:28px;
       box-shadow:var(--shadow-soft);
     }
 
     .contact-card h3,
     .form-card h3{
-      font-family:"DM Serif Display",serif;
-      font-size:2.3rem;
+      font-family:"Forum",serif;
+      font-size:2.4rem;
       line-height:1;
-      color:#3a2d29;
-      margin-bottom:14px;
+      color:#3d2f2b;
       font-weight:400;
+      margin-bottom:14px;
     }
 
     .contact-card p,
     .form-card p{
-      color:var(--ink-soft);
+      color:var(--text-soft);
       margin-bottom:20px;
     }
 
     .contact-note{
-      font-family:"DM Serif Display",serif;
+      font-family:"Forum",serif;
       font-style:italic;
-      font-size:1.35rem;
+      font-size:1.4rem;
       color:var(--accent);
       margin-bottom:18px;
     }
@@ -852,7 +805,7 @@
       justify-content:center;
       text-align:center;
       border-radius:18px;
-      background:linear-gradient(180deg,#fff,#f8f2eb);
+      background:linear-gradient(180deg,#fff,#f8f0e8);
       border:1px solid var(--line);
       color:#4d413d;
       font-weight:600;
@@ -877,7 +830,7 @@
       border:1px solid var(--line);
       border-radius:16px;
       padding:15px 16px;
-      color:var(--ink-soft);
+      color:var(--text-soft);
     }
 
     .contact-list strong{
@@ -935,7 +888,7 @@
       font-weight:700;
       letter-spacing:.4px;
       border-radius:18px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      background:linear-gradient(135deg,var(--accent-deep),var(--accent));
       box-shadow:0 12px 24px rgba(142,107,69,.18);
       position:relative;
       cursor:pointer;
@@ -1073,7 +1026,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      background:linear-gradient(135deg,var(--accent-deep),var(--accent));
       color:#fff;
       box-shadow:0 10px 20px rgba(60,48,45,.12);
       transition:.22s ease;
@@ -1111,7 +1064,7 @@
     .footer{
       padding:28px 0 44px;
       text-align:center;
-      color:var(--muted);
+      color:rgba(255,241,232,.48);
       font-size:.92rem;
     }
 
@@ -1131,8 +1084,8 @@
         grid-template-columns:repeat(2,1fr);
       }
 
-      .hero-left,
-      .hero-right{
+      .hero-copy,
+      .hero-media{
         min-height:auto;
       }
 
@@ -1143,7 +1096,7 @@
 
     @media (max-width:980px){
       .desktop-nav,
-      .header-badge{
+      .header-mark{
         display:none;
       }
 
@@ -1156,20 +1109,21 @@
       }
 
       .section-head{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .section-desc{
-        text-align:left;
-        max-width:100%;
-      }
-
-      .hero-bottom{
         grid-template-columns:1fr;
+        gap:14px;
       }
 
-      .feature-strip{
+      .section-side{
+        flex-direction:row;
+        align-items:flex-end;
+        gap:14px;
+      }
+
+      .section-side strong{
+        font-size:3.2rem;
+      }
+
+      .hero-cards{
         grid-template-columns:1fr;
       }
     }
@@ -1184,7 +1138,7 @@
       }
 
       .brand-title{
-        font-size:1.95rem;
+        font-size:2rem;
       }
 
       .brand-sub{
@@ -1192,26 +1146,31 @@
         letter-spacing:1.6px;
       }
 
-      .hero-left{
+      .hero-shell{
+        padding:16px;
+      }
+
+      .hero-copy{
         padding:34px 22px;
         min-height:auto;
       }
 
       .hero-title{
-        font-size:3rem;
+        font-size:3.2rem;
       }
 
-      .hero-photo{
-        min-height:380px;
-      }
-
-      .section-box{
-        padding:22px 16px 24px;
-      }
-
+      .hero-info-row,
       .grid-3,
       .grid-4{
         grid-template-columns:1fr;
+      }
+
+      .hero-photo{
+        min-height:400px;
+      }
+
+      .section-wrap{
+        padding:22px 16px 24px;
       }
 
       .dog-image{
@@ -1260,7 +1219,7 @@
           <a href="#kontakt">Kontakt</a>
         </nav>
 
-        <div class="header-badge">strona hodowli</div>
+        <div class="header-mark">strona hodowli</div>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu">
           <span></span>
@@ -1287,54 +1246,47 @@
   <main id="start">
     <section class="hero reveal">
       <div class="container">
-        <div class="hero-grid">
-          <div class="hero-left">
-            <span class="hero-mini">elegancja • pasja • hodowla z sercem</span>
+        <div class="hero-shell">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="hero-kicker">elegancja • pasja • hodowla z sercem</span>
 
-            <h1 class="hero-title">
-              Hodowla psów <em>chihuahua</em><br>
-              i <em>gończy węgierski</em><br>
-              stworzona z pasji i serca
-            </h1>
+              <h1 class="hero-title">
+                Hodowla psów <span class="soft">chihuahua</span><br>
+                i <span class="soft">gończy węgierski</span><br>
+                stworzona z pasji i serca
+              </h1>
 
-            <p class="hero-text">
-              Witamy w naszej hodowli. To miejsce stworzone z miłości do psów, z naciskiem na chihuahua i gończego węgierskiego, ich piękno, charakter i bliskość z człowiekiem.
-            </p>
+              <p class="hero-text">
+                Witamy w naszej hodowli. To miejsce stworzone z miłości do psów, z naciskiem na chihuahua i gończego węgierskiego, ich piękno, charakter i bliskość z człowiekiem.
+              </p>
 
-            <div class="hero-actions">
-              <a href="#szczeniaki" class="btn btn-primary">Zobacz szczeniaki</a>
-              <a href="#kontakt" class="btn btn-secondary">Skontaktuj się</a>
-            </div>
-
-            <div class="hero-info-row">
-              <div class="hero-info">
-                <span>styl hodowli</span>
-                <strong>domowa i pełna serca</strong>
+              <div class="hero-actions">
+                <a href="#szczeniaki" class="btn btn-primary">Zobacz szczeniaki</a>
+                <a href="#kontakt" class="btn btn-secondary">Skontaktuj się</a>
               </div>
-              <div class="hero-info">
-                <span>nasze rasy</span>
-                <strong>chihuahua i gończy węgierski</strong>
-              </div>
-              <div class="hero-info">
-                <span>kontakt</span>
-                <strong>szybko, bezpośrednio i wygodnie</strong>
+
+              <div class="hero-quote">
+                Tworzymy miejsce spokojne, eleganckie i pełne ciepła, w którym liczy się jakość, charakter i prawdziwa relacja ze zwierzęciem.
               </div>
             </div>
-          </div>
 
-          <div class="hero-right">
-            <div class="hero-photo zoomable" data-image="images/diana/file_00000000b5047246ada223a273d4bb12.png" data-caption="Akwamaryn Dogs — zdjęcie główne">
-              <img src="images/diana/file_00000000b5047246ada223a273d4bb12.png" alt="Akwamaryn Dogs - zdjęcie główne">
-            </div>
-
-            <div class="hero-bottom">
-              <div class="hero-tile">
-                <strong>Akwamaryn Dogs</strong>
-                <p>Miłość, pasja i jakość tworzone z serca.</p>
+            <div class="hero-media">
+              <div class="hero-photo zoomable" data-image="images/diana/file_00000000b5047246ada223a273d4bb12.png" data-caption="Akwamaryn Dogs — zdjęcie główne">
+                <img src="images/diana/file_00000000b5047246ada223a273d4bb12.png" alt="Akwamaryn Dogs - zdjęcie główne">
               </div>
-              <div class="hero-tile">
-                <strong>Premium look</strong>
-                <p>Nowa odsłona strony z całkowicie innym charakterem niż wcześniejsze wersje.</p>
+
+              <div class="hero-cards">
+                <div class="hero-card">
+                  <span>nasz świat</span>
+                  <strong>Akwamaryn Dogs</strong>
+                  <p>Miłość, pasja i jakość tworzone z serca.</p>
+                </div>
+                <div class="hero-card">
+                  <span>charakter strony</span>
+                  <strong>nowa odsłona</strong>
+                  <p>Całkiem inny klimat niż wcześniejsze wersje.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -1344,17 +1296,21 @@
 
     <section id="o-nas" class="reveal">
       <div class="container">
-        <div class="section-box">
+        <div class="section-wrap">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">poznaj nas</span>
-              <h2 class="section-title">O nas</h2>
+            <div class="section-side">
+              <span>poznaj nas</span>
+              <strong>01</strong>
             </div>
-            <p class="section-desc">Domowa hodowla, w której liczy się jakość, zdrowie, charakter i piękno. Tworzymy miejsce pełne troski, klasy i prawdziwej miłości do psów.</p>
+            <div class="section-main">
+              <h2>O nas</h2>
+              <p>Domowa hodowla, w której liczy się jakość, zdrowie, charakter i piękno. Tworzymy miejsce pełne troski, klasy i prawdziwej miłości do psów.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="two-col">
-            <div class="text-panel">
+            <div class="text-card">
               <h3>Nasza historia</h3>
               <p>Nasza hodowla powstała z pasji do wyjątkowych ras i miłości do codziennego życia z psami. Największy nacisk kładziemy na chihuahua, ale ogromne miejsce w naszym sercu zajmuje także gończy węgierski.</p>
               <p>Nasze psy wychowują się blisko człowieka, w spokojnym i pełnym ciepła domu. Dbamy o ich zdrowie, socjalizację, piękny wygląd oraz zrównoważony charakter.</p>
@@ -1368,34 +1324,23 @@
               </div>
             </div>
           </div>
-
-          <div class="feature-strip">
-            <div class="feature-box">
-              <span>priorytet</span>
-              <strong>zdrowie i charakter</strong>
-            </div>
-            <div class="feature-box">
-              <span>codzienność</span>
-              <strong>blisko człowieka</strong>
-            </div>
-            <div class="feature-box">
-              <span>wartości</span>
-              <strong>jakość i zaufanie</strong>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <section id="psy" class="reveal">
       <div class="container">
-        <div class="section-box dark">
+        <div class="section-wrap alt">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">nasza duma</span>
-              <h2 class="section-title">Psy w hodowli</h2>
+            <div class="section-side">
+              <span>nasza duma</span>
+              <strong>02</strong>
             </div>
-            <p class="section-desc">Tutaj możesz pokazać swoich reproduktorów, opisać ich charakter, pochodzenie, tytuły oraz wszystko, co czyni ich wyjątkowymi.</p>
+            <div class="section-main">
+              <h2>Psy w hodowli</h2>
+              <p>Tutaj możesz pokazać swoich reproduktorów, opisać ich charakter, pochodzenie, tytuły oraz wszystko, co czyni ich wyjątkowymi.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="grid-3">
@@ -1424,13 +1369,17 @@
 
     <section id="suczki" class="reveal">
       <div class="container">
-        <div class="section-box">
+        <div class="section-wrap">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">nasze suczki</span>
-              <h2 class="section-title">Nasze suczki</h2>
+            <div class="section-side">
+              <span>nasze suczki</span>
+              <strong>03</strong>
             </div>
-            <p class="section-desc">To one tworzą serce hodowli. Możesz tu pokazać swoje dziewczynki, ich opisy, linie oraz indywidualny urok.</p>
+            <div class="section-main">
+              <h2>Nasze suczki</h2>
+              <p>To one tworzą serce hodowli. Możesz tu pokazać swoje dziewczynki, ich opisy, linie oraz indywidualny urok.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="grid-3">
@@ -1475,13 +1424,17 @@
 
     <section id="szczeniaki" class="reveal">
       <div class="container">
-        <div class="section-box">
+        <div class="section-wrap alt">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">maluszki</span>
-              <h2 class="section-title">Szczeniaki</h2>
+            <div class="section-side">
+              <span>maluszki</span>
+              <strong>04</strong>
             </div>
-            <p class="section-desc">Sekcja na aktualne lub planowane mioty, z informacją o dostępności, krótkim opisem i pięknymi zdjęciami.</p>
+            <div class="section-main">
+              <h2>Szczeniaki</h2>
+              <p>Sekcja na aktualne lub planowane mioty, z informacją o dostępności, krótkim opisem i pięknymi zdjęciami.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="grid-3">
@@ -1510,32 +1463,36 @@
 
     <section id="tytuly" class="reveal">
       <div class="container">
-        <div class="section-box dark">
+        <div class="section-wrap">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">osiągnięcia</span>
-              <h2 class="section-title">Nasze tytuły</h2>
+            <div class="section-side">
+              <span>osiągnięcia</span>
+              <strong>05</strong>
             </div>
-            <p class="section-desc">Tutaj możesz wpisać championaty, zwycięstwa wystawowe oraz najważniejsze sukcesy swoich psów.</p>
+            <div class="section-main">
+              <h2>Nasze tytuły</h2>
+              <p>Tutaj możesz wpisać championaty, zwycięstwa wystawowe oraz najważniejsze sukcesy swoich psów.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="grid-4">
-            <div class="mini-card">
+            <div class="title-card">
               <div class="icon">✦</div>
               <h3>Champion Polski</h3>
               <p>Tu możesz wpisać imię psa i informacje o zdobytym tytule.</p>
             </div>
-            <div class="mini-card">
+            <div class="title-card">
               <div class="icon">✦</div>
               <h3>Młodzieżowy Champion</h3>
               <p>Miejsce na sukcesy młodszych psów z Twojej hodowli.</p>
             </div>
-            <div class="mini-card">
+            <div class="title-card">
               <div class="icon">✦</div>
               <h3>Zwycięzca Rasy</h3>
               <p>Dodaj najważniejsze sukcesy wystawowe i wyróżnienia.</p>
             </div>
-            <div class="mini-card">
+            <div class="title-card">
               <div class="icon">✦</div>
               <h3>Nasza duma</h3>
               <p>Możesz wpisać tu osiągnięcie, z którego jesteś najbardziej dumna.</p>
@@ -1547,13 +1504,17 @@
 
     <section id="plany" class="reveal">
       <div class="container">
-        <div class="section-box">
+        <div class="section-wrap alt">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">przyszłość hodowli</span>
-              <h2 class="section-title">Plany hodowlane</h2>
+            <div class="section-side">
+              <span>przyszłość hodowli</span>
+              <strong>06</strong>
             </div>
-            <p class="section-desc">Profesjonalna sekcja, która bardzo podnosi poziom strony. Możesz tu pokazać planowane skojarzenia i przyszłe kierunki hodowli.</p>
+            <div class="section-main">
+              <h2>Plany hodowlane</h2>
+              <p>Profesjonalna sekcja, która bardzo podnosi poziom strony. Możesz tu pokazać planowane skojarzenia i przyszłe kierunki hodowli.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="grid-3">
@@ -1590,13 +1551,17 @@
 
     <section id="wychowanki" class="reveal">
       <div class="container">
-        <div class="section-box">
+        <div class="section-wrap">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">nasze wychowanki</span>
-              <h2 class="section-title">Nasze wychowanki</h2>
+            <div class="section-side">
+              <span>nasze wychowanki</span>
+              <strong>07</strong>
             </div>
-            <p class="section-desc">Jedna z najpiękniejszych sekcji. Możesz tu pokazać psy, które pojechały do nowych, kochających rodzin.</p>
+            <div class="section-main">
+              <h2>Nasze wychowanki</h2>
+              <p>Jedna z najpiękniejszych sekcji. Możesz tu pokazać psy, które pojechały do nowych, kochających rodzin.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="grid-3">
@@ -1625,13 +1590,17 @@
 
     <section id="opinie" class="reveal">
       <div class="container">
-        <div class="section-box">
+        <div class="section-wrap alt">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">zaufanie</span>
-              <h2 class="section-title">Opinie</h2>
+            <div class="section-side">
+              <span>zaufanie</span>
+              <strong>08</strong>
             </div>
-            <p class="section-desc">Ta sekcja bardzo wzmacnia wiarygodność strony. Możesz wkleić tu prawdziwe opinie osób, które mają Twoje szczenięta.</p>
+            <div class="section-main">
+              <h2>Opinie</h2>
+              <p>Ta sekcja bardzo wzmacnia wiarygodność strony. Możesz wkleić tu prawdziwe opinie osób, które mają Twoje szczenięta.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="grid-3">
@@ -1654,13 +1623,17 @@
 
     <section id="kontakt" class="reveal">
       <div class="container">
-        <div class="section-box">
+        <div class="section-wrap">
           <div class="section-head">
-            <div>
-              <span class="section-kicker">napisz do nas</span>
-              <h2 class="section-title">Kontakt</h2>
+            <div class="section-side">
+              <span>napisz do nas</span>
+              <strong>09</strong>
             </div>
-            <p class="section-desc">Jeśli chcesz dowiedzieć się więcej o naszych psach, planowanych miotach lub dostępnych szczeniętach, zapraszamy do kontaktu.</p>
+            <div class="section-main">
+              <h2>Kontakt</h2>
+              <p>Jeśli chcesz dowiedzieć się więcej o naszych psach, planowanych miotach lub dostępnych szczeniętach, zapraszamy do kontaktu.</p>
+              <div class="section-line"></div>
+            </div>
           </div>
 
           <div class="contact-layout">
