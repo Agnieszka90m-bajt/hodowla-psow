@@ -1,61 +1,270 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/style.css">
+<title>Aktualny miot – Akwamaryn PL Dogs</title>
 
-  <title>Aktualny miot</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Montserrat', sans-serif;
+color:#fff;
+background:#0f0f0f;
+}
+
+/* MENU */
+.topbar{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.topbar-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+}
+
+.brand{
+font-family:'Cormorant Garamond', serif;
+font-size:24px;
+}
+
+.menu{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.menu a{
+color:#fff;
+text-decoration:none;
+font-size:13px;
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+padding:120px 20px 40px;
+background:
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
+}
+
+.box{
+max-width:1000px;
+margin:auto;
+background:rgba(0,0,0,0.6);
+padding:30px;
+border-radius:14px;
+}
+
+h1{
+font-family:'Cormorant Garamond', serif;
+font-size:42px;
+text-align:center;
+margin-bottom:20px;
+}
+
+p{
+line-height:1.8;
+margin-bottom:15px;
+}
+
+/* ZŁOTE */
+.gold{color:#d9b36a;}
+
+/* SEKCJE */
+.section{
+margin-top:20px;
+border:1px solid rgba(255,255,255,0.1);
+border-radius:12px;
+overflow:hidden;
+}
+
+.section-header{
+cursor:pointer;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.05);
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:18px;
+}
+
+.section-content{
+display:none;
+padding:20px;
+}
+
+.section.open .section-content{
+display:block;
+}
+
+.toggle{
+font-size:14px;
+}
+
+/* MIOTY */
+.litters{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+margin-top:15px;
+}
+
+.litter{
+border:1px solid rgba(255,255,255,0.1);
+border-radius:12px;
+padding:15px;
+background:rgba(255,255,255,0.05);
+}
+
+.litter h3{
+font-family:'Cormorant Garamond', serif;
+margin-bottom:10px;
+}
+
+.placeholder{
+height:150px;
+border-radius:10px;
+border:1px dashed rgba(255,255,255,0.2);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+opacity:0.7;
+}
+
+/* BUTTON */
+.btn{
+margin-top:20px;
+padding:12px;
+border:none;
+border-radius:10px;
+background:rgba(255,255,255,0.15);
+color:#fff;
+cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.litters{grid-template-columns:1fr;}
+}
+</style>
 </head>
 
 <body>
 
-<!-- MENU -->
+<div class="topbar">
+<div class="topbar-inner">
+<div class="brand">Akwamaryn PL Dogs</div>
 <div class="menu">
-  <a href="index.html">Start</a>
-  <a href="o-nas.html">O nas</a>
-  <a href="psy.html">Psy</a>
-  <a href="suczki.html">Suczki</a>
-  <a href="szczeniaki.html">Szczeniaki</a>
-  <a href="miot.html">Aktualny miot</a>
-  <a href="wystawy.html">Wystawy</a>
-  <a href="sukcesy.html">Sukcesy</a>
-  <a href="wychowanki.html">Wychowanki</a>
-  <a href="kontakt.html">Kontakt</a>
+<a href="index.html">Start</a>
+<a href="miot.html">Aktualny miot</a>
+<a href="kontakt.html">Kontakt</a>
+</div>
+</div>
 </div>
 
-<!-- SEKCJA -->
 <section class="hero">
+<div class="box">
 
-  <div class="box">
+<h1>Aktualny <span class="gold">miot</span></h1>
 
-    <h1>Aktualny miot</h1>
+<p>
+W tej zakładce prezentujemy nasze aktualne szczeniaczki. Każdy miot to dla nas wyjątkowy czas, pełen emocji, troski i ogromnej radości. 
+Dbamy o to, aby maluchy od pierwszych dni życia rozwijały się w spokojnym, domowym środowisku, były odpowiednio socjalizowane i przygotowane do życia w nowych domach.
+</p>
 
-    <div class="subtitle">
-      dostępne szczeniaki
-    </div>
+<p>
+Znajdziesz tutaj informacje o dostępnych miotach oraz zdjęcia naszych szczeniąt.
+</p>
 
-    <p>
-      W naszej hodowli pojawił się wyjątkowy miot.
-      Szczeniaki wychowują się w domu, w bliskim kontakcie z człowiekiem,
-      co wpływa na ich charakter i przyszłe relacje.
-    </p>
+<!-- GOŃCZY -->
+<div class="section open">
+<div class="section-header" onclick="toggleSection(this)">
+<div class="section-title">
+<i class="fa-solid fa-dog gold"></i>
+Gończy węgierski
+</div>
+<div class="toggle">✓ Zwiń</div>
+</div>
 
-    <p>
-      Każdy maluszek opuszcza naszą hodowlę odpowiednio przygotowany,
-      z pełną opieką i socjalizacją.
-    </p>
+<div class="section-content">
 
-    <br>
+<div class="litters">
+<div class="litter"><h3>Miot A</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+<div class="litter"><h3>Miot B</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+<div class="litter"><h3>Miot C</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+<div class="litter"><h3>Miot D</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+<div class="litter"><h3>Miot E</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+</div>
 
-    <a href="kontakt.html">
-      <button>Zapytaj o dostępność</button>
-    </a>
+<button class="btn" onclick="closeSection(this)">✓ Zwiń</button>
 
-  </div>
+</div>
+</div>
 
+<!-- CHIHUAHUA -->
+<div class="section">
+<div class="section-header" onclick="toggleSection(this)">
+<div class="section-title">
+<i class="fa-solid fa-paw gold"></i>
+Chihuahua
+</div>
+<div class="toggle">✓ Rozwiń</div>
+</div>
+
+<div class="section-content">
+
+<div class="litters">
+<div class="litter"><h3>Miot A</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+<div class="litter"><h3>Miot B</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+<div class="litter"><h3>Miot C</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+<div class="litter"><h3>Miot D</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+<div class="litter"><h3>Miot E</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
+</div>
+
+<button class="btn" onclick="closeSection(this)">✓ Zwiń</button>
+
+</div>
+</div>
+
+</div>
 </section>
+
+<script>
+function toggleSection(el){
+const section = el.parentElement;
+section.classList.toggle("open");
+
+const text = el.querySelector(".toggle");
+text.innerText = section.classList.contains("open") ? "✓ Zwiń" : "✓ Rozwiń";
+}
+
+function closeSection(btn){
+const section = btn.closest(".section");
+section.classList.remove("open");
+section.querySelector(".toggle").innerText="✓ Rozwiń";
+}
+</script>
 
 </body>
 </html>
