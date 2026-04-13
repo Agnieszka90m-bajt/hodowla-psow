@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Nasze wychowanki</title>
+
+  <style>
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .gallery-item{
+      text-align:center;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:14px;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .gallery img:hover{
+      transform:scale(1.05);
+    }
+
+    .caption{
+      margin-top:10px;
+      font-size:14px;
+      color:rgba(255,255,255,0.7);
+    }
+
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.95);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:2000;
+    }
+
+    .lightbox img{
+      max-width:90%;
+      max-height:90%;
+      border-radius:12px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+  <a href="index.html">Start</a>
+  <a href="o-nas.html">O nas</a>
+  <a href="psy.html">Psy</a>
+  <a href="suczki.html">Suczki</a>
+  <a href="szczeniaki.html">Szczeniaki</a>
+  <a href="miot.html">Aktualny miot</a>
+  <a href="wystawy.html">Wystawy</a>
+  <a href="sukcesy.html">Sukcesy</a>
+  <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<section class="hero">
+
+  <div class="box">
+
+    <h1>Nasze wychowanki</h1>
+
+    <div class="subtitle">
+      psy, które były częścią naszej hodowli
+    </div>
+
+    <p>
+      Tutaj prezentujemy psy, które urodziły się, wychowały lub były częścią naszej hodowli.
+      Każdy z nich to część naszej historii i pracy hodowlanej.
+    </p>
+
+    <!-- GALERIA -->
+    <div class="gallery">
+
+      <!-- 🔥 DODAJ SWOJE ZDJĘCIA -->
+      <div class="gallery-item">
+        <img src="images/diana/file_00000000c21871fda440cb45f0f95a0c.png" onclick="openImg(this.src)">
+        <div class="caption">Imię psa</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/diana/file_00000000b5047246ada223a273d4bb12.png" onclick="openImg(this.src)">
+        <div class="caption">Imię psa</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+  <img id="lightbox-img">
+</div>
+
+<script>
+function openImg(src){
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightbox-img").src=src;
+}
+
+function closeImg(){
+  document.getElementById("lightbox").style.display="none";
+}
+</script>
+
+</body>
+</html>
