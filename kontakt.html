@@ -159,7 +159,12 @@
       font-weight:500;
       margin-bottom:16px;
       line-height:1;
+      text-align:center;
       text-shadow:0 4px 20px rgba(0,0,0,0.22);
+    }
+
+    .gold{
+      color:#d9b36a;
     }
 
     .lead{
@@ -170,6 +175,7 @@
       color:rgba(255,255,255,0.86);
       line-height:1.5;
       margin-bottom:28px;
+      text-align:center;
     }
 
     .intro{
@@ -178,6 +184,7 @@
       font-size:16px;
       line-height:1.9;
       color:rgba(255,255,255,0.95);
+      text-align:center;
     }
 
     .contact-layout{
@@ -196,13 +203,30 @@
       backdrop-filter:blur(8px);
     }
 
-    .contact-card h2,
-    .form-card h2{
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:12px;
       font-family:'Cormorant Garamond', serif;
       font-size:34px;
       font-weight:500;
       margin-bottom:18px;
       line-height:1;
+    }
+
+    .title-icon{
+      width:40px;
+      height:40px;
+      min-width:40px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(191,155,86,0.14);
+      border:1px solid rgba(191,155,86,0.28);
+      color:#d9b36a;
+      font-size:15px;
+      box-shadow:0 0 18px rgba(191,155,86,0.08);
     }
 
     .contact-list{
@@ -229,11 +253,12 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.10);
-      color:#fff;
+      background:rgba(191,155,86,0.14);
+      border:1px solid rgba(191,155,86,0.28);
+      color:#d9b36a;
       font-size:15px;
       margin-top:2px;
+      box-shadow:0 0 18px rgba(191,155,86,0.08);
     }
 
     .contact-text{
@@ -280,9 +305,17 @@
     }
 
     .field label{
+      display:flex;
+      align-items:center;
+      gap:8px;
       font-size:13px;
       letter-spacing:1px;
       color:rgba(255,255,255,0.86);
+    }
+
+    .field label i{
+      color:#d9b36a;
+      font-size:12px;
     }
 
     .field input,
@@ -306,8 +339,9 @@
 
     .field input:focus,
     .field textarea:focus{
-      border-color:rgba(255,255,255,0.24);
+      border-color:rgba(217,179,106,0.40);
       background:rgba(255,255,255,0.10);
+      box-shadow:0 0 0 3px rgba(217,179,106,0.08);
     }
 
     .field textarea{
@@ -320,17 +354,26 @@
       min-height:54px;
       border:none;
       border-radius:999px;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(191,155,86,0.16);
+      border:1px solid rgba(191,155,86,0.28);
       color:#fff;
       font-size:14px;
       letter-spacing:1px;
       cursor:pointer;
       transition:.25s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .submit-btn i{
+      color:#d9b36a;
+      font-size:13px;
     }
 
     .submit-btn:hover{
-      background:rgba(255,255,255,0.18);
+      background:rgba(191,155,86,0.22);
     }
 
     .submit-btn:disabled{
@@ -345,8 +388,8 @@
       border-radius:12px;
       font-size:14px;
       line-height:1.7;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(191,155,86,0.28);
+      background:rgba(191,155,86,0.10);
       color:#fff;
     }
 
@@ -412,8 +455,7 @@
         margin-bottom:24px;
       }
 
-      .contact-card h2,
-      .form-card h2{
+      .section-title{
         font-size:30px;
       }
     }
@@ -455,7 +497,7 @@
 
   <section class="hero">
     <div class="content">
-      <h1>Kontakt</h1>
+      <h1><span class="gold">Kontakt</span></h1>
 
       <div class="lead">
         Jeśli chcesz się z nami skontaktować, będzie nam naprawdę miło.
@@ -467,7 +509,12 @@
 
       <div class="contact-layout">
         <div class="contact-card">
-          <h2>Dane kontaktowe</h2>
+          <div class="section-title">
+            <div class="title-icon">
+              <i class="fa-solid fa-address-book"></i>
+            </div>
+            <span><span class="gold">Dane</span> kontaktowe</span>
+          </div>
 
           <div class="contact-list">
             <div class="contact-item">
@@ -525,25 +572,42 @@
         </div>
 
         <div class="form-card">
-          <h2>Formularz kontaktowy</h2>
+          <div class="section-title">
+            <div class="title-icon">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <span><span class="gold">Formularz</span> kontaktowy</span>
+          </div>
 
           <form id="contactForm" class="form-grid">
             <div class="field">
-              <label for="name">Imię</label>
+              <label for="name">
+                <i class="fa-solid fa-user"></i>
+                Imię
+              </label>
               <input type="text" id="name" name="name" placeholder="Wpisz swoje imię" required>
             </div>
 
             <div class="field">
-              <label for="email">E-mail</label>
+              <label for="email">
+                <i class="fa-solid fa-envelope"></i>
+                E-mail
+              </label>
               <input type="email" id="email" name="email" placeholder="Wpisz swój adres e-mail" required>
             </div>
 
             <div class="field">
-              <label for="message">Wiadomość</label>
+              <label for="message">
+                <i class="fa-solid fa-pen"></i>
+                Wiadomość
+              </label>
               <textarea id="message" name="message" placeholder="Napisz wiadomość..." required></textarea>
             </div>
 
-            <button type="submit" class="submit-btn" id="submitBtn">Wyślij wiadomość</button>
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Wyślij wiadomość</span>
+            </button>
 
             <div class="form-message" id="formMessage"></div>
           </form>
@@ -570,7 +634,7 @@
       formMessage.classList.remove("show", "error");
       formMessage.textContent = "";
       submitBtn.disabled = true;
-      submitBtn.textContent = "Wysyłanie...";
+      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>Wysyłanie...</span>';
 
       const formData = new FormData(form);
 
@@ -597,7 +661,7 @@
       }
 
       submitBtn.disabled = false;
-      submitBtn.textContent = "Wyślij wiadomość";
+      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>Wyślij wiadomość</span>';
     });
   </script>
 
