@@ -1,26 +1,35 @@
 *{
+  margin:0;
+  padding:0;
   box-sizing:border-box;
 }
 
 body{
-  margin:0;
   font-family:'Montserrat', sans-serif;
   background:#0f0f0f;
   color:white;
+  overflow-x:hidden;
 }
 
 /* HEADER */
 .header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+/* NAV */
+.nav{
+  max-width:1200px;
+  margin:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
-  position:fixed;
-  width:100%;
-  top:0;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+  padding:15px;
 }
 
 .logo{
@@ -28,15 +37,15 @@ body{
   font-size:22px;
 }
 
-/* MENU DESKTOP */
+/* MENU */
 .menu{
   display:flex;
   gap:20px;
 }
 
 .menu a{
-  text-decoration:none;
   color:white;
+  text-decoration:none;
   font-size:14px;
   opacity:0.8;
 }
@@ -62,7 +71,7 @@ body{
   background:#111;
   display:flex;
   flex-direction:column;
-  padding:40px 20px;
+  padding:60px 20px;
   gap:20px;
   transition:0.3s;
 }
@@ -81,6 +90,8 @@ body{
 .hero{
   padding-top:120px;
   text-align:center;
+  max-width:1000px;
+  margin:auto;
 }
 
 .hero h1{
@@ -102,7 +113,7 @@ body{
 
 .hero img{
   width:100%;
-  max-width:600px;
+  max-width:500px;
   margin-top:30px;
   border-radius:14px;
 }
