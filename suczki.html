@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Nasze suczki</title>
+
+  <style>
+    .dogs{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:40px;
+      margin-top:50px;
+    }
+
+    .dog-card{
+      background:rgba(0,0,0,0.5);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 15px 40px rgba(0,0,0,0.4);
+      transition:0.3s;
+    }
+
+    .dog-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .dog-card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+
+    .dog-info{
+      padding:20px;
+    }
+
+    .dog-name{
+      font-size:22px;
+      font-weight:300;
+      margin-bottom:10px;
+    }
+
+    .dog-desc{
+      font-size:14px;
+      color:rgba(255,255,255,0.75);
+      line-height:1.6;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+  <a href="index.html">Start</a>
+  <a href="o-nas.html">O nas</a>
+  <a href="psy.html">Psy</a>
+  <a href="suczki.html">Suczki</a>
+  <a href="szczeniaki.html">Szczeniaki</a>
+  <a href="miot.html">Aktualny miot</a>
+  <a href="wystawy.html">Wystawy</a>
+  <a href="sukcesy.html">Sukcesy</a>
+  <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<section class="hero">
+
+  <div class="box">
+
+    <h1>Nasze suczki</h1>
+
+    <div class="subtitle">
+      serce naszej hodowli
+    </div>
+
+    <p>
+      To właśnie nasze suczki tworzą fundament hodowli.
+      Każda z nich jest wyjątkowa, zarówno pod względem charakteru,
+      jak i pochodzenia.
+    </p>
+
+    <!-- KARTY -->
+    <div class="dogs">
+
+      <!-- 🔥 SUCZKA 1 -->
+      <div class="dog-card">
+        <img src="images/diana/file_00000000c21871fda440cb45f0f95a0c.png">
+        <div class="dog-info">
+          <div class="dog-name">Diana</div>
+          <div class="dog-desc">
+            Opis suczki – charakter, linia, osiągnięcia, pochodzenie.
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔥 SUCZKA 2 -->
+      <div class="dog-card">
+        <img src="images/diana/file_00000000b5047246ada223a273d4bb12.png">
+        <div class="dog-info">
+          <div class="dog-name">Imię suczki</div>
+          <div class="dog-desc">
+            Opis suczki – możesz tu wpisać informacje o rodowodzie i charakterze.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
