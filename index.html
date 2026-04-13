@@ -8,31 +8,29 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#161312;
-      --bg-2:#211b19;
-      --surface:#f7f0e8;
-      --surface-2:#fffaf5;
-      --surface-3:#efe3d4;
-      --text:#342b28;
-      --text-soft:#6f625b;
-      --muted:#a39084;
-      --line:#dbc9b8;
-      --line-strong:#c8ae93;
-      --accent:#b98d68;
-      --accent-soft:#d7b99c;
-      --accent-deep:#8e6443;
+      --bg:#f7f3ee;
+      --bg-soft:#fbf9f6;
+      --panel:#fffdfb;
+      --panel-2:#f5eee6;
+      --ink:#332a27;
+      --ink-soft:#6e615a;
+      --muted:#9b8d84;
+      --line:rgba(124,102,83,.14);
+      --line-strong:rgba(124,102,83,.24);
+      --gold:#b88f66;
+      --gold-deep:#8f6845;
       --white:#ffffff;
-      --shadow:0 24px 60px rgba(0,0,0,.16);
-      --shadow-soft:0 12px 28px rgba(0,0,0,.08);
-      --radius-xl:38px;
+      --shadow:0 22px 54px rgba(38,28,22,.12);
+      --shadow-soft:0 12px 28px rgba(38,28,22,.07);
+      --radius-xl:36px;
       --radius-lg:28px;
-      --radius-md:20px;
-      --max:1320px;
-      --header-h:88px;
+      --radius-md:18px;
+      --max:1280px;
+      --header-h:84px;
     }
 
     *{
@@ -47,11 +45,8 @@
 
     body{
       font-family:"Inter",sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(185,141,104,.12), transparent 20%),
-        radial-gradient(circle at top right, rgba(255,255,255,.03), transparent 18%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 42%, #151110 100%);
-      color:var(--white);
+      background:linear-gradient(180deg, #f5f1eb 0%, #f8f4ef 100%);
+      color:var(--ink);
       line-height:1.72;
       overflow-x:hidden;
     }
@@ -79,7 +74,7 @@
 
     .reveal{
       opacity:0;
-      transform:translateY(28px);
+      transform:translateY(26px);
       transition:opacity .8s ease, transform .8s ease;
     }
 
@@ -90,12 +85,14 @@
 
     /* header */
     .site-header{
-      position:sticky;
+      position:fixed;
       top:0;
+      left:0;
+      right:0;
       z-index:9999;
-      background:rgba(20,16,15,.72);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,.06);
+      background:rgba(20,16,14,.18);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
     .header-inner{
@@ -103,7 +100,7 @@
       display:grid;
       grid-template-columns:auto 1fr auto;
       align-items:center;
-      gap:20px;
+      gap:18px;
     }
 
     .brand{
@@ -113,19 +110,21 @@
     }
 
     .brand-title{
-      font-family:"Forum",serif;
-      font-size:2.6rem;
+      font-family:"Cormorant Garamond",serif;
+      font-size:2.25rem;
       line-height:.95;
-      color:#f2dfcf;
-      letter-spacing:.4px;
+      color:#fff7f0;
+      font-weight:600;
+      letter-spacing:.2px;
+      text-shadow:0 2px 10px rgba(0,0,0,.22);
     }
 
     .brand-sub{
       margin-top:7px;
-      font-size:.72rem;
+      font-size:.7rem;
       letter-spacing:2.8px;
       text-transform:uppercase;
-      color:rgba(255,240,229,.62);
+      color:rgba(255,245,236,.74);
     }
 
     .desktop-nav{
@@ -136,28 +135,32 @@
     }
 
     .desktop-nav a{
-      padding:10px 14px;
+      padding:10px 13px;
       border-radius:999px;
-      font-size:.92rem;
-      color:rgba(255,241,232,.76);
+      font-size:.9rem;
+      color:rgba(255,245,236,.86);
       transition:.22s ease;
       white-space:nowrap;
     }
 
     .desktop-nav a:hover{
+      background:rgba(255,255,255,.10);
       color:#fff;
-      background:rgba(255,255,255,.08);
     }
 
-    .header-mark{
+    .header-cta{
       justify-self:end;
-      font-size:.8rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:rgba(255,241,232,.52);
-      padding:10px 14px;
-      border:1px solid rgba(255,255,255,.08);
+      min-height:44px;
+      padding:0 18px;
       border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      color:#fff;
+      font-size:.88rem;
+      box-shadow:var(--shadow-soft);
     }
 
     .menu-toggle{
@@ -166,7 +169,7 @@
       height:48px;
       border:none;
       border-radius:16px;
-      background:rgba(255,255,255,.08);
+      background:rgba(255,255,255,.10);
       align-items:center;
       justify-content:center;
       flex-direction:column;
@@ -194,79 +197,64 @@
     }
 
     .mobile-nav a{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
       border-radius:16px;
       padding:14px 16px;
       color:#fff;
+      backdrop-filter:blur(8px);
     }
 
     /* hero */
     .hero{
-      padding:34px 0 26px;
-    }
-
-    .hero-shell{
       position:relative;
-      overflow:hidden;
-      border-radius:44px;
-      border:1px solid rgba(255,255,255,.08);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(185,141,104,.16), transparent 22%),
-        radial-gradient(circle at 82% 18%, rgba(255,255,255,.06), transparent 18%),
-        linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      box-shadow:var(--shadow);
-      padding:24px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .hero-copy{
-      position:relative;
-      min-height:720px;
-      border-radius:34px;
-      overflow:hidden;
-      padding:58px 54px 48px;
-      background:
-        radial-gradient(circle at 85% 18%, rgba(215,185,156,.12), transparent 18%),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.08);
+      min-height:100vh;
       display:flex;
-      flex-direction:column;
-      justify-content:center;
+      align-items:stretch;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg, rgba(18,13,10,.78) 0%, rgba(18,13,10,.60) 36%, rgba(18,13,10,.32) 62%, rgba(18,13,10,.50) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.30)),
+        url('images/diana/diana-forest-hero.jpg') center center / cover no-repeat;
     }
 
-    .hero-copy::before{
+    .hero::after{
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.03) 20%, transparent 40%),
-        linear-gradient(300deg, transparent 0%, rgba(185,141,104,.06) 30%, transparent 56%);
+        radial-gradient(circle at 18% 22%, rgba(255,255,255,.08), transparent 20%),
+        radial-gradient(circle at 82% 18%, rgba(184,143,102,.14), transparent 18%);
       pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      width:min(var(--max), 92%);
+      margin:auto;
+      padding-top:calc(var(--header-h) + 28px);
+      padding-bottom:40px;
+      display:grid;
+      grid-template-columns:minmax(320px, 640px);
+    }
+
+    .hero-content{
+      color:#fff9f3;
     }
 
     .hero-kicker{
       display:inline-flex;
-      width:max-content;
       align-items:center;
       gap:10px;
       padding:10px 16px;
       border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      color:rgba(255,241,232,.76);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      font-size:.76rem;
       text-transform:uppercase;
       letter-spacing:2px;
-      font-size:.76rem;
       margin-bottom:26px;
-      position:relative;
-      z-index:1;
     }
 
     .hero-kicker::before{
@@ -274,43 +262,38 @@
       width:8px;
       height:8px;
       border-radius:50%;
-      background:var(--accent-soft);
+      background:var(--gold);
     }
 
     .hero-title{
-      position:relative;
-      z-index:1;
-      font-family:"Forum",serif;
-      font-size:clamp(3.4rem, 6vw, 6.4rem);
-      line-height:.94;
-      font-weight:400;
-      color:#f2dfcf;
-      letter-spacing:.3px;
-      max-width:760px;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(3.6rem, 7vw, 6.8rem);
+      line-height:.92;
+      font-weight:500;
+      letter-spacing:.1px;
       margin-bottom:22px;
-      text-wrap:balance;
+      color:#fff4ea;
+      text-shadow:0 4px 20px rgba(0,0,0,.22);
     }
 
     .hero-title .soft{
-      color:#d8b79a;
+      color:#e7c7a8;
+      font-style:italic;
+      font-weight:400;
     }
 
     .hero-text{
-      position:relative;
-      z-index:1;
-      max-width:620px;
-      color:rgba(255,241,232,.72);
+      max-width:560px;
+      color:rgba(255,247,239,.82);
       font-size:1rem;
-      margin-bottom:32px;
+      margin-bottom:30px;
     }
 
     .hero-actions{
-      position:relative;
-      z-index:1;
       display:flex;
       flex-wrap:wrap;
       gap:14px;
-      margin-bottom:32px;
+      margin-bottom:34px;
     }
 
     .btn{
@@ -326,9 +309,9 @@
     }
 
     .btn-primary{
-      background:linear-gradient(135deg,var(--accent-deep),var(--accent));
+      background:linear-gradient(135deg, var(--gold-deep), var(--gold));
       color:#fff;
-      box-shadow:0 12px 24px rgba(142,100,67,.24);
+      box-shadow:0 12px 24px rgba(143,104,69,.28);
     }
 
     .btn-primary:hover{
@@ -336,123 +319,70 @@
     }
 
     .btn-secondary{
-      background:rgba(255,255,255,.08);
+      background:rgba(255,255,255,.10);
       color:#fff;
-      border-color:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.14);
+      backdrop-filter:blur(10px);
     }
 
     .btn-secondary:hover{
       transform:translateY(-2px);
-      background:rgba(255,255,255,.12);
+      background:rgba(255,255,255,.14);
     }
 
-    .hero-quote{
-      position:relative;
-      z-index:1;
-      max-width:520px;
-      padding-left:22px;
-      border-left:1px solid rgba(255,255,255,.16);
-      color:rgba(255,241,232,.68);
-      font-size:.98rem;
-    }
-
-    .hero-media{
+    .hero-mini-grid{
       display:grid;
-      grid-template-rows:1fr auto;
-      gap:18px;
-      min-height:720px;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+      max-width:760px;
     }
 
-    .hero-photo{
-      position:relative;
-      border-radius:34px;
-      overflow:hidden;
-      min-height:560px;
-      border:1px solid rgba(255,255,255,.10);
-      background:#3b2c27;
-      cursor:pointer;
+    .hero-mini{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:22px;
+      padding:18px 16px;
+      backdrop-filter:blur(8px);
     }
 
-    .hero-photo::before{
-      content:"";
-      position:absolute;
-      inset:14px;
-      border:1px solid rgba(255,255,255,.22);
-      border-radius:24px;
-      pointer-events:none;
-      z-index:2;
-    }
-
-    .hero-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-      filter:saturate(.98);
-    }
-
-    .hero-cards{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .hero-card{
-      border-radius:24px;
-      padding:22px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    .hero-card span{
+    .hero-mini span{
       display:block;
-      font-size:.74rem;
-      letter-spacing:2px;
+      font-size:.72rem;
       text-transform:uppercase;
-      color:rgba(255,241,232,.56);
-      margin-bottom:10px;
+      letter-spacing:2px;
+      color:rgba(255,245,236,.62);
+      margin-bottom:8px;
     }
 
-    .hero-card strong{
+    .hero-mini strong{
       display:block;
-      font-family:"Forum",serif;
-      font-size:1.8rem;
-      line-height:1;
-      color:#f2dfcf;
-      font-weight:400;
-      margin-bottom:10px;
+      font-family:"Cormorant Garamond",serif;
+      font-size:1.4rem;
+      line-height:1.05;
+      font-weight:500;
+      color:#fff2e7;
     }
 
-    .hero-card p{
-      color:rgba(255,241,232,.68);
-      font-size:.94rem;
-    }
-
-    /* section base */
+    /* section styles */
     section{
-      padding:92px 0;
+      padding:88px 0;
     }
 
     .section-wrap{
       position:relative;
       background:linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
-      color:var(--text);
+      border:1px solid var(--line-strong);
       border-radius:38px;
-      border:1px solid rgba(219,201,184,.82);
       box-shadow:var(--shadow-soft);
       padding:38px;
       overflow:hidden;
-    }
-
-    .section-wrap.alt{
-      background:linear-gradient(180deg, var(--surface-3) 0%, var(--surface) 100%);
     }
 
     .section-wrap::before{
       content:"";
       position:absolute;
       inset:16px;
-      border:1px solid rgba(200,174,147,.38);
+      border:1px solid var(--line);
       border-radius:28px;
       pointer-events:none;
     }
@@ -460,45 +390,52 @@
     .section-head{
       position:relative;
       z-index:2;
-      display:grid;
-      grid-template-columns:260px 1fr;
-      gap:26px;
-      align-items:start;
+      display:flex;
+      justify-content:space-between;
+      gap:28px;
+      align-items:flex-end;
       margin-bottom:34px;
+      padding-bottom:16px;
+      border-bottom:1px solid var(--line);
     }
 
     .section-side{
       display:flex;
       flex-direction:column;
       gap:10px;
+      min-width:220px;
     }
 
     .section-side span{
       font-size:.8rem;
       letter-spacing:4px;
       text-transform:uppercase;
-      color:var(--accent);
+      color:var(--gold-deep);
     }
 
     .section-side strong{
-      font-family:"Forum",serif;
-      font-size:4.8rem;
+      font-family:"Cormorant Garamond",serif;
+      font-size:4.6rem;
       line-height:.78;
-      color:rgba(185,141,104,.34);
-      font-weight:400;
+      color:rgba(184,143,102,.30);
+      font-weight:500;
+    }
+
+    .section-main{
+      flex:1;
     }
 
     .section-main h2{
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-size:clamp(3rem, 4vw, 5.2rem);
       line-height:.92;
-      color:#3d2f2b;
-      font-weight:400;
+      font-weight:500;
+      color:#3c2f2b;
       margin-bottom:12px;
     }
 
     .section-main p{
-      max-width:820px;
+      max-width:780px;
       color:var(--text-soft);
       font-size:1rem;
     }
@@ -507,7 +444,7 @@
       width:150px;
       height:2px;
       margin-top:18px;
-      background:linear-gradient(90deg,var(--accent),transparent);
+      background:linear-gradient(90deg, var(--gold), transparent);
     }
 
     .two-col{
@@ -543,11 +480,11 @@
     }
 
     .text-card h3{
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-size:2.2rem;
       line-height:1;
-      color:#3f302b;
-      font-weight:400;
+      color:#3d2f2b;
+      font-weight:500;
       margin-bottom:16px;
     }
 
@@ -565,8 +502,7 @@
       justify-content:center;
       text-align:center;
       padding:24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.98), rgba(245,236,225,.98));
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(245,236,225,.98));
       border:1px solid var(--line);
       box-shadow:var(--shadow-soft);
       overflow:hidden;
@@ -583,11 +519,11 @@
 
     .placeholder strong{
       display:block;
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-size:2.4rem;
       line-height:1;
-      color:var(--accent);
-      font-weight:400;
+      color:var(--gold-deep);
+      font-weight:500;
       margin-bottom:8px;
     }
 
@@ -661,11 +597,11 @@
     }
 
     .dog-body h3{
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-size:2.1rem;
       line-height:1;
       color:#3d2f2b;
-      font-weight:400;
+      font-weight:500;
       margin-bottom:10px;
     }
 
@@ -680,8 +616,8 @@
     .chip{
       padding:7px 12px;
       border-radius:999px;
-      background:rgba(185,141,104,.10);
-      border:1px solid rgba(185,141,104,.12);
+      background:rgba(184,143,102,.10);
+      border:1px solid rgba(184,143,102,.12);
       color:var(--text-soft);
       font-size:.79rem;
     }
@@ -708,19 +644,19 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-size:1.55rem;
-      color:var(--accent);
-      background:linear-gradient(135deg, rgba(185,141,104,.12), rgba(255,255,255,.8));
+      color:var(--gold-deep);
+      background:linear-gradient(135deg, rgba(184,143,102,.12), rgba(255,255,255,.8));
       border:1px solid rgba(200,174,147,.38);
     }
 
     .title-card h3{
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-size:1.9rem;
       line-height:1;
       color:#3d2f2b;
-      font-weight:400;
+      font-weight:500;
       margin-bottom:8px;
     }
 
@@ -739,11 +675,11 @@
     }
 
     .simple-card h3{
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-size:2rem;
       line-height:1;
       color:#3d2f2b;
-      font-weight:400;
+      font-weight:500;
       margin-bottom:10px;
     }
 
@@ -771,11 +707,11 @@
 
     .contact-card h3,
     .form-card h3{
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-size:2.4rem;
       line-height:1;
       color:#3d2f2b;
-      font-weight:400;
+      font-weight:500;
       margin-bottom:14px;
     }
 
@@ -786,10 +722,10 @@
     }
 
     .contact-note{
-      font-family:"Forum",serif;
+      font-family:"Cormorant Garamond",serif;
       font-style:italic;
       font-size:1.4rem;
-      color:var(--accent);
+      color:var(--gold-deep);
       margin-bottom:18px;
     }
 
@@ -816,7 +752,7 @@
 
     .contact-link:hover{
       transform:translateY(-2px);
-      color:var(--accent);
+      color:var(--gold-deep);
     }
 
     .contact-list{
@@ -867,8 +803,8 @@
 
     .field input:focus,
     .field textarea:focus{
-      border-color:rgba(185,147,100,.55);
-      box-shadow:0 0 0 4px rgba(185,147,100,.10);
+      border-color:rgba(184,143,102,.55);
+      box-shadow:0 0 0 4px rgba(184,143,102,.10);
     }
 
     .field textarea{
@@ -879,7 +815,7 @@
     .submit-btn{
       min-height:58px;
       padding:0 24px;
-      border:1px solid rgba(142,107,69,.18);
+      border:1px solid rgba(143,104,69,.18);
       color:#fff;
       display:inline-flex;
       align-items:center;
@@ -888,8 +824,8 @@
       font-weight:700;
       letter-spacing:.4px;
       border-radius:18px;
-      background:linear-gradient(135deg,var(--accent-deep),var(--accent));
-      box-shadow:0 12px 24px rgba(142,107,69,.18);
+      background:linear-gradient(135deg,var(--gold-deep),var(--gold));
+      box-shadow:0 12px 24px rgba(143,104,69,.18);
       position:relative;
       cursor:pointer;
       transition:.22s ease;
@@ -1026,7 +962,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(135deg,var(--accent-deep),var(--accent));
+      background:linear-gradient(135deg,var(--gold-deep),var(--gold));
       color:#fff;
       box-shadow:0 10px 20px rgba(60,48,45,.12);
       transition:.22s ease;
@@ -1084,19 +1020,14 @@
         grid-template-columns:repeat(2,1fr);
       }
 
-      .hero-copy,
-      .hero-media{
-        min-height:auto;
-      }
-
-      .hero-photo{
-        min-height:520px;
+      .hero-mini-grid{
+        grid-template-columns:1fr;
       }
     }
 
     @media (max-width:980px){
       .desktop-nav,
-      .header-mark{
+      .header-cta{
         display:none;
       }
 
@@ -1109,22 +1040,16 @@
       }
 
       .section-head{
-        grid-template-columns:1fr;
-        gap:14px;
+        flex-direction:column;
+        align-items:flex-start;
       }
 
-      .section-side{
-        flex-direction:row;
-        align-items:flex-end;
-        gap:14px;
+      .section-main{
+        width:100%;
       }
 
-      .section-side strong{
-        font-size:3.2rem;
-      }
-
-      .hero-cards{
-        grid-template-columns:1fr;
+      .hero-kicker{
+        margin-top:8px;
       }
     }
 
@@ -1146,31 +1071,26 @@
         letter-spacing:1.6px;
       }
 
-      .hero-shell{
-        padding:16px;
-      }
-
-      .hero-copy{
-        padding:34px 22px;
-        min-height:auto;
+      .hero-inner{
+        padding-top:calc(var(--header-h) + 18px);
       }
 
       .hero-title{
-        font-size:3.2rem;
+        font-size:3.3rem;
       }
 
-      .hero-info-row,
+      .hero-mini-grid,
       .grid-3,
       .grid-4{
         grid-template-columns:1fr;
       }
 
-      .hero-photo{
-        min-height:400px;
-      }
-
       .section-wrap{
         padding:22px 16px 24px;
+      }
+
+      .section-side strong{
+        font-size:3.2rem;
       }
 
       .dog-image{
@@ -1219,7 +1139,7 @@
           <a href="#kontakt">Kontakt</a>
         </nav>
 
-        <div class="header-mark">strona hodowli</div>
+        <a class="header-cta" href="#kontakt">Napisz do nas</a>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu">
           <span></span>
@@ -1245,49 +1165,37 @@
 
   <main id="start">
     <section class="hero reveal">
-      <div class="container">
-        <div class="hero-shell">
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <span class="hero-kicker">elegancja • pasja • hodowla z sercem</span>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="hero-kicker">elegancja • pasja • hodowla z sercem</span>
 
-              <h1 class="hero-title">
-                Hodowla psów <span class="soft">chihuahua</span><br>
-                i <span class="soft">gończy węgierski</span><br>
-                stworzona z pasji i serca
-              </h1>
+          <h1 class="hero-title">
+            Hodowla psów <span class="soft">chihuahua</span><br>
+            i <span class="soft">gończy węgierski</span><br>
+            stworzona z pasji i serca
+          </h1>
 
-              <p class="hero-text">
-                Witamy w naszej hodowli. To miejsce stworzone z miłości do psów, z naciskiem na chihuahua i gończego węgierskiego, ich piękno, charakter i bliskość z człowiekiem.
-              </p>
+          <p class="hero-text">
+            Witamy w naszej hodowli. To miejsce stworzone z miłości do psów, z naciskiem na chihuahua i gończego węgierskiego, ich piękno, charakter i bliskość z człowiekiem.
+          </p>
 
-              <div class="hero-actions">
-                <a href="#szczeniaki" class="btn btn-primary">Zobacz szczeniaki</a>
-                <a href="#kontakt" class="btn btn-secondary">Skontaktuj się</a>
-              </div>
+          <div class="hero-actions">
+            <a href="#szczeniaki" class="btn btn-primary">Zobacz szczeniaki</a>
+            <a href="#kontakt" class="btn btn-secondary">Skontaktuj się</a>
+          </div>
 
-              <div class="hero-quote">
-                Tworzymy miejsce spokojne, eleganckie i pełne ciepła, w którym liczy się jakość, charakter i prawdziwa relacja ze zwierzęciem.
-              </div>
+          <div class="hero-mini-grid">
+            <div class="hero-mini">
+              <span>nasz świat</span>
+              <strong>Akwamaryn Dogs</strong>
             </div>
-
-            <div class="hero-media">
-              <div class="hero-photo zoomable" data-image="images/diana/file_00000000b5047246ada223a273d4bb12.png" data-caption="Akwamaryn Dogs — zdjęcie główne">
-                <img src="images/diana/file_00000000b5047246ada223a273d4bb12.png" alt="Akwamaryn Dogs - zdjęcie główne">
-              </div>
-
-              <div class="hero-cards">
-                <div class="hero-card">
-                  <span>nasz świat</span>
-                  <strong>Akwamaryn Dogs</strong>
-                  <p>Miłość, pasja i jakość tworzone z serca.</p>
-                </div>
-                <div class="hero-card">
-                  <span>charakter strony</span>
-                  <strong>nowa odsłona</strong>
-                  <p>Całkiem inny klimat niż wcześniejsze wersje.</p>
-                </div>
-              </div>
+            <div class="hero-mini">
+              <span>charakter</span>
+              <strong>spokój, klasa i serce</strong>
+            </div>
+            <div class="hero-mini">
+              <span>kontakt</span>
+              <strong>szybko i bezpośrednio</strong>
             </div>
           </div>
         </div>
@@ -1330,7 +1238,7 @@
 
     <section id="psy" class="reveal">
       <div class="container">
-        <div class="section-wrap alt">
+        <div class="section-wrap">
           <div class="section-head">
             <div class="section-side">
               <span>nasza duma</span>
@@ -1424,7 +1332,7 @@
 
     <section id="szczeniaki" class="reveal">
       <div class="container">
-        <div class="section-wrap alt">
+        <div class="section-wrap">
           <div class="section-head">
             <div class="section-side">
               <span>maluszki</span>
@@ -1504,7 +1412,7 @@
 
     <section id="plany" class="reveal">
       <div class="container">
-        <div class="section-wrap alt">
+        <div class="section-wrap">
           <div class="section-head">
             <div class="section-side">
               <span>przyszłość hodowli</span>
@@ -1590,7 +1498,7 @@
 
     <section id="opinie" class="reveal">
       <div class="container">
-        <div class="section-wrap alt">
+        <div class="section-wrap">
           <div class="section-head">
             <div class="section-side">
               <span>zaufanie</span>
