@@ -93,7 +93,7 @@ line-height:1.8;
 margin-bottom:20px;
 }
 
-/* SEKCJE */
+/* SEKCJA */
 .section{
 margin-top:25px;
 border-radius:16px;
@@ -115,10 +115,9 @@ font-size:20px;
 .section-title i{color:#d9b36a;}
 
 .section-content{
-display:none;
+display:block;
 padding:20px;
 }
-.section.open .section-content{display:block;}
 
 /* KARTA PSA */
 .card{
@@ -176,54 +175,36 @@ opacity:.6;
 W tej zakładce przedstawiamy nasze psy hodowlane – ich charakter, pochodzenie oraz wszystko, co wnoszą do naszej hodowli.
 </p>
 
-<!-- GOŃCZY -->
-<div class="section open" onclick="toggle(this)">
-<div class="section-header">
-<div class="section-title"><i class="fa-solid fa-dog"></i>Gończy węgierski</div>
-<div>✓ Zwiń</div>
-</div>
-
-<div class="section-content">
-<div class="card">
-<div class="grid">
-<div>
-<p>Tutaj dodasz opis psa.</p>
-</div>
-<div class="placeholder">Zdjęcie</div>
-</div>
-</div>
-</div>
-</div>
-
 <!-- CHIHUAHUA -->
-<div class="section" onclick="toggle(this)">
+<div class="section">
 <div class="section-header">
-<div class="section-title"><i class="fa-solid fa-paw"></i>Chihuahua</div>
-<div>✓ Rozwiń</div>
+<div class="section-title">
+<i class="fa-solid fa-paw"></i>
+Chihuahua
+</div>
 </div>
 
 <div class="section-content">
+
 <div class="card">
 <div class="grid">
+
 <div>
-<p>Tutaj dodasz opis psa.</p>
+<p>
+Tutaj możesz dodać opis psa chihuahua, jego charakter, pochodzenie i wszystkie najważniejsze informacje.
+</p>
 </div>
-<div class="placeholder">Zdjęcie</div>
+
+<div class="placeholder">Zdjęcie psa</div>
+
 </div>
 </div>
+
 </div>
 </div>
 
 </div>
 </section>
-
-<script>
-function toggle(el){
-el.classList.toggle("open");
-let txt = el.querySelector(".section-header div:last-child");
-txt.innerText = el.classList.contains("open") ? "✓ Zwiń" : "✓ Rozwiń";
-}
-</script>
 
 </body>
 </html>
