@@ -1,270 +1,1041 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Aktualny miot – Akwamaryn PL Dogs</title>
+  <title>Aktualny miot – Akwamaryn PL Dogs</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-body{
-font-family:'Montserrat', sans-serif;
-color:#fff;
-background:#0f0f0f;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-/* MENU */
-.topbar{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
+    body{
+      font-family:'Montserrat', sans-serif;
+      color:#fff;
+      overflow-x:hidden;
+      background:#0f0f0f;
+    }
 
-.topbar-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-}
+    .topbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:3000;
+      background:rgba(12,12,12,0.34);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
 
-.brand{
-font-family:'Cormorant Garamond', serif;
-font-size:24px;
-}
+    .topbar-inner{
+      width:min(1400px, 96%);
+      margin:0 auto;
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
 
-.menu{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
+    .brand{
+      font-family:'Cormorant Garamond', serif;
+      font-size:2rem;
+      font-weight:500;
+      color:#fff;
+      white-space:nowrap;
+      letter-spacing:.4px;
+    }
 
-.menu a{
-color:#fff;
-text-decoration:none;
-font-size:13px;
-}
+    .desktop-nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:16px;
+      flex:1;
+      min-width:0;
+    }
 
-/* HERO */
-.hero{
-min-height:100vh;
-padding:120px 20px 40px;
-background:
-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
-}
+    .desktop-nav a{
+      color:#fff;
+      text-decoration:none;
+      font-size:13px;
+      letter-spacing:1px;
+      white-space:nowrap;
+      opacity:.88;
+      transition:.25s ease;
+    }
 
-.box{
-max-width:1000px;
-margin:auto;
-background:rgba(0,0,0,0.6);
-padding:30px;
-border-radius:14px;
-}
+    .desktop-nav a:hover{
+      opacity:1;
+    }
 
-h1{
-font-family:'Cormorant Garamond', serif;
-font-size:42px;
-text-align:center;
-margin-bottom:20px;
-}
+    .menu-btn{
+      display:none;
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:12px;
+      background:rgba(255,255,255,0.10);
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+    }
 
-p{
-line-height:1.8;
-margin-bottom:15px;
-}
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      top:82px;
+      left:0;
+      width:100%;
+      background:rgba(12,12,12,0.94);
+      backdrop-filter:blur(12px);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:18px 20px 24px;
+      z-index:2500;
+    }
 
-/* ZŁOTE */
-.gold{color:#d9b36a;}
+    .mobile-menu.open{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
 
-/* SEKCJE */
-.section{
-margin-top:20px;
-border:1px solid rgba(255,255,255,0.1);
-border-radius:12px;
-overflow:hidden;
-}
+    .mobile-menu a{
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+      letter-spacing:1px;
+      opacity:.9;
+    }
 
-.section-header{
-cursor:pointer;
-padding:18px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,0.05);
-}
+    .hero{
+      min-height:100vh;
+      padding:120px 20px 50px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      text-align:center;
+      background:
+        linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.74)),
+        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center center / cover no-repeat;
+      position:relative;
+    }
 
-.section-title{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:18px;
-}
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 50% 28%, rgba(255,255,255,0.06), transparent 58%);
+      pointer-events:none;
+    }
 
-.section-content{
-display:none;
-padding:20px;
-}
+    .content{
+      position:relative;
+      z-index:2;
+      max-width:1140px;
+      width:100%;
+      background:rgba(0,0,0,0.46);
+      padding:42px 38px;
+      border-radius:18px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 16px 44px rgba(0,0,0,0.34);
+      border:1px solid rgba(255,255,255,0.08);
+      text-align:left;
+    }
 
-.section.open .section-content{
-display:block;
-}
+    h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(42px, 6vw, 62px);
+      font-weight:500;
+      margin-bottom:16px;
+      line-height:1;
+      text-align:center;
+      text-shadow:0 4px 20px rgba(0,0,0,0.22);
+    }
 
-.toggle{
-font-size:14px;
-}
+    .gold{
+      color:#d9b36a;
+    }
 
-/* MIOTY */
-.litters{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:16px;
-margin-top:15px;
-}
+    .lead{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(20px, 2.2vw, 28px);
+      font-weight:400;
+      font-style:italic;
+      color:rgba(255,255,255,0.86);
+      line-height:1.5;
+      margin-bottom:26px;
+      text-align:center;
+    }
 
-.litter{
-border:1px solid rgba(255,255,255,0.1);
-border-radius:12px;
-padding:15px;
-background:rgba(255,255,255,0.05);
-}
+    .intro{
+      max-width:900px;
+      margin:0 auto 34px;
+      font-size:16px;
+      line-height:1.9;
+      color:rgba(255,255,255,0.95);
+      text-align:center;
+    }
 
-.litter h3{
-font-family:'Cormorant Garamond', serif;
-margin-bottom:10px;
-}
+    .accordion{
+      display:grid;
+      gap:18px;
+    }
 
-.placeholder{
-height:150px;
-border-radius:10px;
-border:1px dashed rgba(255,255,255,0.2);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-opacity:0.7;
-}
+    .accordion-item{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:16px;
+      overflow:hidden;
+    }
 
-/* BUTTON */
-.btn{
-margin-top:20px;
-padding:12px;
-border:none;
-border-radius:10px;
-background:rgba(255,255,255,0.15);
-color:#fff;
-cursor:pointer;
-}
+    .accordion-toggle{
+      width:100%;
+      border:none;
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:22px 24px;
+      text-align:left;
+    }
 
-/* MOBILE */
-@media(max-width:768px){
-.litters{grid-template-columns:1fr;}
-}
-</style>
+    .accordion-toggle:hover{
+      background:rgba(255,255,255,0.03);
+    }
+
+    .accordion-left{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      min-width:0;
+    }
+
+    .icon-badge{
+      width:42px;
+      height:42px;
+      min-width:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(191,155,86,0.14);
+      border:1px solid rgba(191,155,86,0.28);
+      color:#d9b36a;
+      font-size:16px;
+      margin-top:2px;
+      box-shadow:0 0 18px rgba(191,155,86,0.08);
+    }
+
+    .accordion-title{
+      font-family:'Cormorant Garamond', serif;
+      font-size:34px;
+      font-weight:500;
+      line-height:1;
+    }
+
+    .accordion-sub{
+      display:block;
+      margin-top:8px;
+      font-size:13px;
+      letter-spacing:1px;
+      color:rgba(255,255,255,0.72);
+      text-transform:uppercase;
+      line-height:1.6;
+    }
+
+    .toggle-wrap{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:#d9b36a;
+      min-width:105px;
+      justify-content:flex-end;
+      flex-shrink:0;
+    }
+
+    .toggle-check{
+      font-size:14px;
+      line-height:1;
+    }
+
+    .toggle-label{
+      font-size:14px;
+      line-height:1;
+      letter-spacing:.3px;
+      color:#fff;
+      opacity:.92;
+    }
+
+    .accordion-content{
+      display:none;
+      padding:0 24px 24px;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .accordion-item.open .accordion-content{
+      display:block;
+    }
+
+    .breed-box{
+      margin-top:24px;
+      padding:20px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .breed-box h2{
+      font-family:'Cormorant Garamond', serif;
+      font-size:34px;
+      font-weight:500;
+      line-height:1;
+      margin-bottom:14px;
+    }
+
+    .breed-box p{
+      font-size:16px;
+      line-height:1.9;
+      color:rgba(255,255,255,0.95);
+      margin-bottom:0;
+    }
+
+    .litters{
+      display:grid;
+      gap:16px;
+      margin-top:20px;
+    }
+
+    .litter-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      overflow:hidden;
+    }
+
+    .litter-toggle{
+      width:100%;
+      border:none;
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 20px;
+      text-align:left;
+    }
+
+    .litter-toggle:hover{
+      background:rgba(255,255,255,0.03);
+    }
+
+    .litter-name{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:28px;
+      font-weight:500;
+      line-height:1;
+    }
+
+    .litter-name i{
+      color:#d9b36a;
+      font-size:14px;
+    }
+
+    .litter-content{
+      display:none;
+      padding:0 20px 20px;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .litter-card.open .litter-content{
+      display:block;
+    }
+
+    .mini-toggle-wrap{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:#d9b36a;
+      min-width:105px;
+      justify-content:flex-end;
+      flex-shrink:0;
+    }
+
+    .mini-toggle-check{
+      font-size:14px;
+      line-height:1;
+    }
+
+    .mini-toggle-label{
+      font-size:14px;
+      line-height:1;
+      color:#fff;
+      opacity:.92;
+    }
+
+    .litter-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:18px;
+      align-items:start;
+    }
+
+    .info-panel,
+    .photos-panel{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:18px;
+    }
+
+    .panel-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:28px;
+      font-weight:500;
+      margin-bottom:14px;
+      line-height:1;
+    }
+
+    .panel-title i{
+      color:#d9b36a;
+      font-size:14px;
+    }
+
+    .info-panel p{
+      font-size:15px;
+      line-height:1.9;
+      color:rgba(255,255,255,0.94);
+      margin-bottom:12px;
+    }
+
+    .info-panel p:last-child{
+      margin-bottom:0;
+    }
+
+    .photo-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }
+
+    .placeholder{
+      min-height:180px;
+      border-radius:14px;
+      border:1px dashed rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.03);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:14px;
+      color:rgba(255,255,255,0.62);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .bottom-toggle{
+      margin-top:18px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 18px;
+      border:none;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.10);
+      color:#fff;
+      cursor:pointer;
+      transition:.25s ease;
+      font-family:'Montserrat', sans-serif;
+      font-size:14px;
+    }
+
+    .bottom-toggle:hover{
+      background:rgba(255,255,255,0.12);
+    }
+
+    .bottom-toggle i{
+      color:#d9b36a;
+      font-size:13px;
+    }
+
+    @media (max-width: 1100px){
+      .desktop-nav{
+        display:none;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .brand{
+        font-size:1.8rem;
+      }
+
+      .litter-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      .topbar-inner{
+        min-height:74px;
+      }
+
+      .mobile-menu{
+        top:74px;
+      }
+
+      .hero{
+        padding:108px 16px 34px;
+        background:
+          linear-gradient(rgba(0,0,0,0.64), rgba(0,0,0,0.78)),
+          url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center top / cover no-repeat;
+      }
+
+      .brand{
+        font-size:1.6rem;
+      }
+
+      .content{
+        padding:24px 18px;
+        border-radius:16px;
+      }
+
+      .lead{
+        margin-bottom:20px;
+      }
+
+      .intro,
+      .breed-box p{
+        font-size:15px;
+        line-height:1.85;
+      }
+
+      .accordion-toggle,
+      .litter-toggle{
+        padding:18px;
+        align-items:flex-start;
+      }
+
+      .accordion-title{
+        font-size:28px;
+      }
+
+      .litter-name{
+        font-size:24px;
+      }
+
+      .accordion-content{
+        padding:0 18px 18px;
+      }
+
+      .toggle-wrap,
+      .mini-toggle-wrap{
+        min-width:auto;
+        padding-top:4px;
+      }
+
+      .photo-grid{
+        grid-template-columns:1fr;
+      }
+
+      .placeholder{
+        min-height:150px;
+      }
+
+      .bottom-toggle{
+        width:100%;
+        justify-content:center;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="topbar">
-<div class="topbar-inner">
-<div class="brand">Akwamaryn PL Dogs</div>
-<div class="menu">
-<a href="index.html">Start</a>
-<a href="miot.html">Aktualny miot</a>
-<a href="kontakt.html">Kontakt</a>
-</div>
-</div>
-</div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Akwamaryn PL Dogs</div>
 
-<section class="hero">
-<div class="box">
+      <nav class="desktop-nav">
+        <a href="index.html">Start</a>
+        <a href="o-nas.html">O nas</a>
+        <a href="psy.html">Psy</a>
+        <a href="suczki.html">Suczki</a>
+        <a href="miot.html">Aktualny miot</a>
+        <a href="wystawy.html">Wystawy</a>
+        <a href="sukcesy.html">Sukcesy</a>
+        <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
 
-<h1>Aktualny <span class="gold">miot</span></h1>
+      <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
+    </div>
 
-<p>
-W tej zakładce prezentujemy nasze aktualne szczeniaczki. Każdy miot to dla nas wyjątkowy czas, pełen emocji, troski i ogromnej radości. 
-Dbamy o to, aby maluchy od pierwszych dni życia rozwijały się w spokojnym, domowym środowisku, były odpowiednio socjalizowane i przygotowane do życia w nowych domach.
-</p>
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Start</a>
+      <a href="o-nas.html">O nas</a>
+      <a href="psy.html">Psy</a>
+      <a href="suczki.html">Suczki</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="wystawy.html">Wystawy</a>
+      <a href="sukcesy.html">Sukcesy</a>
+      <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
 
-<p>
-Znajdziesz tutaj informacje o dostępnych miotach oraz zdjęcia naszych szczeniąt.
-</p>
+  <section class="hero">
+    <div class="content">
+      <h1>Aktualny <span class="gold">miot</span></h1>
 
-<!-- GOŃCZY -->
-<div class="section open">
-<div class="section-header" onclick="toggleSection(this)">
-<div class="section-title">
-<i class="fa-solid fa-dog gold"></i>
-Gończy węgierski
-</div>
-<div class="toggle">✓ Zwiń</div>
-</div>
+      <div class="lead">
+        Tutaj prezentujemy nasze aktualne szczeniaczki.
+      </div>
 
-<div class="section-content">
+      <div class="intro">
+        Każdy miot to dla nas wyjątkowy czas, pełen emocji, troski i ogromnej radości. Dbamy o to, aby maluchy od pierwszych dni życia rozwijały się w spokojnym, domowym środowisku, były odpowiednio socjalizowane i przygotowane do życia w nowych domach. W tej zakładce znajdziesz miejsce na prezentację naszych miotów, zdjęcia oraz najważniejsze informacje.
+      </div>
 
-<div class="litters">
-<div class="litter"><h3>Miot A</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-<div class="litter"><h3>Miot B</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-<div class="litter"><h3>Miot C</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-<div class="litter"><h3>Miot D</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-<div class="litter"><h3>Miot E</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-</div>
+      <div class="accordion">
 
-<button class="btn" onclick="closeSection(this)">✓ Zwiń</button>
+        <div class="accordion-item open">
+          <button class="accordion-toggle" type="button">
+            <div class="accordion-left">
+              <div class="icon-badge">
+                <i class="fa-solid fa-dog"></i>
+              </div>
+              <div>
+                <div class="accordion-title">Szczeniaki gończego węgierskiego</div>
+                <span class="accordion-sub">mioty przygotowane do uzupełnienia</span>
+              </div>
+            </div>
+            <div class="toggle-wrap">
+              <span class="toggle-check">✓</span>
+              <span class="toggle-label">Zwiń</span>
+            </div>
+          </button>
 
-</div>
-</div>
+          <div class="accordion-content">
+            <div class="breed-box">
+              <h2>Szczeniaki gończego węgierskiego</h2>
+              <p>
+                Tutaj możesz prezentować kolejne mioty gończego węgierskiego, dodawać zdjęcia, opisy, informacje o rodzicach, dostępności oraz wszystko to, co chcesz pokazać osobom zainteresowanym Twoimi szczeniętami.
+              </p>
+            </div>
 
-<!-- CHIHUAHUA -->
-<div class="section">
-<div class="section-header" onclick="toggleSection(this)">
-<div class="section-title">
-<i class="fa-solid fa-paw gold"></i>
-Chihuahua
-</div>
-<div class="toggle">✓ Rozwiń</div>
-</div>
+            <div class="litters">
 
-<div class="section-content">
+              <div class="litter-card open">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot A</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Zwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu A, informacje o rodzicach, dacie urodzenia, charakterze maluchów i dostępności.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
 
-<div class="litters">
-<div class="litter"><h3>Miot A</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-<div class="litter"><h3>Miot B</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-<div class="litter"><h3>Miot C</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-<div class="litter"><h3>Miot D</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-<div class="litter"><h3>Miot E</h3><div class="placeholder">Zdjęcia wkrótce</div></div>
-</div>
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot B</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu B.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
 
-<button class="btn" onclick="closeSection(this)">✓ Zwiń</button>
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot C</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu C.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
 
-</div>
-</div>
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot D</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu D.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
 
-</div>
-</section>
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot E</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu E.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
 
-<script>
-function toggleSection(el){
-const section = el.parentElement;
-section.classList.toggle("open");
+            </div>
 
-const text = el.querySelector(".toggle");
-text.innerText = section.classList.contains("open") ? "✓ Zwiń" : "✓ Rozwiń";
-}
+            <button class="bottom-toggle" type="button" data-close-main>
+              <i class="fa-solid fa-check"></i><span>Zwiń</span>
+            </button>
+          </div>
+        </div>
 
-function closeSection(btn){
-const section = btn.closest(".section");
-section.classList.remove("open");
-section.querySelector(".toggle").innerText="✓ Rozwiń";
-}
-</script>
+        <div class="accordion-item">
+          <button class="accordion-toggle" type="button">
+            <div class="accordion-left">
+              <div class="icon-badge">
+                <i class="fa-solid fa-paw"></i>
+              </div>
+              <div>
+                <div class="accordion-title">Szczeniaki chihuahua</div>
+                <span class="accordion-sub">mioty przygotowane do uzupełnienia</span>
+              </div>
+            </div>
+            <div class="toggle-wrap">
+              <span class="toggle-check">✓</span>
+              <span class="toggle-label">Rozwiń</span>
+            </div>
+          </button>
+
+          <div class="accordion-content">
+            <div class="breed-box">
+              <h2>Szczeniaki chihuahua</h2>
+              <p>
+                Tutaj możesz prezentować kolejne mioty chihuahua, dodawać zdjęcia, opisy i wszystkie najważniejsze informacje. Każdy miot ma swoją osobną sekcję, dzięki czemu wszystko będzie uporządkowane i czytelne.
+              </p>
+            </div>
+
+            <div class="litters">
+
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot A</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu A.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot B</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu B.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot C</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu C.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot D</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu D.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="litter-card">
+                <button class="litter-toggle" type="button">
+                  <div class="litter-name"><i class="fa-solid fa-star"></i>Miot E</div>
+                  <div class="mini-toggle-wrap">
+                    <span class="mini-toggle-check">✓</span>
+                    <span class="mini-toggle-label">Rozwiń</span>
+                  </div>
+                </button>
+                <div class="litter-content">
+                  <div class="litter-grid">
+                    <div class="info-panel">
+                      <div class="panel-title"><i class="fa-solid fa-pen"></i>Opis miotu</div>
+                      <p>Tutaj możesz wpisać opis miotu E.</p>
+                    </div>
+                    <div class="photos-panel">
+                      <div class="panel-title"><i class="fa-solid fa-camera"></i>Zdjęcia</div>
+                      <div class="photo-grid">
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                        <div class="placeholder">Zdjęcie wkrótce</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="bottom-toggle" type="button" data-close-litter>
+                    <i class="fa-solid fa-check"></i><span>Zwiń</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <button class="bottom-toggle" type="button" data-close-main>
+              <i class="fa-solid fa-check"></i><span>Zwiń</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    function updateMainToggle(item){
+      const label = item.querySelector('.toggle-label');
+      if(!label) return;
+      label.textContent = item.classList.contains('open') ? 'Zwiń' : 'Rozwiń';
+    }
+
+    function updateLitterToggle(item){
+      const label = item.querySelector('.mini-toggle-label');
+      if(!label) return;
+      label.textContent = item.classList.contains('open') ? 'Zwiń' : 'Rozwiń';
+    }
+
+    document.querySelectorAll('.accordion-item').forEach(item => {
+      updateMainToggle(item);
+    });
+
+    document.querySelectorAll('.accordion-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.accordion-item');
+        item.classList.toggle('open');
+        updateMainToggle(item);
+      });
+    });
+
+    document.querySelectorAll('[data-close-main]').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.accordion-item');
+        item.classList.remove('open');
+        updateMainToggle(item);
+      });
+    });
+
+    document.querySelectorAll('.litter-card').forEach(item => {
+      updateLitterToggle(item);
+    });
+
+    document.querySelectorAll('.litter-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.litter-card');
+        item.classList.toggle('open');
+        updateLitterToggle(item);
+      });
+    });
+
+    document.querySelectorAll('[data-close-litter]').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.litter-card');
+        item.classList.remove('open');
+        updateLitterToggle(item);
+      });
+    });
+  </script>
 
 </body>
 </html>
