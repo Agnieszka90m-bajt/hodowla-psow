@@ -4,17 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Suczki – Akwamaryn PL Dogs</title>
+<title>Suki hodowlane – Akwamaryn PL Dogs</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;color:#fff;background:#0f0f0f;overflow-x:hidden;}
 html{scroll-behavior:smooth;}
 
-/* MENU — NIE ZMIENIAM */
+body{
+font-family:'Montserrat', sans-serif;
+color:#fff;
+background:#0f0f0f;
+overflow-x:hidden;
+}
+
+/* ===== MENU (PEŁNE – JAK INDEX) ===== */
 .topbar{
 position:fixed;
 top:0;
@@ -25,6 +30,7 @@ background:rgba(12,12,12,0.34);
 backdrop-filter:blur(10px);
 border-bottom:1px solid rgba(255,255,255,0.08);
 }
+
 .topbar-inner{
 width:min(1400px,96%);
 margin:auto;
@@ -33,16 +39,19 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 }
+
 .brand{
-font-family:'Cormorant Garamond',serif;
+font-family:'Cormorant Garamond', serif;
 font-size:2rem;
 }
+
 .desktop-nav{
 display:flex;
 gap:16px;
 flex:1;
 justify-content:flex-end;
 }
+
 .desktop-nav a{
 color:#fff;
 text-decoration:none;
@@ -51,7 +60,40 @@ letter-spacing:1px;
 opacity:.9;
 }
 
-/* HERO */
+.menu-btn{
+display:none;
+width:46px;
+height:46px;
+border:none;
+border-radius:12px;
+background:rgba(255,255,255,0.10);
+color:#fff;
+font-size:24px;
+cursor:pointer;
+}
+
+.mobile-menu{
+display:none;
+position:fixed;
+top:82px;
+left:0;
+width:100%;
+background:rgba(12,12,12,0.95);
+padding:20px;
+flex-direction:column;
+gap:15px;
+z-index:2500;
+}
+
+.mobile-menu.open{display:flex;}
+
+.mobile-menu a{
+color:#fff;
+text-decoration:none;
+font-size:15px;
+}
+
+/* ===== HERO ===== */
 .hero{
 min-height:100vh;
 padding:160px 20px 60px;
@@ -64,88 +106,126 @@ linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
 url('charlot/file_00000000115c722fbb55be2450a7b585.png');
 
 background-size:cover;
-background-position:center;
+
+/* 🔥 KLUCZ – NIE UCINA */
+background-position:center 35%;
+
 background-repeat:no-repeat;
 }
 
-/* CONTENT */
+/* ===== CONTENT ===== */
 .content{
-max-width:1000px;
+max-width:1100px;
 width:100%;
-margin-bottom:100px;
+margin-bottom:90px;
 
 background:rgba(0,0,0,0.25);
 padding:40px 30px;
 border-radius:18px;
-
 backdrop-filter:blur(6px);
-
 border:1px solid rgba(255,255,255,0.06);
+text-align:center;
 }
 
 h1{
-font-family:'Cormorant Garamond',serif;
-font-size:48px;
-text-align:center;
-margin-bottom:25px;
+font-family:'Cormorant Garamond', serif;
+font-size:52px;
+margin-bottom:20px;
 }
 
 .gold{color:#d9b36a;}
 
+.intro{
+line-height:1.9;
+font-size:17px;
+margin-bottom:25px;
+}
+
+/* ===== SEKCJE ===== */
 .section{
-margin-top:20px;
-border-radius:14px;
+margin-top:25px;
+border-radius:16px;
 overflow:hidden;
-border:1px solid rgba(255,255,255,0.1);
 background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+text-align:left;
+transition:0.3s;
 }
 
 .section-header{
+width:100%;
 padding:20px;
 display:flex;
 justify-content:space-between;
+align-items:center;
 cursor:pointer;
+border:none;
+background:transparent;
+color:#fff;
 }
 
 .section-title{
-font-size:22px;
-display:flex;
-gap:10px;
+font-family:'Cormorant Garamond', serif;
+font-size:30px;
 }
 
-.section-title i{color:#d9b36a;}
+.section-toggle{
+font-size:14px;
+opacity:0.9;
+}
 
 .section-content{
 display:none;
-padding:20px;
+padding:0 20px 20px;
+border-top:1px solid rgba(255,255,255,0.08);
 }
 
-.section.open .section-content{
-display:block;
-}
+.section.open .section-content{display:block;}
 
-/* karta psa */
 .card{
-margin-top:15px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
-.text{
-line-height:1.8;
-}
-
-.img{
-height:260px;
+background:rgba(255,255,255,0.04);
+padding:22px;
 border-radius:14px;
-background:url('charlot/file_00000000115c722fbb55be2450a7b585.png') center/cover no-repeat;
+margin-top:18px;
 }
 
-/* MOBILE */
+.card p{
+line-height:1.85;
+margin-bottom:16px;
+font-size:16px;
+}
+
+.bottom-toggle{
+margin-top:18px;
+padding:10px 18px;
+border:none;
+border-radius:999px;
+background:rgba(255,255,255,0.10);
+color:#fff;
+cursor:pointer;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:1100px){
+.desktop-nav{display:none;}
+.menu-btn{display:block;}
+}
+
 @media(max-width:768px){
-.card{grid-template-columns:1fr;}
-.hero{background-position:center top;}
+
+.hero{
+padding:120px 15px 40px;
+background-position:center 25%;
+}
+
+.content{
+margin-bottom:40px;
+padding:25px 18px;
+}
+
+h1{font-size:34px;}
+.section-title{font-size:24px;}
+.intro, .card p{font-size:15px;}
 }
 </style>
 </head>
@@ -154,6 +234,7 @@ background:url('charlot/file_00000000115c722fbb55be2450a7b585.png') center/cover
 
 <header class="topbar">
 <div class="topbar-inner">
+
 <div class="brand">Akwamaryn PL Dogs</div>
 
 <nav class="desktop-nav">
@@ -164,73 +245,62 @@ background:url('charlot/file_00000000115c722fbb55be2450a7b585.png') center/cover
 <a href="miot.html">Aktualny miot</a>
 <a href="kontakt.html">Kontakt</a>
 </nav>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
 </div>
+
+<nav class="mobile-menu" id="mobileMenu">
+<a href="index.html">Start</a>
+<a href="o-nas.html">O nas</a>
+<a href="psy.html">Psy</a>
+<a href="suczki.html">Suczki</a>
+<a href="miot.html">Aktualny miot</a>
+<a href="kontakt.html">Kontakt</a>
+</nav>
 </header>
 
 <section class="hero">
 <div class="content">
 
-<h1>Suczki <span class="gold">hodowlane</span></h1>
+<h1>Suki <span class="gold">hodowlane</span></h1>
+
+<p class="intro">
+Nasze suki są fundamentem hodowli. To właśnie one przekazują charakter,
+spokój i wszystko to, co najważniejsze kolejnym pokoleniom.
+</p>
 
 <!-- CHARLOTTA -->
-<div class="section open" onclick="toggle(this)">
-<div class="section-header">
-<div class="section-title">
-<i class="fa-solid fa-star"></i>Charlotta
-</div>
-<div>✓ Zwiń</div>
-</div>
+<div class="section open">
+<button class="section-header">
+<span class="section-title">Charlotta</span>
+<span class="section-toggle">✓ Zwiń</span>
+</button>
 
 <div class="section-content">
 <div class="card">
 
-<div class="text">
-<p>
-Charlotta to wyjątkowa suczka, która od pierwszych chwil zwraca uwagę swoim spokojem i niezwykłą harmonią. Ma w sobie coś, co trudno opisać — delikatność połączoną z pewnością siebie.
-</p>
+<p>Charlotta to suczka o niezwykle spokojnym, harmonijnym charakterze...</p>
 
-<p>
-To pies, który doskonale odnajduje się w codziennym życiu, jest bardzo blisko człowieka i naturalnie buduje relację. Uwielbia kontakt, obserwuje i reaguje z ogromną wrażliwością.
-</p>
-
-<p>
-Dla nas Charlotta to nie tylko piękna przedstawicielka rasy, ale przede wszystkim fundament tego, jak chcemy prowadzić naszą hodowlę — spokojnie, świadomie i z ogromnym szacunkiem do charakteru psa.
-</p>
-</div>
-
-<div class="img"></div>
+<button class="bottom-toggle">✓ Zwiń</button>
 
 </div>
 </div>
 </div>
 
 <!-- VANESSA -->
-<div class="section" onclick="toggle(this)">
-<div class="section-header">
-<div class="section-title">
-<i class="fa-solid fa-heart"></i>Vanessa
-</div>
-<div>✓ Rozwiń</div>
-</div>
+<div class="section">
+<button class="section-header">
+<span class="section-title">Vanessa</span>
+<span class="section-toggle">✓ Rozwiń</span>
+</button>
 
 <div class="section-content">
 <div class="card">
 
-<div class="text">
-<p>
-Vanessa to suczka o zupełnie innym typie energii — bardziej żywiołowa, ciekawa świata i bardzo kontaktowa. To pies, który wnosi do domu lekkość, radość i ogrom pozytywnej energii.
-</p>
+<p>Vanessa to suczka o eleganckim typie i wyjątkowej delikatności...</p>
 
-<p>
-Jest odważna, otwarta i bardzo szybko nawiązuje relacje. Uwielbia być blisko człowieka, ale jednocześnie zachowuje swoją niezależność i charakter.
-</p>
-
-<p>
-To właśnie takie połączenie charakterów w naszej hodowli jest dla nas najważniejsze — równowaga, różnorodność i naturalność.
-</p>
-</div>
-
-<div class="img"></div>
+<button class="bottom-toggle">✓ Zwiń</button>
 
 </div>
 </div>
@@ -240,4 +310,36 @@ To właśnie takie połączenie charakterów w naszej hodowli jest dla nas najwa
 </section>
 
 <script>
-function toggle
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click', () => {
+mobileMenu.classList.toggle('open');
+});
+
+function updateSection(section){
+const label = section.querySelector('.section-toggle');
+label.textContent = section.classList.contains('open') ? '✓ Zwiń' : '✓ Rozwiń';
+}
+
+document.querySelectorAll('.section').forEach(section => {
+updateSection(section);
+
+const header = section.querySelector('.section-header');
+const bottomBtn = section.querySelector('.bottom-toggle');
+
+header.addEventListener('click', () => {
+section.classList.toggle('open');
+updateSection(section);
+});
+
+bottomBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+section.classList.remove('open');
+updateSection(section);
+});
+});
+</script>
+
+</body>
+</html>
