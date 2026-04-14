@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -56,32 +55,8 @@
       letter-spacing:.4px;
     }
 
-    .desktop-nav{
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      gap:16px;
-      flex:1;
-      min-width:0;
-      flex-wrap:nowrap;
-    }
-
-    .desktop-nav a{
-      color:#fff;
-      text-decoration:none;
-      font-size:13px;
-      letter-spacing:1px;
-      white-space:nowrap;
-      opacity:.88;
-      transition:.25s ease;
-    }
-
-    .desktop-nav a:hover{
-      opacity:1;
-    }
-
     .menu-btn{
-      display:none;
+      display:block;
       width:46px;
       height:46px;
       border:none;
@@ -93,10 +68,14 @@
       flex-shrink:0;
     }
 
+    .desktop-nav{
+      display:none;
+    }
+
     .mobile-menu{
       display:none;
       position:fixed;
-      top:74px;
+      top:82px;
       left:0;
       width:100%;
       background:rgba(12,12,12,0.95);
@@ -122,17 +101,17 @@
 
     .hero{
       min-height:100vh;
-      padding:160px 20px 60px;
+      padding:150px 20px 50px;
       display:flex;
       justify-content:center;
       align-items:flex-end;
       position:relative;
       background:
-        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
+        linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.72)),
         url('charlot/file_00000000115c722fbb55be2450a7b585.png');
-      background-size:cover;
-      background-position:center 35%;
       background-repeat:no-repeat;
+      background-position:center center;
+      background-size:cover;
     }
 
     .hero::after{
@@ -148,8 +127,8 @@
       z-index:2;
       max-width:1100px;
       width:100%;
-      margin-bottom:80px;
-      background:rgba(0,0,0,0.25);
+      margin-bottom:60px;
+      background:rgba(0,0,0,0.22);
       padding:40px 30px;
       border-radius:18px;
       backdrop-filter:blur(6px);
@@ -315,12 +294,13 @@
       display:block;
       width:100%;
       height:auto;
-      max-height:520px;
+      max-height:720px;
       object-fit:contain;
       margin:0 auto;
       border-radius:10px;
       cursor:pointer;
       transition:transform .25s ease, opacity .25s ease;
+      aspect-ratio:auto;
     }
 
     .photo-frame img:hover{
@@ -387,6 +367,7 @@
       border-radius:14px;
       box-shadow:0 18px 40px rgba(0,0,0,0.45);
       background:#111;
+      object-fit:contain;
     }
 
     .lightbox-close{
@@ -403,31 +384,23 @@
       cursor:pointer;
     }
 
-    @media(max-width:1024px){
-      .desktop-nav{
-        gap:12px;
-      }
-
-      .desktop-nav a{
-        font-size:12px;
+    @media (min-width:768px) and (max-width:1199px){
+      .hero{
+        background-position:center 28%;
       }
     }
 
-    @media(max-width:767px){
-      .desktop-nav{
-        display:none;
-      }
-
-      .menu-btn{
-        display:block;
-      }
-
+    @media (max-width:767px){
       .topbar-inner{
         min-height:74px;
       }
 
+      .mobile-menu{
+        top:74px;
+      }
+
       .hero{
-        padding:120px 15px 40px;
+        padding:118px 15px 34px;
         align-items:flex-end;
         background-size:contain;
         background-position:center top;
@@ -435,7 +408,7 @@
       }
 
       .content{
-        margin-bottom:30px;
+        margin-bottom:20px;
         padding:24px 18px;
       }
 
@@ -455,6 +428,10 @@
 
       .card{
         grid-template-columns:1fr;
+      }
+
+      .photo-frame{
+        padding:8px;
       }
 
       .photo-frame img{
@@ -477,19 +454,6 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">Akwamaryn PL Dogs</div>
-
-      <nav class="desktop-nav">
-        <a href="index.html">Start</a>
-        <a href="o-nas.html">O nas</a>
-        <a href="psy.html">Psy</a>
-        <a href="suczki.html">Suczki</a>
-        <a href="miot.html">Aktualny miot</a>
-        <a href="wystawy.html">Wystawy</a>
-        <a href="sukcesy.html">Sukcesy</a>
-        <a href="nasze-wychowanki.html">Nasze wychowanki</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
-
       <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
     </div>
 
@@ -518,7 +482,7 @@
         <button class="section-header" type="button">
           <div class="section-title-wrap">
             <div class="section-icon">✦</div>
-            <span class="section-title">Charlotta</span>
+            <span class="section-title">Charlotte</span>
           </div>
           <span class="section-toggle">✓ Zwiń</span>
         </button>
@@ -528,7 +492,7 @@
             <div class="text">
               <div class="feature">
                 <span class="feature-icon">✦</span>
-                <p>Charlotta to wyjątkowa suczka o niezwykle spokojnym i harmonijnym charakterze. Od pierwszych chwil zwraca uwagę swoją delikatnością, ale jednocześnie ma w sobie naturalną pewność siebie, która pięknie pokazuje się w codziennym życiu.</p>
+                <p>Charlotte to wyjątkowa suczka o niezwykle spokojnym i harmonijnym charakterze. Od pierwszych chwil zwraca uwagę swoją delikatnością, ale jednocześnie ma w sobie naturalną pewność siebie, która pięknie pokazuje się w codziennym życiu.</p>
               </div>
 
               <div class="feature">
@@ -538,7 +502,7 @@
 
               <div class="feature">
                 <span class="feature-icon">✦</span>
-                <p>Charlotta wychowuje się razem z nami, w domu, dzięki czemu rozwija się w naturalnym rytmie życia i zachowuje wszystko to, na czym najbardziej nam zależy: spokój, kontaktowość i piękny charakter.</p>
+                <p>Charlotte wychowuje się razem z nami, w domu, dzięki czemu rozwija się w naturalnym rytmie życia i zachowuje wszystko to, na czym najbardziej nam zależy: spokój, kontaktowość i piękny charakter.</p>
               </div>
 
               <button class="bottom-toggle" type="button">✓ Zwiń</button>
@@ -548,11 +512,11 @@
               <div class="photo-frame">
                 <img
                   src="charlot/file_00000000115c722fbb55be2450a7b585.png"
-                  alt="Charlotta"
+                  alt="Charlotte"
                   class="zoomable"
                 />
               </div>
-              <div class="caption">Charlotta</div>
+              <div class="caption">Charlotte</div>
             </div>
           </div>
         </div>
