@@ -9,15 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
 font-family:'Montserrat', sans-serif;
@@ -45,25 +38,18 @@ min-height:82px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:20px;
 }
 
 .brand{
 font-family:'Cormorant Garamond', serif;
 font-size:2rem;
-font-weight:500;
-color:#fff;
-white-space:nowrap;
-letter-spacing:.4px;
 }
 
 .desktop-nav{
 display:flex;
-align-items:center;
-justify-content:flex-end;
 gap:16px;
 flex:1;
-min-width:0;
+justify-content:flex-end;
 }
 
 .desktop-nav a{
@@ -71,112 +57,52 @@ color:#fff;
 text-decoration:none;
 font-size:13px;
 letter-spacing:1px;
-white-space:nowrap;
 opacity:.88;
-transition:.25s ease;
-}
-
-.desktop-nav a:hover{
-opacity:1;
-}
-
-.menu-btn{
-display:none;
-width:46px;
-height:46px;
-border:none;
-border-radius:12px;
-background:rgba(255,255,255,0.10);
-color:#fff;
-font-size:24px;
-cursor:pointer;
-}
-
-.mobile-menu{
-display:none;
-position:fixed;
-top:82px;
-left:0;
-width:100%;
-background:rgba(12,12,12,0.94);
-backdrop-filter:blur(12px);
-border-top:1px solid rgba(255,255,255,0.08);
-padding:18px 20px 24px;
-z-index:2500;
-}
-
-.mobile-menu.open{
-display:flex;
-flex-direction:column;
-gap:16px;
-}
-
-.mobile-menu a{
-color:#fff;
-text-decoration:none;
-font-size:15px;
-letter-spacing:1px;
-opacity:.9;
 }
 
 /* ===== HERO ===== */
 .hero{
 min-height:100vh;
-padding:120px 20px 50px;
+padding:160px 20px 60px;
 display:flex;
 justify-content:center;
-align-items:center;
-text-align:center;
+align-items:flex-end;
 
 background:
 linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
 url('charlot/file_00000000115c722fbb55be2450a7b585.png');
 
 background-size:cover;
-background-position:center center;
+background-position:center;
 background-repeat:no-repeat;
-position:relative;
 }
 
-/* delikatny efekt światła */
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:radial-gradient(circle at 50% 30%, rgba(255,255,255,0.05), transparent 60%);
-pointer-events:none;
-}
-
-/* ===== CHMURA (NAPIS) ===== */
+/* ===== CHMURA ===== */
 .content{
-position:relative;
-z-index:2;
 max-width:900px;
 width:100%;
+margin-bottom:100px;
 
-/* 🔥 klucz – lekka, przezroczysta */
 background:rgba(0,0,0,0.25);
 
 padding:35px 30px;
 border-radius:18px;
 
-/* efekt szkła */
 backdrop-filter:blur(6px);
 
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 border:1px solid rgba(255,255,255,0.06);
+
+text-align:center;
 }
 
 h1{
 font-family:'Cormorant Garamond', serif;
 font-size:clamp(42px, 6vw, 64px);
-font-weight:500;
 margin-bottom:15px;
 }
 
-.gold{
-color:#d9b36a;
-}
+.gold{color:#d9b36a;}
 
 .lead{
 font-family:'Cormorant Garamond', serif;
@@ -185,41 +111,23 @@ font-style:italic;
 margin-bottom:20px;
 }
 
-p{
-line-height:1.8;
-font-size:16px;
-}
+p{line-height:1.8;}
 
 /* ===== MOBILE ===== */
-@media(max-width:1100px){
-.desktop-nav{display:none;}
-.menu-btn{display:block;}
-}
-
 @media(max-width:768px){
 
-.topbar-inner{
-min-height:74px;
-}
-
-.mobile-menu{
-top:74px;
-}
-
 .hero{
-padding:110px 15px 40px;
-
-/* 🔥 żeby psa nie ucinało */
+padding:120px 15px 40px;
 background-position:center top;
 }
 
 .content{
+margin-bottom:40px;
 padding:25px 18px;
 }
 
 h1{font-size:34px;}
 .lead{font-size:18px;}
-
 }
 </style>
 </head>
@@ -236,26 +144,9 @@ h1{font-size:34px;}
 <a href="psy.html">Psy</a>
 <a href="suczki.html">Suczki</a>
 <a href="miot.html">Aktualny miot</a>
-<a href="wystawy.html">Wystawy</a>
-<a href="sukcesy.html">Sukcesy</a>
-<a href="nasze-wychowanki.html">Nasze wychowanki</a>
 <a href="kontakt.html">Kontakt</a>
 </nav>
-
-<button class="menu-btn" id="menuBtn">☰</button>
 </div>
-
-<nav class="mobile-menu" id="mobileMenu">
-<a href="index.html">Start</a>
-<a href="o-nas.html">O nas</a>
-<a href="psy.html">Psy</a>
-<a href="suczki.html">Suczki</a>
-<a href="miot.html">Aktualny miot</a>
-<a href="wystawy.html">Wystawy</a>
-<a href="sukcesy.html">Sukcesy</a>
-<a href="nasze-wychowanki.html">Nasze wychowanki</a>
-<a href="kontakt.html">Kontakt</a>
-</nav>
 </header>
 
 <section class="hero">
@@ -264,7 +155,7 @@ h1{font-size:34px;}
 <h1>Akwamaryn <span class="gold">Dogs</span></h1>
 
 <div class="lead">
-hodowla chihuahua i gończy węgierski
+hodowla chihuahua
 </div>
 
 <p>
@@ -274,15 +165,6 @@ z troską o charakter, zdrowie i przyszłość.
 
 </div>
 </section>
-
-<script>
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-
-menuBtn.addEventListener('click', () => {
-mobileMenu.classList.toggle('open');
-});
-</script>
 
 </body>
 </html>
