@@ -1,128 +1,293 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/style.css">
+<title>Psy hodowlane – Akwamaryn PL Dogs</title>
 
-  <title>Psy hodowlane</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    .dogs{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
-      gap:50px;
-      margin-top:60px;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    .dog-card{
-      background:rgba(0,0,0,0.55);
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 20px 50px rgba(0,0,0,0.5);
-      transition:0.4s;
-    }
+body{
+font-family:'Montserrat', sans-serif;
+color:#fff;
+background:#0f0f0f;
+overflow-x:hidden;
+}
 
-    .dog-card:hover{
-      transform:translateY(-10px) scale(1.02);
-    }
+/* MENU */
+.topbar{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
 
-    .dog-card img{
-      width:100%;
-      height:340px;
-      object-fit:cover;
-    }
+.topbar-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+}
 
-    .dog-info{
-      padding:22px;
-    }
+.brand{
+font-family:'Cormorant Garamond', serif;
+font-size:26px;
+}
 
-    .dog-name{
-      font-size:24px;
-      margin-bottom:8px;
-      font-weight:300;
-    }
+.menu{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
 
-    .dog-title{
-      font-size:14px;
-      color:#d4d4d4;
-      margin-bottom:12px;
-      letter-spacing:1px;
-    }
+.menu a{
+color:#fff;
+text-decoration:none;
+font-size:13px;
+opacity:.9;
+}
 
-    .dog-desc{
-      font-size:14px;
-      color:rgba(255,255,255,0.75);
-      line-height:1.7;
-    }
-  </style>
+/* HERO */
+.hero{
+min-height:100vh;
+padding:120px 20px 40px;
+background:
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center/cover no-repeat;
+display:flex;
+justify-content:center;
+}
 
+.box{
+max-width:1000px;
+width:100%;
+background:rgba(0,0,0,0.6);
+padding:30px;
+border-radius:16px;
+}
+
+/* TYPO */
+h1{
+font-family:'Cormorant Garamond', serif;
+font-size:42px;
+text-align:center;
+margin-bottom:20px;
+}
+
+.gold{color:#d9b36a;}
+
+p{
+line-height:1.8;
+margin-bottom:15px;
+text-align:center;
+}
+
+/* SEKCJE */
+.section{
+margin-top:20px;
+border-radius:14px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.05);
+}
+
+.section-header{
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:20px;
+}
+
+.section-title i{
+color:#d9b36a;
+}
+
+.section-content{
+display:none;
+padding:20px;
+}
+
+.section.open .section-content{
+display:block;
+}
+
+/* KARTA PSA */
+.dog-card{
+margin-top:15px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.04);
+padding:20px;
+}
+
+.dog-title{
+font-family:'Cormorant Garamond', serif;
+font-size:28px;
+margin-bottom:10px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:15px;
+}
+
+.placeholder{
+height:180px;
+border:1px dashed rgba(255,255,255,0.2);
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:.6;
+}
+
+/* BUTTON */
+.btn{
+margin-top:15px;
+padding:10px;
+border:none;
+border-radius:10px;
+background:rgba(255,255,255,0.1);
+color:#fff;
+cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.grid{grid-template-columns:1fr;}
+h1{font-size:32px;}
+}
+</style>
 </head>
 
 <body>
 
 <!-- MENU -->
+<div class="topbar">
+<div class="topbar-inner">
+<div class="brand">Akwamaryn PL Dogs</div>
 <div class="menu">
-  <a href="index.html">Start</a>
-  <a href="o-nas.html">O nas</a>
-  <a href="psy.html">Psy</a>
-  <a href="suczki.html">Suczki</a>
-  <a href="szczeniaki.html">Szczeniaki</a>
-  <a href="miot.html">Aktualny miot</a>
-  <a href="wystawy.html">Wystawy</a>
-  <a href="sukcesy.html">Sukcesy</a>
-  <a href="nasze-wychowanki.html">Nasze wychowanki</a>
-  <a href="kontakt.html">Kontakt</a>
+<a href="index.html">Start</a>
+<a href="o-nas.html">O nas</a>
+<a href="psy.html">Psy</a>
+<a href="suczki.html">Suczki</a>
+<a href="miot.html">Miot</a>
+<a href="kontakt.html">Kontakt</a>
+</div>
+</div>
 </div>
 
 <section class="hero">
+<div class="box">
 
-  <div class="box">
+<h1>Psy <span class="gold">hodowlane</span></h1>
 
-    <h1>Psy hodowlane</h1>
+<p>
+W tej zakładce przedstawiamy nasze psy hodowlane. Każdy z nich jest dla nas wyjątkowy – to nie tylko psy z rodowodem i osiągnięciami, ale przede wszystkim członkowie naszej rodziny.
+</p>
 
-    <div class="subtitle">
-      nasze reproduktory
-    </div>
+<p>
+Dbamy o ich zdrowie, charakter oraz rozwój, ponieważ to właśnie od nich zaczyna się wszystko – przyszłe pokolenia naszych szczeniąt.
+</p>
 
-    <p>
-      Nasze psy to starannie wyselekcjonowane linie hodowlane,
-      łączące doskonały eksterier, charakter oraz osiągnięcia wystawowe.
-    </p>
+<!-- GOŃCZY -->
+<div class="section open">
+<div class="section-header" onclick="toggleSection(this)">
+<div class="section-title">
+<i class="fa-solid fa-dog"></i>
+Gończy węgierski
+</div>
+<div>✓ Zwiń</div>
+</div>
 
-    <!-- KARTY -->
-    <div class="dogs">
+<div class="section-content">
 
-      <!-- 🔥 PIES 1 -->
-      <div class="dog-card">
-        <img src="images/diana/file_00000000c21871fda440cb45f0f95a0c.png">
-        <div class="dog-info">
-          <div class="dog-name">Imię psa</div>
-          <div class="dog-title">Champion / tytuły</div>
-          <div class="dog-desc">
-            Opis psa – pochodzenie, charakter, osiągnięcia, linia hodowlana.
-          </div>
-        </div>
-      </div>
+<div class="dog-card">
+<div class="dog-title">Tutaj dodasz psa</div>
 
-      <!-- 🔥 PIES 2 -->
-      <div class="dog-card">
-        <img src="images/diana/file_00000000b5047246ada223a273d4bb12.png">
-        <div class="dog-info">
-          <div class="dog-name">Imię psa</div>
-          <div class="dog-title">Tytuły</div>
-          <div class="dog-desc">
-            Opis psa – możesz wpisać informacje o sukcesach i pochodzeniu.
-          </div>
-        </div>
-      </div>
+<div class="grid">
+<div>
+<p>
+Tutaj możesz dodać opis psa, jego charakter, osiągnięcia, rodowód i wszystko co chcesz pokazać.
+</p>
+</div>
 
-    </div>
+<div class="placeholder">Zdjęcie psa</div>
+</div>
+</div>
 
-  </div>
+<button class="btn" onclick="closeSection(this)">Zwiń</button>
 
+</div>
+</div>
+
+<!-- CHIHUAHUA -->
+<div class="section">
+<div class="section-header" onclick="toggleSection(this)">
+<div class="section-title">
+<i class="fa-solid fa-paw"></i>
+Chihuahua
+</div>
+<div>✓ Rozwiń</div>
+</div>
+
+<div class="section-content">
+
+<div class="dog-card">
+<div class="dog-title">Tutaj dodasz psa</div>
+
+<div class="grid">
+<div>
+<p>
+Tutaj możesz dodać opis psa rasy chihuahua – jego charakter, wygląd oraz wszystkie najważniejsze informacje.
+</p>
+</div>
+
+<div class="placeholder">Zdjęcie psa</div>
+</div>
+</div>
+
+<button class="btn" onclick="closeSection(this)">Zwiń</button>
+
+</div>
+</div>
+
+</div>
 </section>
+
+<script>
+function toggleSection(el){
+const section = el.parentElement;
+section.classList.toggle("open");
+
+const text = el.querySelector("div:last-child");
+text.innerText = section.classList.contains("open") ? "✓ Zwiń" : "✓ Rozwiń";
+}
+
+function closeSection(btn){
+const section = btn.closest(".section");
+section.classList.remove("open");
+section.querySelector(".section-header div:last-child").innerText="✓ Rozwiń";
+}
+</script>
 
 </body>
 </html>
