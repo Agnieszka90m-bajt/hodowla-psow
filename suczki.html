@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -62,6 +63,7 @@
       gap:16px;
       flex:1;
       min-width:0;
+      flex-wrap:nowrap;
     }
 
     .desktop-nav a{
@@ -88,15 +90,16 @@
       color:#fff;
       font-size:24px;
       cursor:pointer;
+      flex-shrink:0;
     }
 
     .mobile-menu{
       display:none;
       position:fixed;
-      top:82px;
+      top:74px;
       left:0;
       width:100%;
-      background:rgba(12,12,12,0.94);
+      background:rgba(12,12,12,0.95);
       backdrop-filter:blur(12px);
       border-top:1px solid rgba(255,255,255,0.08);
       padding:18px 20px 24px;
@@ -114,7 +117,7 @@
       text-decoration:none;
       font-size:15px;
       letter-spacing:1px;
-      opacity:.9;
+      opacity:.92;
     }
 
     .hero{
@@ -236,6 +239,7 @@
       white-space:nowrap;
       color:#fff;
       opacity:.92;
+      flex-shrink:0;
     }
 
     .section-content{
@@ -290,6 +294,7 @@
       font-size:15px;
       line-height:1.6;
       margin-top:1px;
+      flex-shrink:0;
     }
 
     .photo-panel{
@@ -298,20 +303,27 @@
       gap:14px;
     }
 
-    .img{
+    .photo-frame{
       width:100%;
-      min-height:320px;
       border-radius:14px;
-      background-size:contain;
-      background-repeat:no-repeat;
-      background-position:center;
-      background-color:rgba(255,255,255,0.03);
+      background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.08);
+      padding:10px;
+    }
+
+    .photo-frame img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:520px;
+      object-fit:contain;
+      margin:0 auto;
+      border-radius:10px;
       cursor:pointer;
       transition:transform .25s ease, opacity .25s ease;
     }
 
-    .img:hover{
+    .photo-frame img:hover{
       transform:scale(1.01);
       opacity:.96;
     }
@@ -391,7 +403,17 @@
       cursor:pointer;
     }
 
-    @media(max-width:1100px){
+    @media(max-width:1024px){
+      .desktop-nav{
+        gap:12px;
+      }
+
+      .desktop-nav a{
+        font-size:12px;
+      }
+    }
+
+    @media(max-width:767px){
       .desktop-nav{
         display:none;
       }
@@ -399,24 +421,21 @@
       .menu-btn{
         display:block;
       }
-    }
 
-    @media(max-width:768px){
       .topbar-inner{
         min-height:74px;
       }
 
-      .mobile-menu{
-        top:74px;
-      }
-
       .hero{
         padding:120px 15px 40px;
-        background-position:center 25%;
+        align-items:flex-end;
+        background-size:contain;
+        background-position:center top;
+        background-color:#0f0f0f;
       }
 
       .content{
-        margin-bottom:40px;
+        margin-bottom:30px;
         padding:24px 18px;
       }
 
@@ -438,9 +457,12 @@
         grid-template-columns:1fr;
       }
 
-      .img,
+      .photo-frame img{
+        max-height:none;
+      }
+
       .placeholder{
-        min-height:260px;
+        min-height:220px;
       }
 
       .bottom-toggle{
@@ -523,13 +545,12 @@
             </div>
 
             <div class="photo-panel">
-              <div
-                class="img zoomable"
-                data-src="charlot/file_00000000115c722fbb55be2450a7b585.png"
-                style="background-image:url('charlot/file_00000000115c722fbb55be2450a7b585.png');"
-                aria-label="Powiększ zdjęcie Charlotty"
-                role="button"
-                tabindex="0">
+              <div class="photo-frame">
+                <img
+                  src="charlot/file_00000000115c722fbb55be2450a7b585.png"
+                  alt="Charlotta"
+                  class="zoomable"
+                />
               </div>
               <div class="caption">Charlotta</div>
             </div>
@@ -632,17 +653,10 @@
       lightboxImg.src = '';
     }
 
-    document.querySelectorAll('.zoomable').forEach(el => {
-      el.addEventListener('click', (e) => {
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', (e) => {
         e.stopPropagation();
-        openLightbox(el.dataset.src);
-      });
-
-      el.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openLightbox(el.dataset.src);
-        }
+        openLightbox(img.src);
       });
     });
 
