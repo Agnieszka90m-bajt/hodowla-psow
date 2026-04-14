@@ -120,14 +120,16 @@
 
     .hero{
       min-height:100vh;
-      padding:120px 20px 50px;
+      padding:160px 20px 60px;
       display:flex;
       justify-content:center;
-      align-items:flex-start;
-      text-align:center;
+      align-items:flex-end;
       background:
-        linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.74)),
-        url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center center / cover no-repeat;
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
+        url('charlot/file_00000000115c722fbb55be2450a7b585.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
       position:relative;
     }
 
@@ -135,54 +137,44 @@
       content:"";
       position:absolute;
       inset:0;
-      background:radial-gradient(circle at 50% 28%, rgba(255,255,255,0.06), transparent 58%);
+      background:radial-gradient(circle at 50% 30%, rgba(255,255,255,0.05), transparent 60%);
       pointer-events:none;
     }
 
     .content{
       position:relative;
       z-index:2;
-      max-width:880px;
+      max-width:900px;
       width:100%;
-      background:rgba(0,0,0,0.46);
-      padding:42px 38px;
+      margin-bottom:100px;
+      background:rgba(0,0,0,0.25);
+      padding:40px 30px;
       border-radius:18px;
-      backdrop-filter:blur(10px);
-      box-shadow:0 16px 44px rgba(0,0,0,0.34);
-      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(6px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+      border:1px solid rgba(255,255,255,0.06);
+      text-align:center;
     }
 
     h1{
       font-family:'Cormorant Garamond', serif;
-      font-size:clamp(42px, 6vw, 62px);
+      font-size:clamp(42px,6vw,64px);
+      margin-bottom:20px;
       font-weight:500;
-      margin-bottom:22px;
-      line-height:1;
-      text-shadow:0 4px 20px rgba(0,0,0,0.22);
-    }
-
-    .lead{
-      font-family:'Cormorant Garamond', serif;
-      font-size:clamp(20px, 2.2vw, 28px);
-      font-weight:400;
-      font-style:italic;
-      color:rgba(255,255,255,0.86);
-      line-height:1.5;
-      margin-bottom:26px;
     }
 
     p{
+      line-height:1.9;
       font-size:16px;
-      line-height:1.95;
-      color:rgba(255,255,255,0.95);
       margin-bottom:18px;
+      color:rgba(255,255,255,0.96);
     }
 
     p:last-child{
       margin-bottom:0;
     }
 
-    @media (max-width: 1100px){
+    @media(max-width:1100px){
       .desktop-nav{
         display:none;
       }
@@ -190,13 +182,9 @@
       .menu-btn{
         display:block;
       }
-
-      .brand{
-        font-size:1.8rem;
-      }
     }
 
-    @media (max-width: 768px){
+    @media(max-width:768px){
       .topbar-inner{
         min-height:74px;
       }
@@ -206,23 +194,17 @@
       }
 
       .hero{
-        padding:108px 16px 34px;
-        background:
-          linear-gradient(rgba(0,0,0,0.64), rgba(0,0,0,0.78)),
-          url('images/diana/file_00000000c21871fda440cb45f0f95a0c.png') center top / cover no-repeat;
-      }
-
-      .brand{
-        font-size:1.6rem;
+        padding:120px 15px 40px;
+        background-position:center top;
       }
 
       .content{
-        padding:24px 18px;
-        border-radius:16px;
+        margin-bottom:40px;
+        padding:25px 18px;
       }
 
-      .lead{
-        margin-bottom:20px;
+      h1{
+        font-size:34px;
       }
 
       p{
@@ -250,7 +232,7 @@
         <a href="kontakt.html">Kontakt</a>
       </nav>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
+      <button class="menu-btn" id="menuBtn">☰</button>
     </div>
 
     <nav class="mobile-menu" id="mobileMenu">
@@ -270,36 +252,36 @@
     <div class="content">
       <h1>O nas</h1>
 
-      <div class="lead">
-        Cześć, mam na imię Agnieszka i witam Cię w naszej hodowli.
-      </div>
-
       <p>
-        Nasza hodowla powstała z miłości do psów i z codziennego życia z nimi. To nie jest miejsce stworzone tylko po to, żeby prowadzić hodowlę. To po prostu nasz świat, nasz dom i nasza codzienność, w której psy są naprawdę blisko nas.
+        Cześć, mam na imię Agnieszka i to właśnie tutaj zaczyna się historia naszej hodowli.
       </p>
 
       <p>
-        W naszej hodowli mieszkają chihuahua oraz gończy węgierski. To dwie zupełnie różne rasy, ale właśnie dlatego są dla nas tak wyjątkowe. Chihuahua urzekają nas swoją delikatnością, ogromnym przywiązaniem do człowieka i tym, jak wielkie serce potrafi mieć tak mały pies. Gończy węgierski to z kolei siła, charakter, elegancja i coś bardzo naturalnego, prawdziwego i szlachetnego.
+        Nasza hodowla to przede wszystkim pasja, która z czasem przerodziła się w coś znacznie większego niż tylko zainteresowanie psami. To codzienność, sposób życia i ogromna część tego, kim jesteśmy.
       </p>
 
       <p>
-        Kochamy to połączenie, bo daje nam dwie zupełnie inne energie. Z jednej strony ciepło, bliskość i wyjątkową więź, z drugiej siłę, pewność i piękną, mocną naturę psa. Właśnie dlatego te dwie rasy są z nami i właśnie dlatego chcemy je prowadzić z sercem i pełnym zaangażowaniem.
+        Zdecydowaliśmy się na chihuahua, ponieważ to rasa wyjątkowa pod każdym względem. To psy niezwykle inteligentne, wrażliwe i bardzo silnie związane z człowiekiem. Mają w sobie coś, co trudno opisać słowami — ogromne serce zamknięte w małym ciele, wielką osobowość i niesamowitą potrzebę bliskości.
       </p>
 
       <p>
-        Nasze psy mieszkają z nami w domu, są częścią naszego życia i od początku wychowują się w normalnej, codziennej atmosferze. Bardzo zależy nam na tym, aby były dobrze prowadzone, zrównoważone, pewne siebie i przyzwyczajone do bliskości człowieka.
+        To właśnie ta wyjątkowa więź z człowiekiem sprawiła, że chihuahua zostały z nami na stałe. Kochamy w nich to, że są delikatne, a jednocześnie pełne charakteru. Potrafią być czułe, uważne, bardzo kontaktowe i niesamowicie oddane swoim ludziom.
       </p>
 
       <p>
-        Każdy pies jest dla nas ważny, każdy ma swój charakter i swoje miejsce. Nie interesuje nas ilość. Stawiamy na jakość, zdrowie, dobre skojarzenia i na to, żeby nasze psy i szczeniaki trafiały w naprawdę dobre ręce.
+        Nasze psy wychowują się razem z nami, w domu, w naturalnym środowisku. Od pierwszych dni życia mają kontakt z człowiekiem, codziennymi dźwiękami i zwykłym rytmem dnia. Dzięki temu są pewniejsze siebie, bardziej stabilne i lepiej przygotowane do życia w nowych domach.
       </p>
 
       <p>
-        Nasza hodowla jest zarejestrowana w ZKwP, należącym do FCI, oddział w Koszalinie.
+        Ogromną wagę przykładamy nie tylko do wyglądu, ale przede wszystkim do charakteru, zdrowia i psychiki naszych psów. To dla nas absolutna podstawa. Każdy pies jest częścią naszej rodziny i właśnie tak jest traktowany — z troską, spokojem i pełnym zaangażowaniem.
       </p>
 
       <p>
-        Bardzo się cieszymy, że tu jesteś. Jeśli chcesz lepiej poznać nas i nasze psy, zapraszamy Cię do dalszego oglądania naszej strony i do kontaktu.
+        Jesteśmy zarejestrowani w ZKwP, należącym do FCI, oddział w Koszalinie, co daje pewność, że nasza hodowla prowadzona jest świadomie, odpowiedzialnie i zgodnie z zasadami kynologicznymi.
+      </p>
+
+      <p>
+        Jeśli trafiłaś lub trafiłeś na naszą stronę, to być może szukasz swojego wymarzonego psa. A my robimy wszystko, aby psy wychodzące od nas były nie tylko piękne, ale przede wszystkim zdrowe, stabilne, kochane i dobrze przygotowane do dalszego życia.
       </p>
     </div>
   </section>
