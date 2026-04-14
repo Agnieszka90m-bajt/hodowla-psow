@@ -66,25 +66,49 @@
       font-size:24px;
       cursor:pointer;
       flex-shrink:0;
+      transition:.25s ease;
+    }
+
+    .menu-btn:hover{
+      background:rgba(255,255,255,0.16);
+    }
+
+    .menu-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.5);
+      opacity:0;
+      pointer-events:none;
+      transition:.3s ease;
+      z-index:3500;
+    }
+
+    .menu-overlay.active{
+      opacity:1;
+      pointer-events:auto;
     }
 
     .mobile-menu{
-      display:none;
       position:fixed;
-      top:82px;
-      left:0;
-      width:100%;
-      background:rgba(12,12,12,0.95);
+      top:0;
+      right:-280px;
+      width:280px;
+      max-width:82vw;
+      height:100vh;
+      background:rgba(12,12,12,0.98);
       backdrop-filter:blur(12px);
-      border-top:1px solid rgba(255,255,255,0.08);
-      padding:18px 20px 24px;
-      z-index:2500;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      padding:100px 20px 30px;
+      transition:.35s ease;
+      z-index:4000;
+      border-left:1px solid rgba(255,255,255,0.08);
+      overflow-y:auto;
     }
 
     .mobile-menu.open{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
+      right:0;
     }
 
     .mobile-menu a{
@@ -93,6 +117,7 @@
       font-size:15px;
       letter-spacing:1px;
       opacity:.92;
+      padding:6px 0;
     }
 
     .hero{
@@ -234,394 +259,4 @@
       background:rgba(255,255,255,0.04);
       padding:20px;
       border-radius:14px;
-      margin-top:18px;
-      align-items:start;
-    }
-
-    .text{
-      text-align:left;
-    }
-
-    .text p{
-      margin-bottom:16px;
-      line-height:1.85;
-      font-size:16px;
-      color:rgba(255,255,255,0.96);
-    }
-
-    .text p:last-child{
-      margin-bottom:0;
-    }
-
-    .feature{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      margin-bottom:12px;
-    }
-
-    .feature:last-child{
-      margin-bottom:0;
-    }
-
-    .feature-icon{
-      color:#d9b36a;
-      font-size:15px;
-      line-height:1.6;
-      margin-top:1px;
-      flex-shrink:0;
-    }
-
-    .photo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .photo-frame{
-      width:100%;
-      border-radius:14px;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:10px;
-    }
-
-    .photo-frame img{
-      display:block;
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      margin:0 auto;
-      border-radius:10px;
-      cursor:pointer;
-      transition:transform .25s ease, opacity .25s ease;
-    }
-
-    .photo-frame img:hover{
-      transform:scale(1.01);
-      opacity:.96;
-    }
-
-    .caption{
-      text-align:center;
-      font-size:13px;
-      color:rgba(255,255,255,0.72);
-      line-height:1.7;
-    }
-
-    .placeholder{
-      width:100%;
-      min-height:320px;
-      border-radius:14px;
-      border:1px dashed rgba(255,255,255,0.18);
-      background:rgba(255,255,255,0.03);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:18px;
-      color:rgba(255,255,255,0.68);
-      line-height:1.8;
-    }
-
-    .bottom-toggle{
-      margin-top:18px;
-      padding:10px 16px;
-      border:none;
-      border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      color:#fff;
-      cursor:pointer;
-      transition:.25s ease;
-      font-size:14px;
-    }
-
-    .bottom-toggle:hover{
-      background:rgba(255,255,255,0.16);
-    }
-
-    .lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.92);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:24px;
-    }
-
-    .lightbox.open{
-      display:flex;
-    }
-
-    .lightbox img{
-      max-width:92vw;
-      max-height:90vh;
-      border-radius:14px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.45);
-      background:#111;
-      object-fit:contain;
-    }
-
-    .lightbox-close{
-      position:absolute;
-      top:18px;
-      right:18px;
-      width:44px;
-      height:44px;
-      border:none;
-      border-radius:50%;
-      background:rgba(255,255,255,0.10);
-      color:#fff;
-      font-size:28px;
-      cursor:pointer;
-    }
-
-    @media (min-width:768px) and (max-width:1199px){
-      .hero{
-        background-position:center 28%;
-      }
-    }
-
-    @media (max-width:767px){
-      .topbar-inner{
-        min-height:74px;
-      }
-
-      .mobile-menu{
-        top:74px;
-      }
-
-      .hero{
-        padding:118px 15px 34px;
-        align-items:flex-end;
-        background-size:cover;
-        background-position:center top;
-        background-color:#0f0f0f;
-      }
-
-      .content{
-        margin-bottom:20px;
-        padding:24px 18px;
-      }
-
-      h1{
-        font-size:34px;
-      }
-
-      .intro,
-      .text p{
-        font-size:15px;
-        line-height:1.8;
-      }
-
-      .section-title{
-        font-size:24px;
-      }
-
-      .card{
-        grid-template-columns:1fr;
-      }
-
-      .photo-frame{
-        padding:8px;
-      }
-
-      .placeholder{
-        min-height:220px;
-      }
-
-      .bottom-toggle{
-        width:100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">Akwamaryn PL Dogs</div>
-      <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">☰</button>
-    </div>
-
-    <nav class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Start</a>
-      <a href="o-nas.html">O nas</a>
-      <a href="psy.html">Psy</a>
-      <a href="suczki.html">Suczki</a>
-      <a href="miot.html">Aktualny miot</a>
-      <a href="wystawy.html">Wystawy</a>
-      <a href="sukcesy.html">Sukcesy</a>
-      <a href="nasze-wychowanki.html">Nasze wychowanki</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="content">
-      <h1>Suki <span class="gold">hodowlane</span></h1>
-
-      <p class="intro">
-        Nasze suki są sercem hodowli. To właśnie one budują charakter, delikatność, stabilność i wszystko to, co później chcemy widzieć także w kolejnych pokoleniach.
-      </p>
-
-      <div class="section open">
-        <button class="section-header" type="button">
-          <div class="section-title-wrap">
-            <div class="section-icon">✦</div>
-            <span class="section-title">Charlotte</span>
-          </div>
-          <span class="section-toggle">✓ Zwiń</span>
-        </button>
-
-        <div class="section-content">
-          <div class="card">
-            <div class="text">
-              <div class="feature">
-                <span class="feature-icon">✦</span>
-                <p>Charlotte to wyjątkowa suczka o niezwykle spokojnym i harmonijnym charakterze. Od pierwszych chwil zwraca uwagę swoją delikatnością, ale jednocześnie ma w sobie naturalną pewność siebie, która pięknie pokazuje się w codziennym życiu.</p>
-              </div>
-
-              <div class="feature">
-                <span class="feature-icon">✦</span>
-                <p>Jest bardzo blisko człowieka, czuła, uważna i stabilna. To właśnie takie psy są dla nas najważniejsze w hodowli — nie tylko piękne, ale przede wszystkim mądre, spokojne i dobrze funkcjonujące na co dzień.</p>
-              </div>
-
-              <div class="feature">
-                <span class="feature-icon">✦</span>
-                <p>Charlotte wychowuje się razem z nami, w domu, dzięki czemu rozwija się w naturalnym rytmie życia i zachowuje wszystko to, na czym najbardziej nam zależy: spokój, kontaktowość i piękny charakter.</p>
-              </div>
-
-              <button class="bottom-toggle" type="button">✓ Zwiń</button>
-            </div>
-
-            <div class="photo-panel">
-              <div class="photo-frame">
-                <img
-                  src="charlot/file_00000000115c722fbb55be2450a7b585.png"
-                  alt="Charlotte"
-                  class="zoomable"
-                />
-              </div>
-              <div class="caption">Charlotte</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <button class="section-header" type="button">
-          <div class="section-title-wrap">
-            <div class="section-icon">✦</div>
-            <span class="section-title">Vanessa</span>
-          </div>
-          <span class="section-toggle">✓ Rozwiń</span>
-        </button>
-
-        <div class="section-content">
-          <div class="card">
-            <div class="text">
-              <div class="feature">
-                <span class="feature-icon">✦</span>
-                <p>Vanessa to suczka o pięknej, subtelnej urodzie i bardzo kobiecym wyrazie. Jest delikatna, ale jednocześnie ma w sobie ogromną siłę charakteru i wyjątkową elegancję.</p>
-              </div>
-
-              <div class="feature">
-                <span class="feature-icon">✦</span>
-                <p>To pies bardzo kontaktowy, ciepły i otwarty na człowieka. Wnosi do domu spokój, ale też piękną energię i radość, która od razu przyciąga uwagę.</p>
-              </div>
-
-              <div class="feature">
-                <span class="feature-icon">✦</span>
-                <p>Dla nas Vanessa jest połączeniem charakteru i urody, które idealnie wpisuje się w naszą wizję hodowli. Jej zdjęcia dodamy tutaj wkrótce.</p>
-              </div>
-
-              <button class="bottom-toggle" type="button">✓ Zwiń</button>
-            </div>
-
-            <div class="photo-panel">
-              <div class="placeholder">
-                zdjęcie Vanessy wkrótce
-              </div>
-              <div class="caption">Vanessa</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Zamknij">×</button>
-    <img id="lightboxImg" alt="Powiększone zdjęcie" />
-  </div>
-
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-
-    function updateSection(section) {
-      const label = section.querySelector('.section-toggle');
-      if (label) {
-        label.textContent = section.classList.contains('open') ? '✓ Zwiń' : '✓ Rozwiń';
-      }
-    }
-
-    document.querySelectorAll('.section').forEach(section => {
-      updateSection(section);
-
-      const header = section.querySelector('.section-header');
-      const bottomBtn = section.querySelector('.bottom-toggle');
-
-      header.addEventListener('click', () => {
-        section.classList.toggle('open');
-        updateSection(section);
-      });
-
-      bottomBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        section.classList.remove('open');
-        updateSection(section);
-      });
-    });
-
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-
-    function openLightbox(src){
-      lightboxImg.src = src;
-      lightbox.classList.add('open');
-    }
-
-    function closeLightbox(){
-      lightbox.classList.remove('open');
-      lightboxImg.src = '';
-    }
-
-    document.querySelectorAll('.zoomable').forEach(img => {
-      img.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openLightbox(img.src);
-      });
-    });
-
-    lightboxClose.addEventListener('click', closeLightbox);
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-  </script>
-
-</body>
-</html>
+      margin-top:18
