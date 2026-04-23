@@ -39,10 +39,10 @@ body{
   font-size:26px;
 }
 
-/* DESKTOP MENU */
+/* DESKTOP + TABLET */
 .desktop-menu{
   display:flex;
-  gap:22px;
+  gap:20px;
 }
 
 .desktop-menu a{
@@ -141,9 +141,7 @@ h1{
   font-size:50px;
 }
 
-.gold{
-  color:#d9b36a;
-}
+.gold{color:#d9b36a;}
 
 p{
   margin-top:20px;
@@ -162,16 +160,15 @@ p{
   .desktop-menu{display:none;}
   .menu-btn{display:block;}
 
-  .hero{
-    background-position:center top;
-  }
-
   h1{font-size:34px;}
   p{font-size:15px;}
 
+  .hero{
+    background-position:center top;
+  }
 }
 
-/* tablet + pc */
+/* TABLET + PC */
 @media(min-width:769px){
   .mobile-menu{display:none !important;}
 }
@@ -182,53 +179,58 @@ p{
 
 <div class="menu-overlay" id="overlay"></div>
 
+<!-- MENU -->
 <div class="topbar">
   <div class="topbar-inner">
+
     <div class="brand">Skarb Akwamarynu FCI</div>
 
     <div class="desktop-menu">
       <a href="index.html">Start</a>
       <a href="o-nas.html">O nas</a>
-      <a href="psy.html">Psy</a>
-      <a href="suczki.html">Suczki</a>
-      <a href="miot.html">Miot</a>
-      <a href="wystawy.html">Wystawy</a>
-      <a href="sukcesy.html">Sukcesy</a>
+      <a href="psy.html">Psy hodowlane</a>
+      <a href="suczki.html">Suki hodowlane</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="wystawy.html">Wystawy i sukcesy</a>
+      <a href="nasze-wychowanki.html">Nasze wychowanki</a>
       <a href="kontakt.html">Kontakt</a>
     </div>
 
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
   </div>
 </div>
 
+<!-- MOBILE -->
 <div class="mobile-menu" id="menu">
   <a href="index.html">Start</a>
   <a href="o-nas.html">O nas</a>
-  <a href="psy.html">Psy</a>
-  <a href="suczki.html">Suczki</a>
-  <a href="miot.html">Miot</a>
-  <a href="wystawy.html">Wystawy</a>
-  <a href="sukcesy.html">Sukcesy</a>
+  <a href="psy.html">Psy hodowlane</a>
+  <a href="suczki.html">Suki hodowlane</a>
+  <a href="miot.html">Aktualny miot</a>
+  <a href="wystawy.html">Wystawy i sukcesy</a>
+  <a href="nasze-wychowanki.html">Nasze wychowanki</a>
   <a href="kontakt.html">Kontakt</a>
 </div>
 
+<!-- HERO -->
 <section class="hero">
 
   <div class="glass">
 
     <h1>O nas – <span class="gold">Skarb Akwamarynu</span> FCI</h1>
 
-    <p><span class="gold-icon">✦</span>Skarb Akwamarynu FCI to domowa hodowla psów rasy chihuahua, zarejestrowana w ZKwP/FCI oddział Koszalin. Nasza droga od początku oparta jest na świadomych decyzjach, pasji i ogromnym szacunku do tej wyjątkowej rasy.</p>
+    <p><span class="gold-icon">✦</span>Skarb Akwamarynu FCI to domowa hodowla psów rasy chihuahua, zarejestrowana w ZKwP/FCI oddział Koszalin. Nasza hodowla powstała z pasji, ale przede wszystkim z potrzeby tworzenia psów, które są nie tylko piękne, ale i stabilne psychicznie.</p>
 
-    <p><span class="gold-icon">✦</span>Chihuahua to psy, które urzekły nas swoim charakterem — niewielkie rozmiarem, ale ogromne osobowością. Są inteligentne, czujne, niezwykle oddane i bardzo mocno związują się ze swoim człowiekiem. Potrafią być delikatne i czułe, ale jednocześnie mają w sobie odwagę i pewność siebie, której często brakuje dużo większym psom.</p>
+    <p><span class="gold-icon">✦</span>Chihuahua to rasa wyjątkowa — mała rozmiarem, ale ogromna charakterem. Są inteligentne, bardzo kontaktowe, oddane i niezwykle silnie związują się ze swoim człowiekiem. To psy, które czują więcej, niż się wydaje i potrafią stworzyć niesamowitą relację.</p>
 
-    <p><span class="gold-icon">✦</span>Dla nas to nie jest „mały pies”. To pełnoprawny towarzysz życia — świadomy, kontaktowy i niezwykle bystry. Przy odpowiednim prowadzeniu chihuahua staje się psem stabilnym, pewnym siebie i doskonale odnajdującym się w codziennym życiu.</p>
+    <p><span class="gold-icon">✦</span>Wybraliśmy tę rasę świadomie. Urzekła nas ich osobowość, czujność i odwaga. Chihuahua potrafi być delikatna i czuła, ale jednocześnie pewna siebie i świadoma. To połączenie sprawia, że są idealnymi towarzyszami życia.</p>
 
-    <p><span class="gold-icon">✦</span>Nasze psy wychowują się razem z nami, w domu. Od pierwszych dni uczestniczą w normalnym życiu — poznają dźwięki, ludzi i codzienne sytuacje. Dzięki temu rozwijają się naturalnie, bez stresu, budując pewność siebie i zaufanie do świata.</p>
+    <p><span class="gold-icon">✦</span>Nasze psy wychowują się razem z nami, w domu. Od pierwszych dni mają kontakt z codziennym życiem, dzięki czemu rozwijają się naturalnie i bez stresu. Budujemy w nich spokój, pewność siebie i zaufanie do człowieka.</p>
 
-    <p><span class="gold-icon">✦</span>Ogromną wagę przykładamy do doboru psów w hodowli. Liczy się dla nas nie tylko rodowód, ale przede wszystkim charakter, zdrowie i to, co dany pies wnosi do przyszłych pokoleń. Każde skojarzenie jest przemyślane i ma swój cel.</p>
+    <p><span class="gold-icon">✦</span>W hodowli ogromną wagę przykładamy do doboru psów. Liczy się dla nas nie tylko rodowód, ale przede wszystkim charakter, zdrowie i to, co dany pies przekazuje dalej. Każde skojarzenie ma swój cel.</p>
 
-    <p><span class="gold-icon">✦</span>Skarb Akwamarynu FCI to nie tylko hodowla. To styl życia, codzienność i odpowiedzialność za psy, które tworzymy. Każdy z nich jest dla nas ważny i każdy zostawia po sobie coś więcej niż tylko rodowód.</p>
+    <p><span class="gold-icon">✦</span>Skarb Akwamarynu FCI to nie tylko hodowla — to styl życia, codzienność i odpowiedzialność. Tworzymy psy, które będą prawdziwymi towarzyszami człowieka, a nie tylko ładnym wyglądem.</p>
 
   </div>
 
