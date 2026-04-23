@@ -13,8 +13,8 @@
 
 body{
   font-family:'Montserrat', sans-serif;
-  background:#0f0f0f;
-  color:#fff;
+  background:#f6f1ea;
+  color:#2b2b2b;
 }
 
 /* ===== MENU ===== */
@@ -23,8 +23,9 @@ body{
   top:0;
   width:100%;
   z-index:3000;
-  background:rgba(0,0,0,0.45);
+  background:rgba(255,255,255,0.85);
   backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
 }
 
 .topbar-inner{
@@ -37,6 +38,7 @@ body{
 .brand{
   font-family:'Cormorant Garamond', serif;
   font-size:26px;
+  color:#bfa46a;
 }
 
 .desktop-menu{
@@ -45,38 +47,21 @@ body{
 }
 
 .desktop-menu a{
-  color:#fff;
+  color:#444;
   text-decoration:none;
   font-size:14px;
-  opacity:.9;
 }
 
 .desktop-menu a:hover{
-  opacity:1;
+  color:#bfa46a;
 }
 
+/* MOBILE */
 .menu-btn{
   display:none;
   font-size:26px;
   background:none;
   border:none;
-  color:#fff;
-  cursor:pointer;
-}
-
-/* ===== MOBILE MENU ===== */
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-}
-
-.menu-overlay.active{
-  opacity:1;
-  pointer-events:auto;
 }
 
 .mobile-menu{
@@ -85,7 +70,7 @@ body{
   right:-280px;
   width:280px;
   height:100%;
-  background:#111;
+  background:#fff;
   padding:100px 25px;
   display:flex;
   flex-direction:column;
@@ -97,11 +82,6 @@ body{
   right:0;
 }
 
-.mobile-menu a{
-  color:#fff;
-  text-decoration:none;
-}
-
 /* ===== HERO ===== */
 .hero{
   min-height:100vh;
@@ -111,53 +91,44 @@ body{
   text-align:center;
 
   background:
-    linear-gradient(rgba(40,30,20,0.6), rgba(15,10,5,0.9)),
-    url('charlot/file_00000000115c722fbb55be2450a7b585.png');
-
-  background-size:cover;
-  background-position:center;
-
-  filter:sepia(0.25) saturate(0.8) contrast(0.95);
+    radial-gradient(circle at top, rgba(191,164,106,0.15), transparent 60%),
+    linear-gradient(#f6f1ea, #efe7dc);
 }
 
-/* ===== CHMURKA ===== */
-.glass{
+/* ===== BLOK CENTRALNY ===== */
+.box{
   max-width:900px;
-  margin:20px;
-  padding:40px 30px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(14px);
+  padding:60px 40px;
+  background:#ffffff;
   border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
 }
 
 /* ===== TEKST ===== */
 h1{
   font-family:'Cormorant Garamond', serif;
-  font-size:56px;
+  font-size:60px;
+  color:#2b2b2b;
 }
 
-.gold{color:#d9b36a;}
+.gold{
+  color:#bfa46a;
+}
 
-p{
+.subtitle{
   margin-top:20px;
-  line-height:1.9;
-}
-
-.gold-icon{
-  color:#d9b36a;
-  margin-right:8px;
+  font-size:16px;
+  letter-spacing:2px;
+  color:#777;
 }
 
 /* ===== STOPKA ===== */
 .footer{
   text-align:center;
-  padding:40px 10px 30px;
+  padding:40px 10px;
   font-family:'Cormorant Garamond', serif;
-  font-size:16px;
-  color:#d9b36a;
-  opacity:0.6;
+  color:#bfa46a;
   letter-spacing:2px;
-  position:relative;
 }
 
 .footer::before{
@@ -165,7 +136,7 @@ p{
   display:block;
   width:120px;
   height:1px;
-  background:linear-gradient(to right, transparent, #d9b36a, transparent);
+  background:linear-gradient(to right, transparent, #bfa46a, transparent);
   margin:0 auto 15px;
 }
 
@@ -173,6 +144,7 @@ p{
 @media(max-width:768px){
   .desktop-menu{display:none;}
   .menu-btn{display:block;}
+
   h1{font-size:34px;}
 }
 
@@ -183,8 +155,6 @@ p{
 </head>
 
 <body>
-
-<div class="menu-overlay" id="overlay"></div>
 
 <!-- MENU -->
 <div class="topbar">
@@ -223,12 +193,13 @@ p{
 <!-- HERO -->
 <section class="hero">
 
-  <div class="glass">
+  <div class="box">
 
-    <h1>Skarb <span class="gold">Akwamarynu</span> FCI</h1>
+    <h1>Skarb <span class="gold">Akwamarynu</span></h1>
 
-    <p><span class="gold-icon">✦</span>Domowa hodowla psów rasy chihuahua</p>
-    <p><span class="gold-icon">✦</span>Pasja, miłość i jakość</p>
+    <div class="subtitle">
+      HODOWLA CHIHUAHUA FCI • PASJA • MIŁOŚĆ • JAKOŚĆ
+    </div>
 
   </div>
 
@@ -236,18 +207,12 @@ p{
 
 <!-- STOPKA -->
 <footer class="footer">
-  Skarb Akwamarynu FCI © 2026
+Skarb Akwamarynu FCI © 2026
 </footer>
 
 <script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("open");
-  document.getElementById("overlay").classList.toggle("active");
-}
-
-document.getElementById("overlay").onclick = function(){
-  document.getElementById("menu").classList.remove("open");
-  this.classList.remove("active");
 }
 </script>
 
