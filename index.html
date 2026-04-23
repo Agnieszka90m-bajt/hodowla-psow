@@ -91,17 +91,21 @@ body{
   text-align:center;
 
   background:
-    radial-gradient(circle at top, rgba(191,164,106,0.15), transparent 60%),
-    linear-gradient(#f6f1ea, #efe7dc);
+    linear-gradient(rgba(246,241,234,0.85), rgba(246,241,234,0.95)),
+    url('charlot/file_00000000115c722fbb55be2450a7b585.png');
+
+  background-size:cover;
+  background-position:center;
 }
 
-/* ===== BLOK CENTRALNY ===== */
+/* ===== CHMURKA PREMIUM ===== */
 .box{
   max-width:900px;
   padding:60px 40px;
-  background:#ffffff;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
   border-radius:20px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  box-shadow:0 25px 60px rgba(0,0,0,0.08);
 }
 
 /* ===== TEKST ===== */
@@ -144,7 +148,6 @@ h1{
 @media(max-width:768px){
   .desktop-menu{display:none;}
   .menu-btn{display:block;}
-
   h1{font-size:34px;}
 }
 
