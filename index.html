@@ -51,14 +51,20 @@ body{
   opacity:.9;
 }
 
+.desktop-menu a:hover{
+  opacity:1;
+}
+
 .menu-btn{
   display:none;
   font-size:26px;
   background:none;
   border:none;
   color:#fff;
+  cursor:pointer;
 }
 
+/* MOBILE */
 .menu-overlay{
   position:fixed;
   inset:0;
@@ -117,20 +123,6 @@ body{
   border-radius:20px;
 }
 
-/* ===== LOGO ===== */
-.logo{
-  width:240px;
-  display:block;
-  margin:0 auto 20px;
-
-  /* KLUCZOWE — usuwa wizualnie tło */
-  border-radius:50%;
-  overflow:hidden;
-
-  /* delikatny cień premium */
-  filter:drop-shadow(0 10px 25px rgba(0,0,0,0.6));
-}
-
 /* ===== TEKST ===== */
 h1{
   font-family:'Cormorant Garamond', serif;
@@ -147,6 +139,28 @@ p{
 .gold-icon{
   color:#d9b36a;
   margin-right:8px;
+}
+
+/* ===== STOPKA ===== */
+.footer{
+  text-align:center;
+  padding:40px 10px 30px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:16px;
+  color:#d9b36a;
+  opacity:0.6;
+  letter-spacing:2px;
+  position:relative;
+}
+
+/* złota linia */
+.footer::before{
+  content:"";
+  display:block;
+  width:120px;
+  height:1px;
+  background:linear-gradient(to right, transparent, #d9b36a, transparent);
+  margin:0 auto 15px;
 }
 
 /* ===== RESPONSYWNOŚĆ ===== */
@@ -205,9 +219,6 @@ p{
 
   <div class="glass">
 
-    <!-- TWOJE LOGO -->
-    <img src="file_000000001a24720abf1e4d6be698566b.png" class="logo">
-
     <h1>Skarb <span class="gold">Akwamarynu</span> FCI</h1>
 
     <p><span class="gold-icon">✦</span>Domowa hodowla psów rasy chihuahua</p>
@@ -216,6 +227,11 @@ p{
   </div>
 
 </section>
+
+<!-- STOPKA -->
+<footer class="footer">
+  Skarb Akwamarynu FCI © 2026
+</footer>
 
 <script>
 function toggleMenu(){
