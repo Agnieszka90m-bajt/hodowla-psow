@@ -9,11 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Montserrat', sans-serif;
@@ -27,7 +23,7 @@ body{
   top:0;
   width:100%;
   z-index:3000;
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,0.45);
   backdrop-filter:blur(10px);
 }
 
@@ -46,13 +42,18 @@ body{
 /* DESKTOP MENU */
 .desktop-menu{
   display:flex;
-  gap:20px;
+  gap:22px;
 }
 
 .desktop-menu a{
   color:#fff;
   text-decoration:none;
   font-size:14px;
+  opacity:.9;
+}
+
+.desktop-menu a:hover{
+  opacity:1;
 }
 
 /* HAMBURGER */
@@ -115,18 +116,26 @@ body{
   text-align:center;
 
   background:
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)),
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.85)),
     url('charlot/file_00000000115c722fbb55be2450a7b585.png');
 
   background-size:cover;
   background-position:center;
 }
 
-.content{
-  max-width:800px;
-  padding:20px;
+/* ===== CHMURKA ===== */
+.glass{
+  max-width:900px;
+  margin:20px;
+  padding:40px 30px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.15);
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
+/* ===== TEKST ===== */
 h1{
   font-family:'Cormorant Garamond', serif;
   font-size:50px;
@@ -138,44 +147,33 @@ h1{
 
 p{
   margin-top:20px;
-  line-height:1.8;
+  line-height:1.9;
   font-size:17px;
 }
 
-/* ===== RESPONSYWNOŚĆ ===== */
+.gold-icon{
+  color:#d9b36a;
+  margin-right:8px;
+}
 
-/* TELEFON */
+/* ===== RESPONSYWNOŚĆ ===== */
 @media(max-width:768px){
 
-  .desktop-menu{
-    display:none;
-  }
-
-  .menu-btn{
-    display:block;
-  }
+  .desktop-menu{display:none;}
+  .menu-btn{display:block;}
 
   .hero{
     background-position:center top;
   }
 
-  h1{
-    font-size:34px;
-  }
-
-  p{
-    font-size:15px;
-  }
+  h1{font-size:34px;}
+  p{font-size:15px;}
 
 }
 
-/* TABLET I WYŻEJ */
+/* tablet + pc */
 @media(min-width:769px){
-
-  .mobile-menu{
-    display:none !important;
-  }
-
+  .mobile-menu{display:none !important;}
 }
 </style>
 </head>
@@ -194,6 +192,8 @@ p{
       <a href="psy.html">Psy</a>
       <a href="suczki.html">Suczki</a>
       <a href="miot.html">Miot</a>
+      <a href="wystawy.html">Wystawy</a>
+      <a href="sukcesy.html">Sukcesy</a>
       <a href="kontakt.html">Kontakt</a>
     </div>
 
@@ -207,27 +207,31 @@ p{
   <a href="psy.html">Psy</a>
   <a href="suczki.html">Suczki</a>
   <a href="miot.html">Miot</a>
+  <a href="wystawy.html">Wystawy</a>
+  <a href="sukcesy.html">Sukcesy</a>
   <a href="kontakt.html">Kontakt</a>
 </div>
 
 <section class="hero">
-  <div class="content">
+
+  <div class="glass">
 
     <h1>O nas – <span class="gold">Skarb Akwamarynu</span> FCI</h1>
 
-    <p>
-      Skarb Akwamarynu FCI to hodowla tworzona z pasji do psów,
-      ich charakteru i piękna. Nasze psy są częścią naszego życia –
-      wychowują się z nami w domu, w bliskości i spokoju.
-    </p>
+    <p><span class="gold-icon">✦</span>Skarb Akwamarynu FCI to domowa hodowla psów rasy chihuahua, zarejestrowana w ZKwP/FCI oddział Koszalin. Nasza droga od początku oparta jest na świadomych decyzjach, pasji i ogromnym szacunku do tej wyjątkowej rasy.</p>
 
-    <p>
-      Stawiamy przede wszystkim na zdrowie, stabilną psychikę i
-      prawidłowy rozwój. Każdy pies jest dla nas ważny i traktowany
-      indywidualnie – to nie tylko hodowla, to styl życia.
-    </p>
+    <p><span class="gold-icon">✦</span>Chihuahua to psy, które urzekły nas swoim charakterem — niewielkie rozmiarem, ale ogromne osobowością. Są inteligentne, czujne, niezwykle oddane i bardzo mocno związują się ze swoim człowiekiem. Potrafią być delikatne i czułe, ale jednocześnie mają w sobie odwagę i pewność siebie, której często brakuje dużo większym psom.</p>
+
+    <p><span class="gold-icon">✦</span>Dla nas to nie jest „mały pies”. To pełnoprawny towarzysz życia — świadomy, kontaktowy i niezwykle bystry. Przy odpowiednim prowadzeniu chihuahua staje się psem stabilnym, pewnym siebie i doskonale odnajdującym się w codziennym życiu.</p>
+
+    <p><span class="gold-icon">✦</span>Nasze psy wychowują się razem z nami, w domu. Od pierwszych dni uczestniczą w normalnym życiu — poznają dźwięki, ludzi i codzienne sytuacje. Dzięki temu rozwijają się naturalnie, bez stresu, budując pewność siebie i zaufanie do świata.</p>
+
+    <p><span class="gold-icon">✦</span>Ogromną wagę przykładamy do doboru psów w hodowli. Liczy się dla nas nie tylko rodowód, ale przede wszystkim charakter, zdrowie i to, co dany pies wnosi do przyszłych pokoleń. Każde skojarzenie jest przemyślane i ma swój cel.</p>
+
+    <p><span class="gold-icon">✦</span>Skarb Akwamarynu FCI to nie tylko hodowla. To styl życia, codzienność i odpowiedzialność za psy, które tworzymy. Każdy z nich jest dla nas ważny i każdy zostawia po sobie coś więcej niż tylko rodowód.</p>
 
   </div>
+
 </section>
 
 <script>
