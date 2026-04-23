@@ -48,7 +48,6 @@ body{
   color:#fff;
   text-decoration:none;
   font-size:14px;
-  opacity:.9;
 }
 
 .menu-btn{
@@ -117,67 +116,65 @@ body{
   border-radius:20px;
 }
 
-/* ===== TEKST ===== */
+/* ===== TYTUŁ ===== */
 h1{
   font-family:'Cormorant Garamond', serif;
-  font-size:50px;
+  font-size:48px;
 }
 
 .gold{color:#d9b36a;}
 
-p{
-  margin-top:15px;
-  line-height:1.8;
+/* ===== ROZWIJANE SEKCJE ===== */
+.toggle{
+  margin-top:20px;
+  padding:18px;
+  background:rgba(255,255,255,0.06);
+  border-radius:12px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
 }
 
-.gold-icon{
-  color:#d9b36a;
-  margin-right:8px;
+.content{
+  display:none;
+  margin-top:20px;
 }
 
 /* ===== UKŁAD ===== */
 .female{
   display:flex;
   gap:30px;
-  margin-top:40px;
   align-items:center;
 }
 
-.main-img{
-  width:320px;
-  border-radius:16px;
+.female img{
+  width:300px;
+  border-radius:14px;
   object-fit:cover;
   cursor:pointer;
 }
 
-.female-text{
+.text{
   text-align:left;
 }
 
-.female-title{
-  font-family:'Cormorant Garamond', serif;
-  font-size:32px;
+.text p{
+  margin-top:10px;
 }
 
 /* ===== GALERIA ===== */
 .gallery{
-  margin-top:25px;
+  margin-top:15px;
   display:flex;
   gap:10px;
-  flex-wrap:wrap;
 }
 
 .gallery img{
-  width:100px;
-  height:100px;
+  width:90px;
+  height:90px;
   object-fit:cover;
   border-radius:10px;
   cursor:pointer;
-  transition:.2s;
-}
-
-.gallery img:hover{
-  transform:scale(1.05);
 }
 
 /* ===== LIGHTBOX ===== */
@@ -188,13 +185,11 @@ p{
   display:none;
   justify-content:center;
   align-items:center;
-  z-index:5000;
 }
 
 .lightbox img{
   max-width:90%;
   max-height:90%;
-  border-radius:10px;
 }
 
 /* ===== RESPONSYWNOŚĆ ===== */
@@ -206,11 +201,11 @@ p{
     flex-direction:column;
   }
 
-  .main-img{
+  .female img{
     width:100%;
   }
 
-  h1{font-size:32px;}
+  h1{font-size:30px;}
 }
 
 @media(min-width:769px){
@@ -223,73 +218,90 @@ p{
 
 <div class="menu-overlay" id="overlay"></div>
 
-<!-- MENU -->
 <div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">Skarb Akwamarynu FCI</div>
+<div class="topbar-inner">
 
-    <div class="desktop-menu">
-      <a href="index.html">Start</a>
-      <a href="o-nas.html">O nas</a>
-      <a href="psy.html">Psy hodowlane</a>
-      <a href="suczki.html">Suki hodowlane</a>
-      <a href="miot.html">Aktualny miot</a>
-      <a href="wystawy.html">Wystawy i sukcesy</a>
-      <a href="nasze-wychowanki.html">Nasze wychowanki</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
+<div class="brand">Skarb Akwamarynu FCI</div>
 
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-  </div>
+<div class="desktop-menu">
+<a href="index.html">Start</a>
+<a href="o-nas.html">O nas</a>
+<a href="psy.html">Psy hodowlane</a>
+<a href="suczki.html">Suki hodowlane</a>
+<a href="miot.html">Aktualny miot</a>
+<a href="wystawy.html">Wystawy i sukcesy</a>
+<a href="nasze-wychowanki.html">Nasze wychowanki</a>
+<a href="kontakt.html">Kontakt</a>
 </div>
 
-<!-- MOBILE -->
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+</div>
+</div>
+
 <div class="mobile-menu" id="menu">
-  <a href="index.html">Start</a>
-  <a href="o-nas.html">O nas</a>
-  <a href="psy.html">Psy hodowlane</a>
-  <a href="suczki.html">Suki hodowlane</a>
-  <a href="miot.html">Aktualny miot</a>
-  <a href="wystawy.html">Wystawy i sukcesy</a>
-  <a href="nasze-wychowanki.html">Nasze wychowanki</a>
-  <a href="kontakt.html">Kontakt</a>
+<a href="index.html">Start</a>
+<a href="o-nas.html">O nas</a>
+<a href="psy.html">Psy hodowlane</a>
+<a href="suczki.html">Suki hodowlane</a>
+<a href="miot.html">Aktualny miot</a>
+<a href="wystawy.html">Wystawy i sukcesy</a>
+<a href="nasze-wychowanki.html">Nasze wychowanki</a>
+<a href="kontakt.html">Kontakt</a>
 </div>
 
-<!-- HERO -->
 <section class="hero">
 
 <div class="glass">
 
 <h1>Suki <span class="gold">hodowlane</span></h1>
 
+<!-- VANESSA -->
+<div class="toggle" onclick="toggleSection('v1')">
+Vanessa <span>Rozwiń</span>
+</div>
+
+<div class="content" id="v1">
+
 <div class="female">
+<img src="vanessa/file_00000000679c71f5a75b987f76d70ca3.png" onclick="openImg(this.src)">
 
-<img src="vanessa/file_00000000679c71f5a75b987f76d70ca3.png" class="main-img" onclick="openImg(this.src)">
-
-<div class="female-text">
-<div class="female-title">Vanessa</div>
-
-<p><span class="gold-icon">✦</span>Vanessa to suczka o wyjątkowej urodzie i bardzo kobiecym wyrazie. Przyciąga uwagę spokojem i naturalną elegancją.</p>
-
-<p><span class="gold-icon">✦</span>Jest niezwykle kontaktowa, bliska człowiekowi i stabilna psychicznie. To typ psa, który buduje prawdziwą relację.</p>
-
-<p><span class="gold-icon">✦</span>To dokładnie taki charakter, jaki chcemy rozwijać w naszej hodowli.</p>
-
+<div class="text">
+<p>Vanessa to suczka o wyjątkowej urodzie i kobiecym wyrazie.</p>
+<p>Jest stabilna psychicznie, bardzo kontaktowa i bliska człowiekowi.</p>
+<p>Dokładnie taki charakter chcemy rozwijać w hodowli.</p>
+</div>
 </div>
 
-</div>
-
-<!-- GALERIA -->
 <div class="gallery">
 <img src="vanessa/zdjecie1.jpg" onclick="openImg(this.src)">
-<img src="vanessa/file_00000000679c71f5a75b987f76d70ca3.png" onclick="openImg(this.src)">
+</div>
+
+</div>
+
+<!-- CHARLOTTE -->
+<div class="toggle" onclick="toggleSection('c1')">
+Charlotte <span>Rozwiń</span>
+</div>
+
+<div class="content" id="c1">
+
+<div class="female">
+<img src="charlot/file_00000000115c722fbb55be2450a7b585.png" onclick="openImg(this.src)">
+
+<div class="text">
+<p>Charlotte to suka o spokojnym, stabilnym charakterze.</p>
+<p>Bardzo delikatna, ale jednocześnie pewna siebie.</p>
+<p>Idealny fundament dla przyszłych pokoleń.</p>
+</div>
+</div>
+
 </div>
 
 </div>
 
 </section>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
 <img id="lightbox-img">
 </div>
@@ -300,14 +312,14 @@ function toggleMenu(){
   document.getElementById("overlay").classList.toggle("active");
 }
 
+function toggleSection(id){
+  let el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
 function openImg(src){
   document.getElementById("lightbox").style.display="flex";
   document.getElementById("lightbox-img").src=src;
-}
-
-document.getElementById("overlay").onclick=function(){
-  document.getElementById("menu").classList.remove("open");
-  this.classList.remove("active");
 }
 </script>
 
