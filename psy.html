@@ -4,207 +4,262 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Psy hodowlane – Akwamaryn PL Dogs</title>
+<title>Psy hodowlane – Skarb Akwamarynu FCI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;color:#fff;background:#0f0f0f;overflow-x:hidden;}
-html{scroll-behavior:smooth;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-/* MENU */
+body{
+  font-family:'Montserrat', sans-serif;
+  background:#0f0f0f;
+  color:#fff;
+}
+
+/* ===== MENU ===== */
 .topbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:3000;
-background:rgba(12,12,12,0.34);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,0.08);
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:3000;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
 }
+
 .topbar-inner{
-width:min(1400px,96%);
-margin:auto;
-min-height:82px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 25px;
 }
+
 .brand{
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-}
-.desktop-nav{
-display:flex;
-gap:16px;
-flex:1;
-justify-content:flex-end;
-}
-.desktop-nav a{
-color:#fff;
-text-decoration:none;
-font-size:13px;
-letter-spacing:1px;
-opacity:.9;
+  font-family:'Cormorant Garamond', serif;
+  font-size:26px;
 }
 
-/* HERO */
+/* DESKTOP MENU */
+.desktop-menu{
+  display:flex;
+  gap:20px;
+}
+
+.desktop-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* HAMBURGER */
+.menu-btn{
+  display:none;
+  font-size:26px;
+  background:none;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* MOBILE MENU */
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:2000;
+}
+
+.menu-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:-280px;
+  width:280px;
+  height:100%;
+  background:#111;
+  padding:100px 25px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  transition:.3s;
+  z-index:2500;
+}
+
+.mobile-menu.open{
+  right:0;
+}
+
+.mobile-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+}
+
+/* ===== HERO ===== */
 .hero{
-min-height:100vh;
-padding:140px 20px 50px;
-display:flex;
-align-items:center;
-justify-content:center;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.75)),
-url('charlot/file_00000000115c722fbb55be2450a7b585.png');
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.85)),
+    url('charlot/file_00000000115c722fbb55be2450a7b585.png');
 
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
 }
 
-/* CONTENT */
 .content{
-max-width:1100px;
-width:100%;
-background:rgba(0,0,0,0.45);
-padding:40px;
-border-radius:18px;
-backdrop-filter:blur(10px);
+  max-width:900px;
+  padding:20px;
 }
 
 h1{
-font-family:'Cormorant Garamond',serif;
-font-size:48px;
-text-align:center;
-margin-bottom:20px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:52px;
+  font-weight:400;
 }
 
-.gold{color:#d9b36a;}
+.gold{
+  color:#d9b36a;
+}
 
 p{
-text-align:center;
-line-height:1.8;
-margin-bottom:20px;
+  margin-top:20px;
+  line-height:1.9;
+  font-size:17px;
+  opacity:.95;
 }
 
-/* SEKCJA */
-.section{
-margin-top:25px;
-border-radius:16px;
-overflow:hidden;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-}
-.section-header{
-padding:20px;
-display:flex;
-justify-content:space-between;
-cursor:pointer;
-}
-.section-title{
-display:flex;
-gap:10px;
-font-size:20px;
-}
-.section-title i{color:#d9b36a;}
-
-.section-content{
-display:block;
-padding:20px;
-}
-
-/* KARTA PSA */
-.card{
-margin-top:15px;
-background:rgba(255,255,255,0.04);
-padding:20px;
-border-radius:14px;
-}
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
+/* BOX NA ZDJĘCIA */
 .placeholder{
-height:180px;
-border:1px dashed rgba(255,255,255,0.2);
-border-radius:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:.6;
+  margin-top:40px;
+  border:1px dashed rgba(255,255,255,0.2);
+  padding:40px 20px;
+  border-radius:14px;
+  text-align:center;
+  font-size:16px;
+  opacity:.7;
 }
 
-/* MOBILE */
+/* ===== RESPONSYWNOŚĆ ===== */
 @media(max-width:768px){
-.grid{grid-template-columns:1fr;}
-.hero{background-position:center top;}
+
+  .desktop-menu{
+    display:none;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero{
+    background-position:center top;
+  }
+
+  h1{
+    font-size:34px;
+  }
+
+  p{
+    font-size:15px;
+  }
+
+}
+
+/* TABLET+ */
+@media(min-width:769px){
+  .mobile-menu{
+    display:none !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="topbar">
-<div class="topbar-inner">
-<div class="brand">Akwamaryn PL Dogs</div>
+<div class="menu-overlay" id="overlay"></div>
 
-<nav class="desktop-nav">
-<a href="index.html">Start</a>
-<a href="o-nas.html">O nas</a>
-<a href="psy.html">Psy</a>
-<a href="suczki.html">Suczki</a>
-<a href="miot.html">Miot</a>
-<a href="kontakt.html">Kontakt</a>
-</nav>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Skarb Akwamarynu FCI</div>
+
+    <div class="desktop-menu">
+      <a href="index.html">Start</a>
+      <a href="o-nas.html">O nas</a>
+      <a href="psy.html">Psy</a>
+      <a href="suczki.html">Suczki</a>
+      <a href="miot.html">Miot</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
 </div>
-</header>
+
+<div class="mobile-menu" id="menu">
+  <a href="index.html">Start</a>
+  <a href="o-nas.html">O nas</a>
+  <a href="psy.html">Psy</a>
+  <a href="suczki.html">Suczki</a>
+  <a href="miot.html">Miot</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
 
 <section class="hero">
-<div class="content">
+  <div class="content">
 
-<h1>Psy <span class="gold">hodowlane</span></h1>
+    <h1>Psy <span class="gold">hodowlane</span></h1>
 
-<p>
-W tej zakładce przedstawiamy nasze psy hodowlane – ich charakter, pochodzenie oraz wszystko, co wnoszą do naszej hodowli.
-</p>
+    <p>
+      Nasze psy to nie tylko piękny wygląd i zgodność ze wzorcem.
+      To przede wszystkim charakter, stabilność i pewność siebie,
+      które budują prawdziwego psa hodowlanego.
+    </p>
 
-<!-- CHIHUAHUA -->
-<div class="section">
-<div class="section-header">
-<div class="section-title">
-<i class="fa-solid fa-paw"></i>
-Chihuahua
-</div>
-</div>
+    <p>
+      Każdy z nich jest dokładnie przemyślanym wyborem — zarówno
+      pod względem pochodzenia, jak i tego, co wnosi do naszej hodowli.
+      Stawiamy na jakość, a nie ilość.
+    </p>
 
-<div class="section-content">
+    <p>
+      To psy, które żyją z nami na co dzień, obserwujemy je,
+      rozwijamy i poznajemy ich możliwości. To właśnie one są
+      fundamentem przyszłych pokoleń w naszej hodowli.
+    </p>
 
-<div class="card">
-<div class="grid">
+    <div class="placeholder">
+      Zdjęcia psów wkrótce
+    </div>
 
-<div>
-<p>
-Tutaj możesz dodać opis psa chihuahua, jego charakter, pochodzenie i wszystkie najważniejsze informacje.
-</p>
-</div>
-
-<div class="placeholder">Zdjęcie psa</div>
-
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
+  </div>
 </section>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("open");
+  document.getElementById("overlay").classList.toggle("active");
+}
+
+document.getElementById("overlay").onclick = function(){
+  document.getElementById("menu").classList.remove("open");
+  this.classList.remove("active");
+}
+</script>
 
 </body>
 </html>
