@@ -9,11 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Montserrat', sans-serif;
@@ -27,7 +23,7 @@ body{
   top:0;
   width:100%;
   z-index:3000;
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,0.45);
   backdrop-filter:blur(10px);
 }
 
@@ -43,7 +39,7 @@ body{
   font-size:26px;
 }
 
-/* DESKTOP MENU */
+/* DESKTOP + TABLET */
 .desktop-menu{
   display:flex;
   gap:20px;
@@ -53,6 +49,11 @@ body{
   color:#fff;
   text-decoration:none;
   font-size:14px;
+  opacity:.9;
+}
+
+.desktop-menu a:hover{
+  opacity:1;
 }
 
 /* HAMBURGER */
@@ -122,69 +123,80 @@ body{
   background-position:center;
 }
 
-.content{
+/* ===== CHMURKA ===== */
+.glass{
   max-width:900px;
-  padding:20px;
+  margin:20px;
+  padding:40px 30px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.15);
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
+/* ===== TEKST ===== */
 h1{
   font-family:'Cormorant Garamond', serif;
   font-size:52px;
-  font-weight:400;
 }
 
-.gold{
-  color:#d9b36a;
-}
+.gold{color:#d9b36a;}
 
 p{
   margin-top:20px;
   line-height:1.9;
   font-size:17px;
-  opacity:.95;
 }
 
-/* BOX NA ZDJĘCIA */
-.placeholder{
+.gold-icon{
+  color:#d9b36a;
+  margin-right:8px;
+}
+
+/* ===== SEKCJA PSÓW ===== */
+.dogs{
   margin-top:40px;
+}
+
+.dog-card{
+  margin-top:25px;
+  padding:25px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.dog-title{
+  font-family:'Cormorant Garamond', serif;
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.placeholder{
+  margin-top:15px;
   border:1px dashed rgba(255,255,255,0.2);
-  padding:40px 20px;
-  border-radius:14px;
-  text-align:center;
-  font-size:16px;
+  padding:25px;
+  border-radius:12px;
   opacity:.7;
 }
 
 /* ===== RESPONSYWNOŚĆ ===== */
 @media(max-width:768px){
 
-  .desktop-menu{
-    display:none;
-  }
+  .desktop-menu{display:none;}
+  .menu-btn{display:block;}
 
-  .menu-btn{
-    display:block;
-  }
+  h1{font-size:34px;}
+  p{font-size:15px;}
 
   .hero{
     background-position:center top;
   }
-
-  h1{
-    font-size:34px;
-  }
-
-  p{
-    font-size:15px;
-  }
-
 }
 
-/* TABLET+ */
 @media(min-width:769px){
-  .mobile-menu{
-    display:none !important;
-  }
+  .mobile-menu{display:none !important;}
 }
 </style>
 </head>
@@ -193,60 +205,67 @@ p{
 
 <div class="menu-overlay" id="overlay"></div>
 
+<!-- MENU -->
 <div class="topbar">
   <div class="topbar-inner">
+
     <div class="brand">Skarb Akwamarynu FCI</div>
 
     <div class="desktop-menu">
       <a href="index.html">Start</a>
       <a href="o-nas.html">O nas</a>
-      <a href="psy.html">Psy</a>
-      <a href="suczki.html">Suczki</a>
-      <a href="miot.html">Miot</a>
+      <a href="psy.html">Psy hodowlane</a>
+      <a href="suczki.html">Suki hodowlane</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="wystawy.html">Wystawy i sukcesy</a>
+      <a href="nasze-wychowanki.html">Nasze wychowanki</a>
       <a href="kontakt.html">Kontakt</a>
     </div>
 
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
   </div>
 </div>
 
+<!-- MOBILE -->
 <div class="mobile-menu" id="menu">
   <a href="index.html">Start</a>
   <a href="o-nas.html">O nas</a>
-  <a href="psy.html">Psy</a>
-  <a href="suczki.html">Suczki</a>
-  <a href="miot.html">Miot</a>
+  <a href="psy.html">Psy hodowlane</a>
+  <a href="suczki.html">Suki hodowlane</a>
+  <a href="miot.html">Aktualny miot</a>
+  <a href="wystawy.html">Wystawy i sukcesy</a>
+  <a href="nasze-wychowanki.html">Nasze wychowanki</a>
   <a href="kontakt.html">Kontakt</a>
 </div>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="content">
+
+  <div class="glass">
 
     <h1>Psy <span class="gold">hodowlane</span></h1>
 
-    <p>
-      Nasze psy to nie tylko piękny wygląd i zgodność ze wzorcem.
-      To przede wszystkim charakter, stabilność i pewność siebie,
-      które budują prawdziwego psa hodowlanego.
-    </p>
+    <p><span class="gold-icon">✦</span>Nasze psy hodowlane to starannie dobrane osobniki, które łączą w sobie nie tylko zgodność ze wzorcem rasy, ale przede wszystkim stabilny charakter i zdrowie.</p>
 
-    <p>
-      Każdy z nich jest dokładnie przemyślanym wyborem — zarówno
-      pod względem pochodzenia, jak i tego, co wnosi do naszej hodowli.
-      Stawiamy na jakość, a nie ilość.
-    </p>
+    <p><span class="gold-icon">✦</span>Każdy z nich wnosi coś wyjątkowego do naszej hodowli — temperament, budowę, pochodzenie i cechy, które chcemy rozwijać w kolejnych pokoleniach.</p>
 
-    <p>
-      To psy, które żyją z nami na co dzień, obserwujemy je,
-      rozwijamy i poznajemy ich możliwości. To właśnie one są
-      fundamentem przyszłych pokoleń w naszej hodowli.
-    </p>
+    <p><span class="gold-icon">✦</span>To psy, które żyją z nami na co dzień, są obserwowane, prowadzone i rozwijane w naturalnym środowisku domowym.</p>
 
-    <div class="placeholder">
-      Zdjęcia psów wkrótce
+    <div class="dogs">
+
+      <div class="dog-card">
+        <div class="dog-title">Nasze psy</div>
+
+        <div class="placeholder">
+          Zdjęcia i szczegóły psów hodowlanych pojawią się wkrótce
+        </div>
+      </div>
+
     </div>
 
   </div>
+
 </section>
 
 <script>
