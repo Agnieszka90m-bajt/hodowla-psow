@@ -24,7 +24,8 @@ body{
 .nav{
   position:fixed;
   width:100%;
-  padding:20px 25px;
+  top:0;
+  padding:20px;
   display:flex;
   justify-content:space-between;
   z-index:1000;
@@ -32,14 +33,14 @@ body{
 
 .logo{
   font-family:'Playfair Display';
-  font-size:20px;
+  font-size:18px;
 }
 
 .logo small{
   display:block;
   font-size:10px;
-  color:#c6a85a;
   letter-spacing:3px;
+  color:#c6a85a;
 }
 
 /* HAMBURGER */
@@ -75,58 +76,48 @@ body{
 
 .menu.active{right:0;}
 
-.menu a{
-  color:white;
-  text-decoration:none;
-  font-size:18px;
-}
-
 /* HERO */
 .hero{
   height:100vh;
   position:relative;
-  overflow:hidden;
 }
 
-/* OBRAZ – KLUCZOWE */
 .hero img{
-  position:absolute;
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:top center; /* NAJWAŻNIEJSZE – nie ucina głowy */
+  object-position:top center;
 }
 
-/* OVERLAY – morski */
-.hero::after{
-  content:"";
+/* OVERLAY */
+.overlay{
   position:absolute;
   width:100%;
   height:100%;
-  background:linear-gradient(to top,#062f36 25%,rgba(6,47,54,0.6));
+  background:linear-gradient(to top,#062f36 20%,rgba(6,47,54,0.5));
+  top:0;
 }
 
-/* TEKST */
-.hero-content{
+/* HERO TEXT */
+.hero-text{
   position:absolute;
   bottom:60px;
-  left:30px;
-  z-index:2;
+  left:25px;
 }
 
-.hero small{
+.hero-text small{
   color:#c6a85a;
   letter-spacing:3px;
 }
 
-.hero h1{
+.hero-text h1{
   font-family:'Playfair Display';
-  font-size:56px;
+  font-size:50px;
 }
 
-.hero h2{
+.hero-text h2{
   font-family:'Playfair Display';
-  font-size:56px;
+  font-size:50px;
   color:#6fd6db;
 }
 
@@ -134,12 +125,12 @@ body{
   width:120px;
   height:1px;
   background:#c6a85a;
-  margin:15px 0;
+  margin:10px 0;
 }
 
-/* SEKCJA */
+/* SECTION */
 .section{
-  padding:100px 25px;
+  padding:80px 20px;
   text-align:center;
 }
 
@@ -147,49 +138,25 @@ body{
   color:#c6a85a;
   letter-spacing:6px;
   font-size:12px;
-  margin-bottom:40px;
+  margin-bottom:30px;
 }
 
 .section p{
-  max-width:700px;
+  max-width:650px;
   margin:0 auto 20px;
   color:#ddd;
-  line-height:1.7;
 }
 
-.quote{
-  margin-top:40px;
-  color:#6fd6db;
-  font-family:'Playfair Display';
-}
-
-/* GRID 2x2 */
+/* GRID */
 .features{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:70px 40px;
-  margin-top:80px;
+  gap:60px 30px;
+  margin-top:60px;
 }
 
-/* BOX */
 .feature{
   text-align:center;
-}
-
-/* IKONY */
-.icon{
-  width:34px;
-  height:34px;
-  stroke:#c6a85a;
-  fill:none;
-  stroke-width:1.2;
-}
-
-.line-small{
-  width:30px;
-  height:1px;
-  background:#c6a85a;
-  margin:12px auto;
 }
 
 .feature h4{
@@ -205,15 +172,9 @@ body{
 
 /* MOBILE FIX */
 @media(max-width:600px){
-  .hero h1,.hero h2{font-size:40px}
-}
-
-/* STOPKA */
-footer{
-  text-align:center;
-  padding:40px;
-  font-size:12px;
-  color:#aaa;
+  .hero-text h1,.hero-text h2{
+    font-size:38px;
+  }
 }
 
 </style>
@@ -228,96 +189,71 @@ footer{
     <small>FCI KENNEL</small>
   </div>
 
-  <div class="hamburger" onclick="menuToggle()">
+  <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </div>
 
-<!-- MENU -->
 <div class="menu" id="menu">
   <a href="#">O NAS</a>
-  <a href="#">PSY HODOWLANE</a>
-  <a href="#">SUKI HODOWLANE</a>
+  <a href="#">PSY</a>
+  <a href="#">SUKI</a>
   <a href="#">SZCZENIĘTA</a>
-  <a href="#">ZDJĘCIA</a>
   <a href="#">KONTAKT</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <img src="IMG-20260426-WA0000.jpg">
+  <div class="overlay"></div>
 
-  <div class="hero-content">
+  <div class="hero-text">
     <small>HODOWLA CHIHUAHUA</small>
     <h1>Skarb</h1>
     <h2>Akwamarynu FCI</h2>
     <div class="line"></div>
-    <p style="font-size:11px;letter-spacing:3px;">ZKWP ODDZIAŁ W KOSZALINIE</p>
+    <p style="font-size:11px;">ZKWP ODDZIAŁ W KOSZALINIE</p>
   </div>
 </section>
 
-<!-- TEKST -->
+<!-- TEXT -->
 <section class="section">
 
 <h3>JAK ZACZĘŁA SIĘ NASZA HISTORIA</h3>
 
-<p>Cześć, mam na imię Agnieszka. Zanim założyłam hodowlę, przez lata miałam okazję obserwować tę rasę z bliska — i właśnie wtedy zakochałam się w Chihuahua naprawdę.</p>
+<p>Cześć, mam na imię Agnieszka. Zanim założyłam hodowlę, przez lata obserwowałam tę rasę i zakochałam się w niej bez reszty.</p>
 
-<p>Chcę obalić jeden mit — Chihuahua to nie pies wredny. To pies ogromnego serca i oddania.</p>
-
-<div class="quote">
-"Mały rozmiar, ogromne serce — i bezgraniczna wierność."
-</div>
+<p>Chihuahua to nie pies wredny — to ogromna miłość i oddanie.</p>
 
 <div class="features">
 
 <div class="feature">
-<svg class="icon" viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="9"/>
-</svg>
-<div class="line-small"></div>
 <h4>BADANIA ZDROWOTNE</h4>
-<p>Każdy pies przechodzi testy genetyczne.</p>
+<p>Testy genetyczne i kliniczne.</p>
 </div>
 
 <div class="feature">
-<svg class="icon" viewBox="0 0 24 24">
-<rect x="5" y="4" width="14" height="16"/>
-</svg>
-<div class="line-small"></div>
 <h4>RODOWODY FCI</h4>
 <p>Czystość rasy i dokumentacja.</p>
 </div>
 
 <div class="feature">
-<svg class="icon" viewBox="0 0 24 24">
-<path d="M3 10l9-7 9 7"/>
-</svg>
-<div class="line-small"></div>
 <h4>DOM, NIE KOJEC</h4>
-<p>Psy żyją z nami w domu.</p>
+<p>Psy żyją z nami.</p>
 </div>
 
 <div class="feature">
-<svg class="icon" viewBox="0 0 24 24">
-<path d="M12 21s-6-4-9-8"/>
-</svg>
-<div class="line-small"></div>
 <h4>WSPARCIE</h4>
-<p>Pomagamy całe życie psa.</p>
+<p>Pomoc przez całe życie psa.</p>
 </div>
 
 </div>
 
 </section>
 
-<footer>
-© 2026 Skarb Akwamarynu FCI
-</footer>
-
 <script>
-function menuToggle(){
- document.getElementById('menu').classList.toggle('active');
+function toggleMenu(){
+ document.getElementById("menu").classList.toggle("active");
 }
 </script>
 
