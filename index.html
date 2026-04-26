@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Skarb Akwamarynu FCI</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --navy:#071e26;
-  --navy2:#0a2731;
+  --bg:#071e26;
+  --bg2:#0a2731;
   --gold:#c6a85a;
   --aqua:#5fd0d8;
   --text:#e8eef0;
@@ -20,7 +21,7 @@
 
 body{
   font-family:'Inter',sans-serif;
-  background:linear-gradient(180deg,var(--navy2),var(--navy));
+  background:linear-gradient(180deg,var(--bg2),var(--bg));
   color:var(--text);
 }
 
@@ -55,11 +56,11 @@ header{
 
 /* HAMBURGER */
 .menu-btn{
-  font-size:32px;
+  font-size:30px;
   cursor:pointer;
 }
 
-/* FULLSCREEN MENU */
+/* MENU FULLSCREEN */
 .overlay{
   position:fixed;
   inset:0;
@@ -81,7 +82,7 @@ header{
 
 .overlay a{
   font-family:'Playfair Display',serif;
-  font-size:36px;
+  font-size:34px;
   letter-spacing:6px;
   text-decoration:none;
   color:white;
@@ -101,29 +102,27 @@ header{
 
   background:
   linear-gradient(180deg, rgba(7,30,38,.3), rgba(7,30,38,.9)),
-  url("IMG-20260426-WA0000.jpg") center/cover;
+  url("IMG-20260426-WA0000.jpg") center/cover no-repeat;
+
+  /* 🔥 ZŁOTA LINIA */
+  border-bottom:1px solid rgba(198,168,90,0.6);
 }
 
-/* FADE + RAMKA */
+/* FADE (żeby zdjęcie się nie ucinało) */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
 
   background:
-    radial-gradient(circle at 60% 40%, rgba(255,255,255,0.06), transparent 35%),
-    linear-gradient(90deg,
-      rgba(7,30,38,0.75),
-      rgba(7,30,38,0.15),
-      rgba(7,30,38,0.6)
-    ),
     linear-gradient(180deg,
-      transparent 60%,
+      transparent 65%,
       rgba(7,30,38,0.8) 90%,
       rgba(7,30,38,1) 100%
     );
 }
 
+/* TEKST */
 .hero-content{
   position:relative;
   z-index:2;
@@ -140,7 +139,6 @@ header{
   font-family:'Playfair Display',serif;
   font-size:clamp(60px,8vw,120px);
   line-height:0.9;
-  text-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
 .hero span{
@@ -148,7 +146,7 @@ header{
 }
 
 .line{
-  width:160px;
+  width:150px;
   height:1px;
   background:var(--gold);
   margin:25px 0;
@@ -172,10 +170,10 @@ header{
 }
 
 .text{
-  max-width:700px;
+  max-width:720px;
   margin:auto;
   font-family:'Playfair Display';
-  font-size:22px;
+  font-size:24px;
   line-height:1.6;
   color:#c2d0d2;
 }
@@ -184,7 +182,7 @@ header{
   margin-top:40px;
   font-style:italic;
   color:var(--aqua);
-  font-size:26px;
+  font-size:28px;
 }
 
 /* GRID 2x2 */
@@ -215,7 +213,7 @@ footer{
   color:#7f9093;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:700px){
   .features{
     grid-template-columns:1fr 1fr;
@@ -262,7 +260,7 @@ footer{
   <div class="title">JAK ZACZĘŁA SIĘ NASZA HISTORIA</div>
 
   <div class="text">
-    Cześć, mam na imię Agnieszka. Zanim założyłam hodowlę, przez lata miałam okazję obserwować tę rasę z bliska — i właśnie wtedy zakochałam się w Chihuahua naprawdę. Nie był to przypadek. To był świadomy wybór.
+    Cześć, mam na imię Agnieszka. Zanim założyłam hodowlę, przez lata miałam okazję obserwować tę rasę z bliska — i właśnie wtedy zakochałam się w Chihuahua naprawdę. Nie był to przypadek. To był świadomy wybór, poprzedzony długą obserwacją i jeszcze dłuższą miłością.
   </div>
 
   <div class="quote">
