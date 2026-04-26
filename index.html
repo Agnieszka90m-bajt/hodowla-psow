@@ -5,200 +5,250 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skarb Akwamarynu FCI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --main:#082c33;
-  --gold:#d4af37;
-  --text:#eaeaea;
-}
 
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Inter',sans-serif;
-  background:var(--main);
-  color:var(--text);
+  color:#eaeaea;
+
+  background:
+    radial-gradient(circle at 50% 40%, rgba(0,170,160,0.18), transparent 60%),
+    radial-gradient(circle at 50% 120%, rgba(0,120,110,0.25), transparent 70%),
+    linear-gradient(180deg,#0a2f32,#041f21);
 }
 
-h1,h2,h3{
-  font-family:'Playfair Display',serif;
-}
-
-/* NAV */
-nav{
+/* HEADER */
+header{
   position:fixed;
   width:100%;
-  padding:20px 40px;
+  top:0;
+  left:0;
+  padding:20px 30px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  z-index:1000;
+  background:rgba(0,0,0,0.2);
+  backdrop-filter:blur(10px);
+  z-index:999;
 }
 
 .logo{
-  font-size:18px;
+  font-family:'Playfair Display';
   letter-spacing:2px;
 }
 
-.menu{
+.logo small{
+  display:block;
+  font-size:12px;
+  letter-spacing:4px;
+  color:#c9a85d;
+}
+
+.menu-btn{
   font-size:28px;
   cursor:pointer;
+}
+
+/* MENU FULLSCREEN */
+.menu{
+  position:fixed;
+  inset:0;
+  background:rgba(4,31,33,0.98);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  transform:translateY(-100%);
+  transition:.4s;
+}
+
+.menu.active{transform:translateY(0);}
+
+.menu a{
+  font-family:'Playfair Display';
+  font-size:28px;
+  color:#fff;
+  text-decoration:none;
 }
 
 /* HERO */
 .hero{
   height:100vh;
-  background:url('hero.jpg') center/cover no-repeat;
   display:flex;
-  align-items:center;
-  padding:60px;
+  align-items:flex-end;
+  padding:80px 30px;
+  background:url('hero.jpg') center/cover no-repeat;
+  position:relative;
 }
 
-.hero-text{
-  max-width:600px;
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(4,31,33,0.85) 0%,
+    rgba(4,31,33,0.4) 40%,
+    rgba(4,31,33,0.1) 70%
+  );
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:500px;
 }
 
 .hero small{
-  color:var(--gold);
-  letter-spacing:3px;
+  color:#c9a85d;
+  letter-spacing:4px;
 }
 
 .hero h1{
-  font-size:60px;
-  margin:10px 0;
+  font-size:52px;
+  font-family:'Playfair Display';
+  font-weight:300;
 }
 
 .hero span{
-  color:#7fd4e4;
+  color:#7ed6d4;
+  font-size:60px;
 }
 
 /* SECTION */
-section{
-  padding:100px 40px;
+.section{
+  padding:120px 20px;
   text-align:center;
+  position:relative;
 }
 
-.section-title{
-  color:var(--gold);
-  letter-spacing:5px;
-  margin-bottom:40px;
+.section::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle, rgba(0,180,170,0.15), transparent 70%);
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  filter:blur(50px);
 }
 
-/* FEATURES */
+.section h2{
+  font-family:'Playfair Display';
+  font-size:36px;
+  margin-bottom:30px;
+}
+
+.section p{
+  max-width:750px;
+  margin:auto;
+  line-height:1.9;
+  color:#cfcfcf;
+}
+
+/* DLACZEGO */
 .features{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:40px;
+  margin-top:60px;
 }
 
 .feature{
-  opacity:0.8;
+  font-family:'Playfair Display';
+  letter-spacing:2px;
 }
 
-/* DOG CARD */
-.dog{
-  max-width:800px;
-  margin:auto;
-  background:#0d3b44;
-  border-radius:20px;
-  overflow:hidden;
+.quote{
+  margin-top:60px;
+  font-style:italic;
 }
 
-.dog img{
-  width:100%;
-}
-
-.dog p{
-  padding:20px;
-}
-
-/* CONTACT */
-.contact{
-  background:linear-gradient(#ffffff,#dfeff2);
-  color:#333;
-}
-
-.contact-grid{
-  display:flex;
-  justify-content:center;
-  gap:50px;
-  margin-top:40px;
-}
-
-.contact a{
-  text-decoration:none;
-  color:#333;
-}
-
-footer{
-  text-align:center;
-  padding:40px;
-  font-size:12px;
-  opacity:0.6;
-}
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">Skarb Akwamarynu<br><small>HODOWLA FCI</small></div>
-  <div class="menu">☰</div>
-</nav>
+<header>
+  <div class="logo">
+    Skarb Akwamarynu
+    <small>HODOWLA FCI</small>
+  </div>
 
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</header>
+
+<div class="menu" id="menu">
+  <a href="index.html">Start</a>
+  <a href="o-nas.html">O nas</a>
+  <a href="suki-hodowlane.html">Suki hodowlane</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
+  <div class="hero-content">
     <small>HODOWLA CHIHUAHUA</small>
-    <h1>Skarb <span>Akwamarynu FCI</span></h1>
+    <h1>
+      Skarb <br>
+      <span>Akwamarynu FCI</span>
+    </h1>
     <p>ZKwP oddział w Koszalinie</p>
   </div>
 </section>
 
-<section>
-  <h2 class="section-title">JAK ZACZĘŁA SIĘ NASZA HISTORIA</h2>
-  <p style="max-width:800px;margin:auto;line-height:1.8;">
+<!-- O NAS -->
+<section class="section">
+  <h2>Jak zaczęła się nasza historia</h2>
+
+  <p>
     Cześć, mam na imię Agnieszka. Zanim zdecydowałam się na hodowlę,
-    przez lata obserwowałam tę rasę z bliska. Chihuahua to nie przypadek —
-    to świadomy wybór i ogromna miłość.
+    przez lata obserwowałam tę rasę z bliska — i zakochałam się w Chihuahua naprawdę.
+    Nie był to przypadek. To był świadomy wybór, poprzedzony obserwacją
+    i jeszcze większą fascynacją.
   </p>
+
+  <p>
+    Chcę obalić jeden mit, który pokutuje do dziś — Chihuahua to nie pies nerwowy ani wredny.
+    To rasa, która od pierwszego dnia wybiera jednego człowieka i kocha go bezwarunkowo.
+    Oddanie, czułość i głęboka więź z opiekunem — to prawdziwa natura Chihuahua.
+    Mały rozmiar, ogromne serce.
+  </p>
+
+  <p>
+    Skarb Akwamarynu FCI to hodowla zarejestrowana w ZKwP pod egidą FCI,
+    gdzie każde szczenię przychodzi na świat otoczone troską od pierwszego oddechu —
+    aż po nowy, kochający dom.
+  </p>
+
+  <div class="quote">
+    „Mały rozmiar, ogromne serce — i bezgraniczna wierność.”
+  </div>
 </section>
 
-<section>
-  <h2 class="section-title">DLACZEGO WARTO NAM ZAUFAĆ</h2>
+<!-- DLACZEGO -->
+<section class="section">
+  <h2>Dlaczego warto nam zaufać</h2>
+
   <div class="features">
-    <div class="feature">BADANIA ZDROWIA</div>
-    <div class="feature">RODOWODY FCI</div>
-    <div class="feature">DOM, NIE KOJEC</div>
-    <div class="feature">WSPARCIE NA ZAWSZE</div>
+    <div class="feature">Badania zdrowia</div>
+    <div class="feature">Rodowody FCI</div>
+    <div class="feature">Dom, nie kojec</div>
+    <div class="feature">Wsparcie na zawsze</div>
   </div>
 </section>
 
-<section>
-  <h2 class="section-title">SUKI HODOWLANE</h2>
-
-  <div class="dog">
-    <img src="charlotte1.jpg">
-    <p>Charlotte Betti Su FCI</p>
-  </div>
-
-</section>
-
-<section class="contact">
-  <h2 class="section-title">KONTAKT</h2>
-
-  <div class="contact-grid">
-    <a href="tel:+48572992736">Telefon</a>
-    <a href="mailto:agnieszka90m@gmail.com">E-mail</a>
-    <a href="#">Facebook</a>
-  </div>
-
-</section>
-
-<footer>
-© 2026 Skarb Akwamarynu FCI
-</footer>
+<script>
+function toggleMenu(){
+  document.getElementById('menu').classList.toggle('active');
+}
+</script>
 
 </body>
 </html>
