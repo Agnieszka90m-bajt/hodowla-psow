@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skarb Akwamarynu FCI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,11 +15,7 @@
 body{
   font-family:'Inter',sans-serif;
   color:#eaeaea;
-
-  background:
-    radial-gradient(circle at 50% 40%, rgba(0,170,160,0.18), transparent 60%),
-    radial-gradient(circle at 50% 120%, rgba(0,120,110,0.25), transparent 70%),
-    linear-gradient(180deg,#0a2f32,#041f21);
+  background:#041f21;
 }
 
 /* HEADER */
@@ -28,10 +24,11 @@ header{
   width:100%;
   top:0;
   left:0;
-  padding:20px 30px;
+  padding:22px 30px;
   display:flex;
   justify-content:space-between;
-  background:rgba(0,0,0,0.2);
+  align-items:center;
+  background:rgba(4,31,33,0.7);
   backdrop-filter:blur(10px);
   z-index:999;
 }
@@ -39,25 +36,26 @@ header{
 .logo{
   font-family:'Playfair Display';
   letter-spacing:2px;
+  font-size:18px;
 }
 
 .logo small{
   display:block;
-  font-size:12px;
+  font-size:11px;
   letter-spacing:4px;
   color:#c9a85d;
 }
 
+/* MENU */
 .menu-btn{
-  font-size:28px;
+  font-size:26px;
   cursor:pointer;
 }
 
-/* MENU FULLSCREEN */
 .menu{
   position:fixed;
   inset:0;
-  background:rgba(4,31,33,0.98);
+  background:#041f21;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -92,67 +90,76 @@ header{
   inset:0;
   background:linear-gradient(
     to top,
-    rgba(4,31,33,0.85) 0%,
-    rgba(4,31,33,0.4) 40%,
-    rgba(4,31,33,0.1) 70%
+    rgba(4,31,33,0.9) 0%,
+    rgba(4,31,33,0.6) 40%,
+    rgba(4,31,33,0.2) 70%
   );
 }
 
 .hero-content{
   position:relative;
   z-index:2;
-  max-width:500px;
+  max-width:520px;
 }
 
 .hero small{
   color:#c9a85d;
   letter-spacing:4px;
+  font-size:12px;
 }
 
 .hero h1{
   font-size:52px;
   font-family:'Playfair Display';
   font-weight:300;
+  line-height:1.1;
 }
 
 .hero span{
+  display:block;
   color:#7ed6d4;
   font-size:60px;
 }
 
-/* SECTION */
+.hero p{
+  margin-top:10px;
+  font-size:14px;
+  color:#ccc;
+}
+
+/* SEKCJA */
 .section{
   padding:120px 20px;
   text-align:center;
-  position:relative;
-}
-
-.section::before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  background:radial-gradient(circle, rgba(0,180,170,0.15), transparent 70%);
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  filter:blur(50px);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(0,170,160,0.15), transparent 60%),
+    linear-gradient(180deg,#041f21,#041f21);
 }
 
 .section h2{
   font-family:'Playfair Display';
-  font-size:36px;
+  font-size:28px;
   margin-bottom:30px;
+  letter-spacing:4px;
+  color:#c9a85d;
 }
 
 .section p{
-  max-width:750px;
-  margin:auto;
+  max-width:700px;
+  margin:20px auto;
   line-height:1.9;
   color:#cfcfcf;
+  font-size:15px;
 }
 
-/* DLACZEGO */
+/* QUOTE */
+.quote{
+  margin-top:40px;
+  font-style:italic;
+  color:#9fdede;
+}
+
+/* FEATURES */
 .features{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -163,11 +170,8 @@ header{
 .feature{
   font-family:'Playfair Display';
   letter-spacing:2px;
-}
-
-.quote{
-  margin-top:60px;
-  font-style:italic;
+  color:#c9a85d;
+  font-size:14px;
 }
 
 </style>
@@ -196,51 +200,43 @@ header{
   <div class="hero-content">
     <small>HODOWLA CHIHUAHUA</small>
     <h1>
-      Skarb <br>
+      Skarb
       <span>Akwamarynu FCI</span>
     </h1>
     <p>ZKwP oddział w Koszalinie</p>
   </div>
 </section>
 
-<!-- O NAS -->
+<!-- HISTORIA -->
 <section class="section">
-  <h2>Jak zaczęła się nasza historia</h2>
+  <h2>JAK ZACZĘŁA SIĘ NASZA HISTORIA</h2>
 
   <p>
-    Cześć, mam na imię Agnieszka. Zanim zdecydowałam się na hodowlę,
-    przez lata obserwowałam tę rasę z bliska — i zakochałam się w Chihuahua naprawdę.
-    Nie był to przypadek. To był świadomy wybór, poprzedzony obserwacją
-    i jeszcze większą fascynacją.
+    Cześć, mam na imię Agnieszka. Zanim zdecydowałam się na hodowlę, przez lata obserwowałam tę rasę z bliska — i zakochałam się w Chihuahua naprawdę. Nie był to przypadek. To był świadomy wybór, poprzedzony obserwacją i jeszcze większą fascynacją.
   </p>
 
   <p>
-    Chcę obalić jeden mit, który pokutuje do dziś — Chihuahua to nie pies nerwowy ani wredny.
-    To rasa, która od pierwszego dnia wybiera jednego człowieka i kocha go bezwarunkowo.
-    Oddanie, czułość i głęboka więź z opiekunem — to prawdziwa natura Chihuahua.
-    Mały rozmiar, ogromne serce.
+    Chcę obalić jeden mit, który pokutuje do dziś — Chihuahua to nie pies nerwowy ani wredny. To rasa, która od pierwszego dnia wybiera jednego człowieka i kocha go bezwarunkowo. Oddanie, czułość i głęboka więź z opiekunem — to prawdziwa natura Chihuahua. Mały rozmiar, ogromne serce.
   </p>
 
   <p>
-    Skarb Akwamarynu FCI to hodowla zarejestrowana w ZKwP pod egidą FCI,
-    gdzie każde szczenię przychodzi na świat otoczone troską od pierwszego oddechu —
-    aż po nowy, kochający dom.
+    Skarb Akwamarynu FCI to hodowla zarejestrowana w ZKwP pod egidą FCI, gdzie każde szczenię przychodzi na świat otoczone troską od pierwszego oddechu — aż po nowy, kochający dom.
   </p>
 
   <div class="quote">
-    „Mały rozmiar, ogromne serce — i bezgraniczna wierność.”
+    „Mały rozmiar, ogromne serce — i bezgraniczna wierność”.
   </div>
 </section>
 
 <!-- DLACZEGO -->
 <section class="section">
-  <h2>Dlaczego warto nam zaufać</h2>
+  <h2>DLACZEGO WARTO NAM ZAUFAĆ</h2>
 
   <div class="features">
-    <div class="feature">Badania zdrowia</div>
-    <div class="feature">Rodowody FCI</div>
-    <div class="feature">Dom, nie kojec</div>
-    <div class="feature">Wsparcie na zawsze</div>
+    <div class="feature">BADANIA ZDROWIA</div>
+    <div class="feature">RODOWODY FCI</div>
+    <div class="feature">DOM, NIE KOJEC</div>
+    <div class="feature">WSPARCIE NA ZAWSZE</div>
   </div>
 </section>
 
