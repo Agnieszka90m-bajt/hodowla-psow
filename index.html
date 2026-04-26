@@ -6,7 +6,6 @@
 
 <title>Skarb Akwamarynu FCI</title>
 
-<!-- FONTY (jak na screenie – eleganckie) -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
@@ -17,7 +16,7 @@
 /* KOLORY */
 :root{
   --bg:#071e26;
-  --bg2:#0b2a33;
+  --bg2:#0c2f3a;
   --gold:#c6a85a;
   --blue:#7ed6df;
   --text:#eaeaea;
@@ -30,7 +29,7 @@ body{
   color:var(--text);
 }
 
-/* NAVBAR */
+/* NAV */
 .nav{
   position:fixed;
   top:0;
@@ -38,7 +37,7 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 6vw;
+  padding:22px 6vw;
   z-index:999;
   background:rgba(7,30,38,0.85);
   backdrop-filter:blur(10px);
@@ -49,24 +48,23 @@ body{
 }
 
 .logo h1{
-  font-size:22px;
-  letter-spacing:1px;
+  font-size:24px;
 }
 
 .logo span{
-  font-size:10px;
+  font-size:11px;
   color:var(--gold);
   letter-spacing:3px;
 }
 
 /* HAMBURGER */
 .hamburger{
-  width:28px;
+  width:30px;
   height:20px;
-  cursor:pointer;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
+  cursor:pointer;
 }
 
 .hamburger div{
@@ -95,10 +93,10 @@ body{
 }
 
 .menu a{
-  color:white;
-  text-decoration:none;
-  font-size:22px;
   font-family:'Cormorant Garamond',serif;
+  font-size:24px;
+  text-decoration:none;
+  color:white;
 }
 
 /* HERO */
@@ -106,7 +104,7 @@ body{
   height:100vh;
   display:flex;
   align-items:flex-end;
-  padding:0 7vw 14vh;
+  padding:0 7vw 15vh;
   position:relative;
 
   background:
@@ -116,81 +114,111 @@ body{
   border-bottom:1px solid rgba(198,168,90,0.5);
 }
 
+/* FADE */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, transparent 60%, rgba(7,30,38,1));
+}
+
+/* HERO TEXT */
+.hero-text{
+  position:relative;
+  z-index:2;
+}
+
 .hero-text h2{
-  font-size:14px;
-  letter-spacing:3px;
   color:var(--gold);
+  letter-spacing:4px;
+  font-size:14px;
 }
 
 .hero-text h1{
   font-family:'Cormorant Garamond',serif;
-  font-size:80px;
+  font-size:90px;
   line-height:0.9;
 }
 
-.hero-text h1 span{
+.hero-text span{
   color:var(--blue);
 }
 
 /* SEKCJA */
 .section{
-  padding:160px 8vw 120px;
+  padding:170px 8vw 140px;
   text-align:center;
 }
 
 .section h3{
   color:var(--gold);
-  letter-spacing:4px;
-  margin-bottom:40px;
+  letter-spacing:5px;
+  margin-bottom:60px;
 }
 
 .section p{
-  max-width:700px;
-  margin:20px auto;
-  line-height:1.8;
+  max-width:800px;
+  margin:25px auto;
+  line-height:1.9;
+  font-size:15px;
 }
 
 .quote{
+  margin-top:50px;
   color:var(--blue);
   font-style:italic;
-  margin-top:40px;
-  font-size:20px;
+  font-size:22px;
 }
 
-/* GRID 2x2 */
+/* GRID */
 .features{
   margin-top:120px;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:80px 120px;
+  gap:100px 120px;
   max-width:1000px;
   margin-left:auto;
   margin-right:auto;
 }
 
+.feature{
+  text-align:center;
+}
+
+/* IKONY */
+.icon{
+  width:40px;
+  height:40px;
+  margin-bottom:15px;
+  stroke:var(--gold);
+  fill:none;
+  stroke-width:1.5;
+}
+
+/* TEKST BLOKÓW */
 .feature h4{
   color:var(--gold);
-  margin-bottom:10px;
   letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.feature p{
+  font-size:14px;
+  line-height:1.7;
 }
 
 /* FOOTER */
 .footer{
   text-align:center;
-  padding:40px;
+  padding:50px;
   font-size:12px;
   opacity:.6;
 }
 
 /* MOBILE */
 @media(max-width:900px){
-  .hero-text h1{
-    font-size:50px;
-  }
-
-  .features{
-    grid-template-columns:1fr;
-  }
+  .hero-text h1{font-size:50px;}
+  .features{grid-template-columns:1fr;}
 }
 
 </style>
@@ -198,7 +226,6 @@ body{
 
 <body>
 
-<!-- NAV -->
 <div class="nav">
   <div class="logo">
     <h1>Skarb Akwamarynu</h1>
@@ -206,23 +233,19 @@ body{
   </div>
 
   <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+    <div></div><div></div><div></div>
   </div>
 </div>
 
-<!-- MENU -->
 <div class="menu" id="menu">
-  <a href="index.html">O nas</a>
-  <a href="psy.html">Psy hodowlane</a>
-  <a href="suki.html">Suki hodowlane</a>
-  <a href="szczenieta.html">Szczenięta</a>
-  <a href="zdjecia.html">Zdjęcia</a>
-  <a href="kontakt.html">Kontakt</a>
+  <a href="#">O nas</a>
+  <a href="#">Psy hodowlane</a>
+  <a href="#">Suki hodowlane</a>
+  <a href="#">Szczenięta</a>
+  <a href="#">Zdjęcia</a>
+  <a href="#">Kontakt</a>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <h2>HODOWLA CHIHUAHUA</h2>
@@ -230,7 +253,6 @@ body{
   </div>
 </section>
 
-<!-- OPIS -->
 <section class="section">
 
 <h3>JAK ZACZĘŁA SIĘ NASZA HISTORIA</h3>
@@ -243,25 +265,28 @@ body{
 
 <div class="quote">"Mały rozmiar, ogromne serce — i bezgraniczna wierność."</div>
 
-<!-- GRID -->
 <div class="features">
 
 <div class="feature">
+<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
 <h4>BADANIA ZDROWOTNE</h4>
 <p>Każdy nasz pies przechodzi testy genetyczne i kliniczne — bo zdrowie jest fundamentem hodowli.</p>
 </div>
 
 <div class="feature">
+<svg class="icon" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16"/></svg>
 <h4>RODOWODY FCI</h4>
 <p>Zarejestrowana w ZKwP — jedynej polskiej organizacji w FCI. Czystość rasy i pełna dokumentacja.</p>
 </div>
 
 <div class="feature">
+<svg class="icon" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10H3z"/></svg>
 <h4>DOM, NIE KOJEC</h4>
 <p>Nasze psy żyją z nami — w salonie, na kanapie, w centrum naszego życia. Nie inaczej.</p>
 </div>
 
 <div class="feature">
+<svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-6-4.35-9-8a5 5 0 019-5 5 5 0 019 5c-3 3.65-9 8-9 8z"/></svg>
 <h4>WSPARCIE NA ZAWSZE</h4>
 <p>Jesteśmy z Tobą przez całe życie Twojego psa — zawsze chętnie doradzimy i pomożemy.</p>
 </div>
@@ -270,14 +295,13 @@ body{
 
 </section>
 
-<!-- STOPKA -->
 <div class="footer">
 © 2026 Skarb Akwamarynu FCI
 </div>
 
 <script>
 function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
+document.getElementById("menu").classList.toggle("active");
 }
 </script>
 
