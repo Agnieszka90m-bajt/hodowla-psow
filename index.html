@@ -9,12 +9,15 @@
 
 <style>
 
+/* ===== KOLORY ===== */
 :root{
-  --bg:#031d1d;
-  --gold:#d4af37;
-  --text:#eaeaea;
+  --bg:#062f33;
+  --bg-dark:#031d1f;
+  --akwamaryn:#7fdde0;
+  --text:#eafcfc;
 }
 
+/* ===== RESET ===== */
 *{
   margin:0;
   padding:0;
@@ -23,12 +26,11 @@
 
 body{
   font-family: 'Montserrat', sans-serif;
-  background: var(--bg);
+  background: var(--bg-dark);
   color: var(--text);
 }
 
-/* NAV */
-
+/* ===== NAV ===== */
 nav{
   position:fixed;
   width:100%;
@@ -44,11 +46,13 @@ nav{
 .logo{
   font-family:'Playfair Display';
   font-size:20px;
+  color:#fff;
 }
 
 .menu-toggle{
   font-size:26px;
   cursor:pointer;
+  color:#fff;
 }
 
 .menu{
@@ -57,7 +61,7 @@ nav{
   right:-100%;
   width:260px;
   height:100%;
-  background:#021414;
+  background:#041f22;
   padding:60px 30px;
   transition:0.4s;
 }
@@ -71,10 +75,10 @@ nav{
   margin-bottom:20px;
   color:white;
   text-decoration:none;
+  font-size:16px;
 }
 
-/* HERO */
-
+/* ===== HERO ===== */
 .hero{
   position:relative;
   min-height:100vh;
@@ -82,41 +86,48 @@ nav{
   align-items:center;
   padding:120px 5%;
   overflow:hidden;
-
-  background:
-  linear-gradient(to left, rgba(3,29,29,0.2), rgba(3,29,29,1)),
-  url('hero.jpg') right bottom no-repeat,
-  linear-gradient(to bottom,#062f2f,#031d1d);
-
-  background-size: contain;
+  background:linear-gradient(to bottom,var(--bg),var(--bg-dark));
 }
 
-/* TEXT */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  radial-gradient(circle at 70% 60%, rgba(0,0,0,0.15), transparent 60%),
+  linear-gradient(to left, rgba(3,29,31,0.2), rgba(3,29,31,1)),
+  url('hero.jpg') right bottom no-repeat;
+
+  background-size: contain;
+  z-index:0;
+}
+
+.hero *{
+  position:relative;
+  z-index:2;
+}
 
 .hero-text{
   max-width:600px;
 }
 
-.hero-text h1{
+.hero h1{
   font-family:'Playfair Display';
-  font-size:60px;
+  font-size:64px;
+  color:#ffffff;
 }
 
-.hero-text span{
-  color:var(--gold);
+.hero h1 span{
+  color:var(--akwamaryn);
 }
 
-.hero-text::after{
-  content:"";
-  display:block;
-  width:120px;
-  height:2px;
-  background:linear-gradient(to right, transparent, gold, transparent);
-  margin-top:20px;
+.hero p{
+  color:#d7f6f7;
+  margin-top:10px;
 }
 
-/* FEATURES */
-
+/* ===== FEATURES ===== */
 .features{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -125,19 +136,18 @@ nav{
   text-align:center;
 }
 
-.icon{
+.feature .icon{
   font-size:28px;
-  color:gold;
   margin-bottom:10px;
 }
 
 .feature h3{
-  color:var(--gold);
+  color:var(--akwamaryn);
   letter-spacing:2px;
+  margin-bottom:10px;
 }
 
-/* ABOUT */
-
+/* ===== ABOUT ===== */
 .about{
   padding:80px 5%;
   max-width:900px;
@@ -146,26 +156,22 @@ nav{
   line-height:1.8;
 }
 
-/* FOOTER */
-
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:40px;
   opacity:0.6;
 }
 
-/* MOBILE */
-
+/* ===== MOBILE ===== */
 @media(max-width:768px){
+  .hero h1{
+    font-size:38px;
+  }
 
-.hero-text h1{
-  font-size:38px;
-}
-
-.hero{
-  background-size: cover;
-}
-
+  .hero::before{
+    background-size: cover;
+  }
 }
 
 </style>
@@ -178,7 +184,7 @@ footer{
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
-<div class="menu" id="menu">
+<div id="menu" class="menu">
   <a href="#">Start</a>
   <a href="#">O nas</a>
   <a href="#">Szczenięta</a>
@@ -186,48 +192,50 @@ footer{
 </div>
 
 <section class="hero">
-
-<div class="hero-text">
-  <h1>Skarb <span>Akwamarynu</span> FCI</h1>
-  <p>Hodowla Chihuahua — ZKwP oddział w Koszalinie</p>
-</div>
-
+  <div class="hero-text">
+    <h1>Skarb <span>Akwamarynu</span> FCI</h1>
+    <p>Hodowla Chihuahua — ZKwP oddział w Koszalinie</p>
+  </div>
 </section>
 
 <section class="features">
 
-<div>
-  <div class="icon">✦</div>
-  <h3>BADANIA</h3>
-</div>
+  <div class="feature">
+    <div class="icon">🕊️</div>
+    <h3>BADANIA ZDROWOTNE</h3>
+    <p>Każdy nasz pies przechodzi testy genetyczne i kliniczne — bo zdrowie jest fundamentem hodowli.</p>
+  </div>
 
-<div>
-  <div class="icon">✧</div>
-  <h3>RODOWODY FCI</h3>
-</div>
+  <div class="feature">
+    <div class="icon">📜</div>
+    <h3>RODOWODY FCI</h3>
+    <p>Zarejestrowana w ZKwP — pełna dokumentacja i czystość rasy.</p>
+  </div>
 
-<div>
-  <div class="icon">❖</div>
-  <h3>DOM</h3>
-</div>
+  <div class="feature">
+    <div class="icon">🏡</div>
+    <h3>DOM, NIE KOJEC</h3>
+    <p>Nasze psy żyją z nami — w centrum życia, nie obok niego.</p>
+  </div>
 
-<div>
-  <div class="icon">⟡</div>
-  <h3>WSPARCIE</h3>
-</div>
+  <div class="feature">
+    <div class="icon">❤️</div>
+    <h3>WSPARCIE NA ZAWSZE</h3>
+    <p>Jesteśmy z Tobą przez całe życie psa — zawsze pomożemy.</p>
+  </div>
 
 </section>
 
 <section class="about">
 
 <p>
-Cześć, mam na imię Agnieszka. Skarb Akwamarynu to miejsce stworzone z miłości do Chihuahua. To nie tylko hodowla — to codzienność pełna bliskości, troski i ogromnego szacunku do tej rasy.
+Cześć, mam na imię Agnieszka. Skarb Akwamarynu to nie tylko hodowla — to miejsce stworzone z prawdziwej miłości do Chihuahua. To rasa, która uczy bliskości, wrażliwości i ogromnego przywiązania.
 </p>
 
 <br>
 
 <p>
-Każdy pies dorasta w domu, wśród ludzi, w spokoju i poczuciu bezpieczeństwa. Dbamy o zdrowie, psychikę i charakter — bo wiemy, że to właśnie one tworzą wyjątkowego psa.
+Każdy nasz pies dorasta w domu, wśród ludzi, w spokoju i poczuciu bezpieczeństwa. Dbamy o zdrowie, charakter i emocje, bo wiemy, że to one tworzą wyjątkowego psa.
 </p>
 
 <br>
