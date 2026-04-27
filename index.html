@@ -9,174 +9,212 @@
 
 <style>
 
-/* ===== PALETA – JASNY AKWAMARYN (jak było) ===== */
-:root{
-  --bg:#eefbfb;
-  --bg-soft:#f6ffff;
-  --akwamaryn:#8ee6ea;
-  --akwamaryn-strong:#5fd0d6;
-  --text:#2c3e3e;
-  --white:#ffffff;
-}
-
 /* ===== RESET ===== */
 *{margin:0;padding:0;box-sizing:border-box}
 
+/* ===== BODY ===== */
 body{
   font-family:'Montserrat',sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  background:#062f33;
+  color:#d6f4f5;
 }
 
 /* ===== NAV ===== */
 nav{
-  position:fixed;
-  top:0;left:0;width:100%;
+  position:absolute;
+  top:0;
+  width:100%;
+  padding:25px 5%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 5%;
-  z-index:1000;
-  background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(10px);
+  z-index:10;
 }
 
 .logo{
   font-family:'Playfair Display';
-  font-size:20px;
-  color:#3b6f73;
+  font-size:22px;
+  color:#ffffff;
 }
 
-.menu-toggle{
-  font-size:26px;
-  cursor:pointer;
-  color:#3b6f73;
-}
-
-.menu{
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:260px;
-  height:100%;
-  background:rgba(255,255,255,0.95);
-  padding:70px 30px;
-  transition:0.35s;
-}
-
-.menu.active{right:0;}
-
-.menu a{
+.logo small{
   display:block;
-  margin-bottom:22px;
+  font-size:11px;
+  color:#c9a95f;
+  letter-spacing:2px;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  color:#cfeeee;
   text-decoration:none;
-  color:#3b6f73;
-  font-size:16px;
+  font-size:13px;
+  letter-spacing:2px;
 }
 
 /* ===== HERO ===== */
 .hero{
   position:relative;
-  min-height:100vh;
+  height:100vh;
   display:flex;
   align-items:center;
-  padding:120px 5% 60px;
+  padding:0 5%;
   overflow:hidden;
-  background:linear-gradient(to bottom,var(--bg-soft),var(--bg));
 }
 
-/* miękkie wtopienie psa */
+/* pies */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
+
   background:
-    linear-gradient(to left, rgba(238,251,251,0), rgba(238,251,251,0.95)),
-    url('hero.jpg') right bottom no-repeat;
+  radial-gradient(circle at 70% 50%, rgba(0,0,0,0.3), transparent 60%),
+  linear-gradient(to left, rgba(6,47,51,0.2), rgba(6,47,51,1)),
+  url('hero.jpg') right center no-repeat;
+
   background-size:contain;
-  z-index:0;
 }
 
-/* „szklana chmura” pod tekstem */
-.hero-glass{
-  max-width:640px;
-  padding:40px 36px;
-  border-radius:28px;
-  background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(14px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+/* tekst */
+.hero-content{
   position:relative;
   z-index:2;
+  max-width:600px;
+}
+
+.subtitle{
+  letter-spacing:4px;
+  font-size:12px;
+  color:#c9a95f;
+  margin-bottom:20px;
 }
 
 .hero h1{
   font-family:'Playfair Display';
-  font-size:58px;
-  color:#3b6f73;
+  font-size:80px;
+  line-height:1.1;
 }
 
 .hero h1 span{
-  color:var(--akwamaryn-strong);
+  color:#6fe3e7;
 }
 
-.hero p{
-  margin-top:12px;
-  color:#5f8d8f;
+.bottom-text{
+  margin-top:20px;
+  font-size:12px;
+  letter-spacing:3px;
+  color:#cfeeee;
 }
 
-/* ===== FEATURES ===== */
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:40px;
-  padding:80px 5%;
-  text-align:center;
-}
-
-.feature{
-  background:var(--white);
-  border-radius:24px;
-  padding:30px 20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.04);
-}
-
-.icon{
-  font-size:28px;
-  margin-bottom:10px;
-}
-
-.feature h3{
-  color:#3b6f73;
-  margin-bottom:10px;
-  letter-spacing:1px;
-}
-
-.feature p{
-  color:#6a8f90;
+.line{
+  width:120px;
+  height:2px;
+  background:#c9a95f;
+  margin:20px 0;
 }
 
 /* ===== ABOUT ===== */
 .about{
-  padding:80px 5%;
-  max-width:900px;
-  margin:auto;
   text-align:center;
+  padding:120px 15%;
+  background:#05282c;
+}
+
+.about h2{
+  letter-spacing:6px;
+  font-size:14px;
+  color:#c9a95f;
+  margin-bottom:40px;
+}
+
+.about p{
+  max-width:700px;
+  margin:20px auto;
   line-height:1.8;
-  color:#4a6f70;
+  color:#cfeeee;
+}
+
+/* ===== QUOTE ===== */
+.quote{
+  text-align:center;
+  padding:80px 10%;
+  font-style:italic;
+  color:#7fdde0;
+}
+
+/* ===== FEATURES ===== */
+.features{
+  text-align:center;
+  padding:100px 5%;
+}
+
+.features h2{
+  letter-spacing:6px;
+  font-size:14px;
+  color:#c9a95f;
+  margin-bottom:60px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+
+.box{
+  text-align:center;
+}
+
+.icon{
+  font-size:28px;
+  color:#c9a95f;
+  margin-bottom:10px;
+}
+
+.box h3{
+  font-size:13px;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
+.box p{
+  font-size:14px;
+  color:#cfeeee;
 }
 
 /* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:40px;
-  font-size:14px;
-  color:#7aa7a8;
+  border-top:1px solid rgba(255,255,255,0.1);
+  font-size:12px;
+  color:#9ecfd1;
 }
 
 /* ===== MOBILE ===== */
-@media(max-width:768px){
-  .hero h1{font-size:36px;}
-  .hero::before{background-size:cover;}
+@media(max-width:900px){
+
+.nav-links{
+  display:none;
+}
+
+.hero h1{
+  font-size:42px;
+}
+
+.grid{
+  grid-template-columns:1fr;
+}
+
+.hero::before{
+  background-size:cover;
+}
+
 }
 
 </style>
@@ -185,65 +223,89 @@ footer{
 <body>
 
 <nav>
-  <div class="logo">Skarb Akwamarynu FCI</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="logo">
+    Skarb Akwamarynu
+    <small>FCI KENNEL</small>
+  </div>
+
+  <div class="nav-links">
+    <a href="#">O NAS</a>
+    <a href="#">PSY HODOWLANE</a>
+    <a href="#">SUKI HODOWLANE</a>
+    <a href="#">SZCZENIĘTA</a>
+    <a href="#">ZDJĘCIA</a>
+    <a href="#">KONTAKT</a>
+  </div>
 </nav>
 
-<div id="menu" class="menu">
-  <a href="#">Start</a>
-  <a href="#">O nas</a>
-  <a href="#">Szczenięta</a>
-  <a href="#">Kontakt</a>
-</div>
-
 <section class="hero">
-  <div class="hero-glass">
-    <h1>Skarb <span>Akwamarynu</span> FCI</h1>
-    <p>Hodowla Chihuahua — ZKwP oddział w Koszalinie</p>
+  <div class="hero-content">
+    <div class="subtitle">HODOWLA CHIHUAHUA</div>
+
+    <h1>
+      Skarb<br>
+      <span>Akwamarynu</span><br>
+      FCI
+    </h1>
+
+    <div class="line"></div>
+    <div class="bottom-text">ZKwP ODDZIAŁ W KOSZALINIE</div>
   </div>
+</section>
+
+<section class="about">
+  <h2>JAK ZACZĘŁA SIĘ NASZA HISTORIA</h2>
+
+  <p>
+  Cześć, mam na imię Agnieszka. Zanim założyłam hodowlę, przez lata miałam okazję obserwować tę rasę z bliska — i właśnie wtedy zakochałam się w Chihuahua naprawdę.
+  </p>
+
+  <p>
+  To był świadomy wybór, poprzedzony długą obserwacją i jeszcze dłuższą miłością.
+  </p>
+</section>
+
+<section class="quote">
+  "Mały rozmiar, ogromne serce — i bezgraniczna wierność."
 </section>
 
 <section class="features">
 
-  <div class="feature">
-    <div class="icon">🕊️</div>
-    <h3>BADANIA ZDROWOTNE</h3>
-    <p>Każdy nasz pies przechodzi badania — bo zdrowie jest fundamentem hodowli.</p>
+  <h2>DLACZEGO WARTO NAM ZAUFAĆ</h2>
+
+  <div class="grid">
+
+    <div class="box">
+      <div class="icon">🕒</div>
+      <h3>BADANIA</h3>
+      <p>Testy genetyczne i kliniczne.</p>
+    </div>
+
+    <div class="box">
+      <div class="icon">📄</div>
+      <h3>RODOWODY</h3>
+      <p>Pełna dokumentacja FCI.</p>
+    </div>
+
+    <div class="box">
+      <div class="icon">🏡</div>
+      <h3>DOM</h3>
+      <p>Psy żyją z nami.</p>
+    </div>
+
+    <div class="box">
+      <div class="icon">❤️</div>
+      <h3>WSPARCIE</h3>
+      <p>Jesteśmy zawsze.</p>
+    </div>
+
   </div>
 
-  <div class="feature">
-    <div class="icon">📜</div>
-    <h3>RODOWODY FCI</h3>
-    <p>Pełna dokumentacja i pewne pochodzenie.</p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">🏡</div>
-    <h3>DOMOWE WARUNKI</h3>
-    <p>Nasze psy żyją z nami, nie obok nas.</p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">❤️</div>
-    <h3>WSPARCIE</h3>
-    <p>Jesteśmy z Wami przez całe życie psa.</p>
-  </div>
-
-</section>
-
-<section class="about">
-Cześć, mam na imię Agnieszka. Skarb Akwamarynu to miejsce stworzone z miłości do Chihuahua. Każdy pies dorasta w domu, w spokoju i bliskości człowieka. Dbamy o zdrowie, charakter i przyszłość każdego szczeniaka, a z nowymi właścicielami jesteśmy nie tylko na początku, ale przez całe życie psa.
 </section>
 
 <footer>
-© 2026 Skarb Akwamarynu FCI
+© 2026 Skarb Akwamarynu FCI — Wszelkie prawa zastrzeżone
 </footer>
-
-<script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
-</script>
 
 </body>
 </html>
