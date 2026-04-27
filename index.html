@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skarb Akwamarynu FCI</title>
+<title>Skarb Akwamarynu</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== RESET ===== */
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* ===== BODY ===== */
+/* BODY */
 body{
   font-family:'Montserrat',sans-serif;
   background:#062f33;
   color:#d6f4f5;
 }
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
   position:absolute;
-  top:0;
   width:100%;
+  top:0;
   padding:25px 5%;
   display:flex;
   justify-content:space-between;
@@ -34,7 +34,7 @@ nav{
 .logo{
   font-family:'Playfair Display';
   font-size:22px;
-  color:#ffffff;
+  color:white;
 }
 
 .logo small{
@@ -44,46 +44,36 @@ nav{
   letter-spacing:2px;
 }
 
-.nav-links{
+.menu{
   display:flex;
   gap:30px;
 }
 
-.nav-links a{
+.menu a{
   color:#cfeeee;
   text-decoration:none;
   font-size:13px;
   letter-spacing:2px;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
-  position:relative;
   height:100vh;
   display:flex;
   align-items:center;
   padding:0 5%;
-  overflow:hidden;
-}
 
-/* pies */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
+  /* 🔥 TO JEST KLUCZ – TWÓJ STARY EFEKT */
   background:
-  radial-gradient(circle at 70% 50%, rgba(0,0,0,0.3), transparent 60%),
+  radial-gradient(circle at 70% 50%, rgba(0,0,0,0.4), transparent 60%),
   linear-gradient(to left, rgba(6,47,51,0.2), rgba(6,47,51,1)),
   url('hero.jpg') right center no-repeat;
 
   background-size:contain;
 }
 
-/* tekst */
+/* TEXT */
 .hero-content{
-  position:relative;
-  z-index:2;
   max-width:600px;
 }
 
@@ -104,13 +94,6 @@ nav{
   color:#6fe3e7;
 }
 
-.bottom-text{
-  margin-top:20px;
-  font-size:12px;
-  letter-spacing:3px;
-  color:#cfeeee;
-}
-
 .line{
   width:120px;
   height:2px;
@@ -118,7 +101,13 @@ nav{
   margin:20px 0;
 }
 
-/* ===== ABOUT ===== */
+.bottom{
+  font-size:12px;
+  letter-spacing:3px;
+  color:#cfeeee;
+}
+
+/* ABOUT */
 .about{
   text-align:center;
   padding:120px 15%;
@@ -139,15 +128,15 @@ nav{
   color:#cfeeee;
 }
 
-/* ===== QUOTE ===== */
+/* QUOTE */
 .quote{
   text-align:center;
-  padding:80px 10%;
+  padding:80px;
   font-style:italic;
   color:#7fdde0;
 }
 
-/* ===== FEATURES ===== */
+/* FEATURES */
 .features{
   text-align:center;
   padding:100px 5%;
@@ -187,7 +176,7 @@ nav{
   color:#cfeeee;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
   text-align:center;
   padding:40px;
@@ -196,25 +185,12 @@ footer{
   color:#9ecfd1;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width:900px){
-
-.nav-links{
-  display:none;
-}
-
-.hero h1{
-  font-size:42px;
-}
-
-.grid{
-  grid-template-columns:1fr;
-}
-
-.hero::before{
-  background-size:cover;
-}
-
+  .menu{display:none;}
+  .hero h1{font-size:42px;}
+  .grid{grid-template-columns:1fr;}
+  .hero{background-size:cover;}
 }
 
 </style>
@@ -228,7 +204,7 @@ footer{
     <small>FCI KENNEL</small>
   </div>
 
-  <div class="nav-links">
+  <div class="menu">
     <a href="#">O NAS</a>
     <a href="#">PSY HODOWLANE</a>
     <a href="#">SUKI HODOWLANE</a>
@@ -249,7 +225,7 @@ footer{
     </h1>
 
     <div class="line"></div>
-    <div class="bottom-text">ZKwP ODDZIAŁ W KOSZALINIE</div>
+    <div class="bottom">ZKwP ODDZIAŁ W KOSZALINIE</div>
   </div>
 </section>
 
@@ -277,19 +253,19 @@ footer{
 
     <div class="box">
       <div class="icon">🕒</div>
-      <h3>BADANIA</h3>
+      <h3>BADANIA ZDROWOTNE</h3>
       <p>Testy genetyczne i kliniczne.</p>
     </div>
 
     <div class="box">
       <div class="icon">📄</div>
-      <h3>RODOWODY</h3>
-      <p>Pełna dokumentacja FCI.</p>
+      <h3>RODOWODY FCI</h3>
+      <p>Pełna dokumentacja.</p>
     </div>
 
     <div class="box">
       <div class="icon">🏡</div>
-      <h3>DOM</h3>
+      <h3>DOM, NIE KOJEC</h3>
       <p>Psy żyją z nami.</p>
     </div>
 
@@ -304,7 +280,7 @@ footer{
 </section>
 
 <footer>
-© 2026 Skarb Akwamarynu FCI — Wszelkie prawa zastrzeżone
+© 2026 Skarb Akwamarynu FCI
 </footer>
 
 </body>
