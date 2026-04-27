@@ -13,7 +13,6 @@
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* BODY */
 body{
   font-family:'Montserrat',sans-serif;
   background:#062f36;
@@ -25,27 +24,27 @@ body{
   position:fixed;
   width:100%;
   top:0;
-  padding:20px;
+  padding:20px 30px;
   display:flex;
   justify-content:space-between;
-  z-index:1000;
+  z-index:999;
 }
 
 .logo{
   font-family:'Playfair Display';
-  font-size:18px;
+  font-size:20px;
 }
 
 .logo small{
   display:block;
   font-size:10px;
-  letter-spacing:3px;
   color:#c6a85a;
+  letter-spacing:3px;
 }
 
 /* HAMBURGER */
 .hamburger{
-  width:25px;
+  width:26px;
   height:18px;
   display:flex;
   flex-direction:column;
@@ -70,18 +69,26 @@ body{
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  gap:25px;
+  gap:30px;
   transition:.4s;
 }
 
 .menu.active{right:0;}
 
-/* HERO */
-.hero{
-  height:100vh;
-  position:relative;
+.menu a{
+  color:white;
+  text-decoration:none;
+  font-size:18px;
 }
 
+/* HERO */
+.hero{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* OBRAZ */
 .hero img{
   width:100%;
   height:100%;
@@ -89,20 +96,38 @@ body{
   object-position:top center;
 }
 
-/* OVERLAY */
-.overlay{
+/* DELIKATNY OVERLAY (NIE ZABIJAMY ZDJĘCIA) */
+.hero-overlay{
   position:absolute;
   width:100%;
   height:100%;
-  background:linear-gradient(to top,#062f36 20%,rgba(6,47,54,0.5));
-  top:0;
+  background:linear-gradient(to top,#062f36 20%,rgba(6,47,54,0.3));
 }
 
-/* HERO TEXT */
+/* PRZEJŚCIE DO DOŁU */
+.hero-gradient{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:120px;
+  background:linear-gradient(to bottom,transparent,#062f36);
+}
+
+/* ZŁOTA LINIA */
+.hero-line{
+  position:absolute;
+  bottom:40px;
+  left:30px;
+  width:120px;
+  height:2px;
+  background:#c6a85a;
+}
+
+/* TEKST */
 .hero-text{
   position:absolute;
-  bottom:60px;
-  left:25px;
+  bottom:70px;
+  left:30px;
 }
 
 .hero-text small{
@@ -112,25 +137,18 @@ body{
 
 .hero-text h1{
   font-family:'Playfair Display';
-  font-size:50px;
+  font-size:60px;
 }
 
 .hero-text h2{
   font-family:'Playfair Display';
-  font-size:50px;
+  font-size:60px;
   color:#6fd6db;
 }
 
-.line{
-  width:120px;
-  height:1px;
-  background:#c6a85a;
-  margin:10px 0;
-}
-
-/* SECTION */
+/* SEKCJA */
 .section{
-  padding:80px 20px;
+  padding:100px 30px;
   text-align:center;
 }
 
@@ -142,21 +160,24 @@ body{
 }
 
 .section p{
-  max-width:650px;
+  max-width:700px;
   margin:0 auto 20px;
   color:#ddd;
+  line-height:1.7;
 }
 
-/* GRID */
+.quote{
+  margin-top:40px;
+  font-family:'Playfair Display';
+  color:#6fd6db;
+}
+
+/* GRID 2x2 */
 .features{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:60px 30px;
-  margin-top:60px;
-}
-
-.feature{
-  text-align:center;
+  gap:70px 40px;
+  margin-top:80px;
 }
 
 .feature h4{
@@ -170,11 +191,16 @@ body{
   color:#ccc;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 @media(max-width:600px){
-  .hero-text h1,.hero-text h2{
-    font-size:38px;
-  }
+  .hero-text h1,.hero-text h2{font-size:38px;}
+}
+
+/* STOPKA */
+footer{
+  text-align:center;
+  padding:40px;
+  color:#aaa;
 }
 
 </style>
@@ -194,6 +220,7 @@ body{
   </div>
 </div>
 
+<!-- MENU -->
 <div class="menu" id="menu">
   <a href="#">O NAS</a>
   <a href="#">PSY</a>
@@ -204,26 +231,34 @@ body{
 
 <!-- HERO -->
 <section class="hero">
+
   <img src="IMG-20260426-WA0000.jpg">
-  <div class="overlay"></div>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-line"></div>
 
   <div class="hero-text">
     <small>HODOWLA CHIHUAHUA</small>
     <h1>Skarb</h1>
     <h2>Akwamarynu FCI</h2>
-    <div class="line"></div>
     <p style="font-size:11px;">ZKWP ODDZIAŁ W KOSZALINIE</p>
   </div>
+
 </section>
 
-<!-- TEXT -->
+<!-- TREŚĆ -->
 <section class="section">
 
 <h3>JAK ZACZĘŁA SIĘ NASZA HISTORIA</h3>
 
-<p>Cześć, mam na imię Agnieszka. Zanim założyłam hodowlę, przez lata obserwowałam tę rasę i zakochałam się w niej bez reszty.</p>
+<p>Cześć, mam na imię Agnieszka. Zanim założyłam hodowlę, przez lata miałam okazję obserwować tę rasę z bliska — i właśnie wtedy zakochałam się w Chihuahua naprawdę.</p>
 
-<p>Chihuahua to nie pies wredny — to ogromna miłość i oddanie.</p>
+<p>Chcę obalić jeden mit — Chihuahua to nie pies wredny. To ogromne serce i oddanie.</p>
+
+<div class="quote">
+"Mały rozmiar, ogromne serce — i bezgraniczna wierność."
+</div>
 
 <div class="features">
 
@@ -250,6 +285,10 @@ body{
 </div>
 
 </section>
+
+<footer>
+© 2026 Skarb Akwamarynu FCI
+</footer>
 
 <script>
 function toggleMenu(){
