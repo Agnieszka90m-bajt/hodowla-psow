@@ -9,50 +9,48 @@
 
 <style>
 
-/* ===== KOLORY ===== */
+/* ===== PALETA – JASNY AKWAMARYN (jak było) ===== */
 :root{
-  --bg:#062f33;
-  --bg-dark:#031d1f;
-  --akwamaryn:#7fdde0;
-  --text:#eafcfc;
+  --bg:#eefbfb;
+  --bg-soft:#f6ffff;
+  --akwamaryn:#8ee6ea;
+  --akwamaryn-strong:#5fd0d6;
+  --text:#2c3e3e;
+  --white:#ffffff;
 }
 
 /* ===== RESET ===== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family: 'Montserrat', sans-serif;
-  background: var(--bg-dark);
-  color: var(--text);
+  font-family:'Montserrat',sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
 /* ===== NAV ===== */
 nav{
   position:fixed;
-  width:100%;
-  top:0;
-  left:0;
-  padding:20px 5%;
+  top:0;left:0;width:100%;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:18px 5%;
   z-index:1000;
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(10px);
 }
 
 .logo{
   font-family:'Playfair Display';
   font-size:20px;
-  color:#fff;
+  color:#3b6f73;
 }
 
 .menu-toggle{
   font-size:26px;
   cursor:pointer;
-  color:#fff;
+  color:#3b6f73;
 }
 
 .menu{
@@ -61,20 +59,18 @@ nav{
   right:-100%;
   width:260px;
   height:100%;
-  background:#041f22;
-  padding:60px 30px;
-  transition:0.4s;
+  background:rgba(255,255,255,0.95);
+  padding:70px 30px;
+  transition:0.35s;
 }
 
-.menu.active{
-  right:0;
-}
+.menu.active{right:0;}
 
 .menu a{
   display:block;
-  margin-bottom:20px;
-  color:white;
+  margin-bottom:22px;
   text-decoration:none;
+  color:#3b6f73;
   font-size:16px;
 }
 
@@ -84,67 +80,79 @@ nav{
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding:120px 5%;
+  padding:120px 5% 60px;
   overflow:hidden;
-  background:linear-gradient(to bottom,var(--bg),var(--bg-dark));
+  background:linear-gradient(to bottom,var(--bg-soft),var(--bg));
 }
 
+/* miękkie wtopienie psa */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-
   background:
-  radial-gradient(circle at 70% 60%, rgba(0,0,0,0.15), transparent 60%),
-  linear-gradient(to left, rgba(3,29,31,0.2), rgba(3,29,31,1)),
-  url('hero.jpg') right bottom no-repeat;
-
-  background-size: contain;
+    linear-gradient(to left, rgba(238,251,251,0), rgba(238,251,251,0.95)),
+    url('hero.jpg') right bottom no-repeat;
+  background-size:contain;
   z-index:0;
 }
 
-.hero *{
+/* „szklana chmura” pod tekstem */
+.hero-glass{
+  max-width:640px;
+  padding:40px 36px;
+  border-radius:28px;
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
   position:relative;
   z-index:2;
 }
 
-.hero-text{
-  max-width:600px;
-}
-
 .hero h1{
   font-family:'Playfair Display';
-  font-size:64px;
-  color:#ffffff;
+  font-size:58px;
+  color:#3b6f73;
 }
 
 .hero h1 span{
-  color:var(--akwamaryn);
+  color:var(--akwamaryn-strong);
 }
 
 .hero p{
-  color:#d7f6f7;
-  margin-top:10px;
+  margin-top:12px;
+  color:#5f8d8f;
 }
 
 /* ===== FEATURES ===== */
 .features{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:40px;
   padding:80px 5%;
   text-align:center;
 }
 
-.feature .icon{
+.feature{
+  background:var(--white);
+  border-radius:24px;
+  padding:30px 20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.04);
+}
+
+.icon{
   font-size:28px;
   margin-bottom:10px;
 }
 
 .feature h3{
-  color:var(--akwamaryn);
-  letter-spacing:2px;
+  color:#3b6f73;
   margin-bottom:10px;
+  letter-spacing:1px;
+}
+
+.feature p{
+  color:#6a8f90;
 }
 
 /* ===== ABOUT ===== */
@@ -154,24 +162,21 @@ nav{
   margin:auto;
   text-align:center;
   line-height:1.8;
+  color:#4a6f70;
 }
 
 /* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:40px;
-  opacity:0.6;
+  font-size:14px;
+  color:#7aa7a8;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-  .hero h1{
-    font-size:38px;
-  }
-
-  .hero::before{
-    background-size: cover;
-  }
+  .hero h1{font-size:36px;}
+  .hero::before{background-size:cover;}
 }
 
 </style>
@@ -192,7 +197,7 @@ footer{
 </div>
 
 <section class="hero">
-  <div class="hero-text">
+  <div class="hero-glass">
     <h1>Skarb <span>Akwamarynu</span> FCI</h1>
     <p>Hodowla Chihuahua — ZKwP oddział w Koszalinie</p>
   </div>
@@ -203,47 +208,31 @@ footer{
   <div class="feature">
     <div class="icon">🕊️</div>
     <h3>BADANIA ZDROWOTNE</h3>
-    <p>Każdy nasz pies przechodzi testy genetyczne i kliniczne — bo zdrowie jest fundamentem hodowli.</p>
+    <p>Każdy nasz pies przechodzi badania — bo zdrowie jest fundamentem hodowli.</p>
   </div>
 
   <div class="feature">
     <div class="icon">📜</div>
     <h3>RODOWODY FCI</h3>
-    <p>Zarejestrowana w ZKwP — pełna dokumentacja i czystość rasy.</p>
+    <p>Pełna dokumentacja i pewne pochodzenie.</p>
   </div>
 
   <div class="feature">
     <div class="icon">🏡</div>
-    <h3>DOM, NIE KOJEC</h3>
-    <p>Nasze psy żyją z nami — w centrum życia, nie obok niego.</p>
+    <h3>DOMOWE WARUNKI</h3>
+    <p>Nasze psy żyją z nami, nie obok nas.</p>
   </div>
 
   <div class="feature">
     <div class="icon">❤️</div>
-    <h3>WSPARCIE NA ZAWSZE</h3>
-    <p>Jesteśmy z Tobą przez całe życie psa — zawsze pomożemy.</p>
+    <h3>WSPARCIE</h3>
+    <p>Jesteśmy z Wami przez całe życie psa.</p>
   </div>
 
 </section>
 
 <section class="about">
-
-<p>
-Cześć, mam na imię Agnieszka. Skarb Akwamarynu to nie tylko hodowla — to miejsce stworzone z prawdziwej miłości do Chihuahua. To rasa, która uczy bliskości, wrażliwości i ogromnego przywiązania.
-</p>
-
-<br>
-
-<p>
-Każdy nasz pies dorasta w domu, wśród ludzi, w spokoju i poczuciu bezpieczeństwa. Dbamy o zdrowie, charakter i emocje, bo wiemy, że to one tworzą wyjątkowego psa.
-</p>
-
-<br>
-
-<p>
-Jesteśmy z naszymi właścicielami przez całe życie psa — nie tylko na początku.
-</p>
-
+Cześć, mam na imię Agnieszka. Skarb Akwamarynu to miejsce stworzone z miłości do Chihuahua. Każdy pies dorasta w domu, w spokoju i bliskości człowieka. Dbamy o zdrowie, charakter i przyszłość każdego szczeniaka, a z nowymi właścicielami jesteśmy nie tylko na początku, ale przez całe życie psa.
 </section>
 
 <footer>
